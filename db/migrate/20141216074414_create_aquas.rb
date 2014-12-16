@@ -4,6 +4,7 @@ class CreateAquas < ActiveRecord::Migration
       t.hstore :price
       t.string :short_description
       t.string :file
+      t.timestamps
     end
   end
 end
