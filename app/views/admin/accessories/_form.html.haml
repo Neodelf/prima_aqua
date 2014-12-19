@@ -1,0 +1,18 @@
+= semantic_form_for [:admin, @accessory]  do |f|
+  = f.semantic_errors *f.object.errors.keys
+  = f.inputs 'Title' do
+    = f.input :title, label: false
+  = f.inputs 'Description' do
+    = f.input :description, label: false
+  = f.inputs 'Price' do
+    = f.input :price, label: false
+  = f.inputs 'Images' do
+    = f.file_field :image, label: false
+    %br
+    = render 'partials/image', item: @accessory
+
+  = f.inputs 'SEO' do
+    = f.input :seo_title, label: 'SEO Title'
+    = f.input :seo_description, label: 'SEO Description'
+    = f.input :seo_keywords, label: 'SEO Keywords'
+  = f.actions
