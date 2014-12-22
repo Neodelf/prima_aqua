@@ -64,7 +64,7 @@ ActiveAdmin.register Aqua do
       @aqua.docs.build(params[:doc][:name].map{|str| {name: str} }) if params[:doc].present?
 
       respond_to do |format|
-        if @aqua.update_attributes(aqua_params[:aqua])
+        if @aqua.update_attributes(aqua_params)
           format.html { redirect_to admin_aquas_path, notice: 'Aqua was successfully updates.' }
         else
           format.html { render action: 'new', notice: 'Aqua not updated.' }
