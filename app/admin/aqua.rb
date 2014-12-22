@@ -4,7 +4,15 @@ ActiveAdmin.register Aqua do
   index do
     selectable_column
     column :id
-    column :price
+    column :price do |aqua|
+      ul do
+        aqua.prices.each do |price|
+          li do
+            "#{price.value} руб. за объем от #{price.start_count}шт. до #{price.end_count}шт."
+          end
+        end
+      end
+    end
     column :short_description
     column 'Docs' do |aqua|
       ul do
@@ -24,7 +32,13 @@ ActiveAdmin.register Aqua do
   show do |aqua|
     attributes_table do
       row :price do
-
+        ul do
+          aqua.prices.each do |price|
+            li do
+              "#{price.value} руб. за объем от #{price.start_count}шт. до #{price.end_count}шт."
+            end
+          end
+        end
       end
       row :short_description
       row :doc do
@@ -38,6 +52,12 @@ ActiveAdmin.register Aqua do
       end
     end
     active_admin_comments
+  end
+
+  member_action :destroy_all_docs, method: :delete do
+    @aqua = Aqua.find(params[:id])
+    @aqua.docs.delete_all
+    redirect_to edit_admin_aqua_path(@aqua.id), notice: 'All docs was successfully destroyed'
   end
 
   controller do
@@ -60,7 +80,6 @@ ActiveAdmin.register Aqua do
 
     def update
       @aqua = Aqua.find(params[:id])
-      @aqua.docs.delete_all
       @aqua.docs.build(params[:doc][:name].map{|str| {name: str} }) if params[:doc].present?
 
       respond_to do |format|

@@ -1,5 +1,6 @@
 ActiveAdmin.register Price do
   permit_params :aqua_id, :value, :start_count, :end_count
+
   form do |f|
     f.inputs do
       f.input :aqua_id, :label => 'Aqua', :as => :select, :collection => Aqua.all.map{|a| ["#{a.name}", a.id]}
@@ -9,6 +10,17 @@ ActiveAdmin.register Price do
       f.actions
     end
   end
+
+  index do
+    selectable_column
+    column :id
+    column :aqua
+    column :value
+    column :start_count
+    column :end_count
+    actions
+  end
+
   show do
     attributes_table do
       row :aqua

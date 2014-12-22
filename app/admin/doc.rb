@@ -17,4 +17,13 @@ ActiveAdmin.register Doc do
               :disposition => 'attachment',
               :url_based_filename => true)
   end
+
+  controller do
+    def destroy
+      @doc = Doc.find(params[:id].to_i)
+      aqua_id = @doc.aqua.id
+      notice = @doc.destroy ? 'Image was successfully destroyed' : 'Image not destroyed'
+      redirect_to edit_admin_aqua_path(aqua_id), notice: "#{notice}"
+    end
+  end
 end
