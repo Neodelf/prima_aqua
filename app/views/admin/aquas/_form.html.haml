@@ -2,11 +2,6 @@
   = f.semantic_errors *f.object.errors.keys
   = f.inputs 'Short Description' do
     = f.input :short_description, label: false
-  = f.inputs 'Price' do
-    = f.semantic_fields_for :price do |d|
-      - [:first, :second, :third].each do |key|
-        - value = @aqua.persisted? ? @aqua.price[key.to_s] : ''
-        = d.input key, :input_html => {:value => value }, label: key
   = f.inputs 'Docs' do
     = f.fields_for :doc do |doc|
       = doc.file_field :name, multiple: :true, name: 'doc[name][]', label: false

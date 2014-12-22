@@ -23,7 +23,9 @@ ActiveAdmin.register Aqua do
 
   show do |aqua|
     attributes_table do
-      row :price
+      row :price do
+
+      end
       row :short_description
       row :doc do
         ul do
@@ -40,9 +42,7 @@ ActiveAdmin.register Aqua do
 
   controller do
     def aqua_params
-      params.require(:aqua).permit(:short_description, :seo_title, :seo_description, :seo_keywords).tap do |f|
-        f[:price] = params[:aqua][:price]
-      end
+      params.require(:aqua).permit(:short_description, :seo_title, :seo_description, :seo_keywords)
     end
 
     def create
