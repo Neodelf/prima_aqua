@@ -4,6 +4,7 @@ ActiveAdmin.register Aqua do
   index do
     selectable_column
     column :id
+    column :name
     column :price
     column :short_description
     column 'Docs' do |aqua|
@@ -23,6 +24,7 @@ ActiveAdmin.register Aqua do
 
   show do |aqua|
     attributes_table do
+      row :name
       row :price
       row :short_description
       row :doc do
@@ -40,7 +42,7 @@ ActiveAdmin.register Aqua do
 
   controller do
     def aqua_params
-      params.require(:aqua).permit(:short_description, :seo_title, :seo_description, :seo_keywords).tap do |f|
+      params.require(:aqua).permit(:name, :short_description, :seo_title, :seo_description, :seo_keywords).tap do |f|
         f[:price] = params[:aqua][:price]
       end
     end
@@ -64,7 +66,7 @@ ActiveAdmin.register Aqua do
       @aqua.docs.build(params[:doc][:name].map{|str| {name: str} }) if params[:doc].present?
 
       respond_to do |format|
-        if @aqua.update_attributes(aqua_params[:aqua])
+        if @aqua.update_attributes(aqua_params)
           format.html { redirect_to admin_aquas_path, notice: 'Aqua was successfully updates.' }
         else
           format.html { render action: 'new', notice: 'Aqua not updated.' }

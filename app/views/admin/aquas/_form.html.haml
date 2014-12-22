@@ -1,5 +1,7 @@
 = semantic_form_for [:admin, @aqua] do |f|
   = f.semantic_errors *f.object.errors.keys
+  = f.inputs 'Name' do
+    = f.input :name, label: false
   = f.inputs 'Short Description' do
     = f.input :short_description, label: false
   = f.inputs 'Price' do
