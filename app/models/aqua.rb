@@ -1,4 +1,5 @@
 class Aqua < ActiveRecord::Base
-  mount_uploader :file, FileUploader
   has_many :aqua_posts
+  has_many :docs
+  has_many :prices
 end
