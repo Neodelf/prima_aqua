@@ -1,0 +1,12 @@
+= semantic_form_for [:admin, @volume] do |f|
+  = f.semantic_errors *f.object.errors.keys
+  = f.inputs 'Value' do
+    = f.input :value, label: false
+  = f.inputs 'Aqua' do
+    = f.input :aqua_id, label: false, as: :select, collection: Aqua.all.map{|a| ["#{a.name}", a.id]}
+  = f.inputs 'Images' do
+    = f.file_field :image, label: false
+    %br
+    = render 'partials/image', item: @volume
+
+  = f.actions
