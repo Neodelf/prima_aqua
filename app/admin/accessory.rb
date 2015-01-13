@@ -11,5 +11,5 @@ ActiveAdmin.register Accessory do
     end
     active_admin_comments
   end
-  permit_params :title, :description, :image, :price
+  permit_params :title, :description, :image, :price, :seo_title, :seo_description, :seo_keywords
 end
