@@ -19,28 +19,221 @@
 /*---------------------HEADER---------------------------*/
 .header{
   width: 100%;
-  height: 140px;
+  min-width: 1000px;
+  max-width: 1300px;
+  height: 115px;
+  background: image_url('logo.png') no-repeat;
+  background-position: 0 20px;
+  margin: 0 auto;
+  position: relative;
 }
 .header__top_line{
   height: 40px;
-  background-color: lightgrey;
+
 }
 .header__top_line__menu{
   text-align: right;
   margin: 0 auto;
-  width: 92%;
   a{
+    margin: 0 0 0 20px;
+    font-family: 'MuseoSansCyrl-300', sans-serif;
+    color:  #a4a4a4;
+    font-size: 14px;
     line-height: 40px;
-    margin: 0 10px;
+    text-align: left;
+    width: 79px;
+    height: 10px;
+    &:hover{
+      color: #0080bb;
+    }
   }
 }
 .header__main_line{
-  height: 100px;
+  height: 50px;
+  text-align: center;
 }
 .header__main_line__menu{
   margin: 0 auto;
   width: 92%;
+  a{
+    line-height: 50px;
+    margin: 0 15px;
+    font-family: 'MuseoSansCyrl-700';
+    color:  #0080bb;
+    font-size: 16px;
+    text-decoration: none;
+    &:hover{
+      background: image_url('underline1.png') repeat-x 100% 100%;
+      padding-bottom: 4px;
+      white-space: nowrap;
+    }
+  }
 
+  /*Обнуляем отступы*/
+  ul, li {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+  }
+
+  /*Задаём параметры блока, содержащего основное меню*/
+  #menu {
+    display:block;
+
+  }
+
+  /*Задаём стили для разделов нашего меню*/
+  #menu > li {
+    display:inline-block;
+    height:20px;
+    position:relative;
+  }
+
+  /*Стили для скрытого выпадающего меню*/
+  #menu > li > ul {
+    position:absolute;
+    top:30px;
+    display:none;
+  }
+
+  /*Делаем скрытую часть видимой*/
+  #menu > li:hover > ul {
+    display:block;
+    li{
+      height: 30px;
+    }
+  }
+
+}
+.header__contacts{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  a{
+
+  }
+}
+.header__actions{
+  background-color:  #f1f1f1;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 40px;
+  .action__line{
+    width: 100%;
+    min-width: 1000px;
+    max-width: 1300px;
+  }
 }
 
 /*---------------------END HEADER---------------------------*/
+
+.main_container{
+  background: image_url('triangles.png') no-repeat;
+  background-position: 0 0;
+}
+
+
+/*-----------------------footer ----------------------------*/
+.footer{
+  width: 100%;
+  height: 400px;
+}
+.footer__adv{
+  background-color: #007fba;
+  height: 45px;
+  font-family: 'MuseoSansCyrl-300';
+  font-size: 14px;
+  text-align: center;
+  a{
+    margin: 3px auto;
+    display: block;
+    line-height: 45px;
+    color: white;
+    text-decoration: none;
+  }
+  img{
+    vertical-align: text-bottom;
+  }
+}
+.footer__main{
+  margin: 0 auto;
+  width: 95%;
+  min-width: 900px;
+  max-width: 1100px;
+}
+.footer__main__links{
+  margin: 30px 0 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+  .links_column{
+    width: 24%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  a{
+    display: block;
+    line-height: 30px;
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 16px;
+    color: #a4a4a4;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+.footer__main__info{
+  width: 100%;
+  .info_column{
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    img{
+      margin-top: 3px;
+      float: left;
+    }
+    .info_column__content{
+      text-align: left;
+      margin-left: 23px;
+      span{
+        display: block;
+        line-height: 25px;
+        font-family: 'MuseoSansCyrl';
+        font-size: 16px;
+      }
+      .bold_footer_info{
+        margin-bottom: 2px;
+        font-family: 'MuseoSansCyrl-700';
+        font-size: 19px;
+      }
+    }
+    .lft_mrgn{
+      margin-left: 60px;
+    }
+  }
+  .info_column__right{
+    width: 39%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
+  }
+  .contacts{
+    a{
+      margin-left: 1px;
+      text-decoration: none;
+    }
+    .contacts__phone{
+      margin-left: 7px;
+      font-size: 26px;
+      font-family: 'MuseoSansCyrl-700';
+    }
+    margin-bottom: 10px;
+  }
+  .copyright{
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 16px;
+    color: #a4a4a4;
+  }
+}
+/*----------------------- end footer ----------------------------*/
