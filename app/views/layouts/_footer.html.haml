@@ -1,0 +1,65 @@
+.footer
+  .footer__adv
+    %a{ href: 'http://ya.ru' }
+      = image_tag image_url('bone.png')
+      %span
+        Попробуйте наш сервис доставки кормов для животных
+  .footer__main
+    .footer__main__links
+      .links_column
+        = link_to 'Прима Аква', '#'
+        = link_to 'Легенда гор', '#'
+        = link_to 'Архыз', '#'
+        = link_to 'Йодис', '#'
+      .links_column
+        = link_to 'Кулеры и помпы', '#'
+        = link_to 'Сопутствующие товары', '#'
+        = link_to 'Обслуживание', '#'
+        = link_to 'Вопросы и ответы', '#'
+      .links_column
+        = link_to 'Доставка и оплата', '#'
+        = link_to 'Доставка на дом', '#'
+        = link_to 'Доставка воды в офис', '#'
+        = link_to 'В школы и детские сады', '#'
+        = link_to 'В Ленобласти', '#'
+        = link_to 'В Санкт-Петербурге', '#'
+      .links_column
+        = link_to 'О компании', '#'
+        = link_to 'Контакты', '#'
+        = link_to 'Партнеры', '#'
+        = link_to 'Сотрудничество', '#'
+    .footer__main__info
+      .info_column
+        = image_tag image_url('car.jpg')
+        .info_column__content.lft_mrgn
+          %span.bold_footer_info
+            Доставка воды:
+          %span
+            Сегодня с 17 до 22
+          %span
+            Завтра с 9 до 17 или с 17 до 22
+      .info_column
+        = image_tag image_url('phone.jpg')
+        .info_column__content
+          %span.bold_footer_info
+            Заказы принимаются:
+          %span
+            С понедельника по субботу
+          %span
+            с 9 до 22 часов
+      .info_column__right
+        .contacts
+          = link_to '#' do
+            - image_tag image_url('vk.png')
+          = link_to '#' do
+            - image_tag image_url('ok.png')
+          = link_to '#' do
+            - image_tag image_url('fb.png')
+          = link_to '#' do
+            - image_tag image_url('in.png')
+          %span.contacts__phone
+            (812) 335-40-80
+
+        .copyright
+          %span
+            &copy; #{Time.zone.now.year} Мир воды
