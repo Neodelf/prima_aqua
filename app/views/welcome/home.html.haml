@@ -1,1 +1,17 @@
-test
+.main_page
+  .water__block
+  .about_company__block
+  .equipment__block
+  .delivery__block
+
+:javascript
+  $(function() {
+    $(window).on('scroll', function() {
+      if ($('body').scrollTop() > 155){
+        $('.fixed_header').fadeIn();
+      }
+      else{
+        $('.fixed_header').fadeOut();
+      }
+    });
+  });

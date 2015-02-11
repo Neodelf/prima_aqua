@@ -12,14 +12,12 @@
  *
  *= require_tree .
  *= require_self
- *= require select2
  */
 
 
 /*---------------------HEADER---------------------------*/
 .header{
   width: 100%;
-  min-width: 1000px;
   max-width: 1300px;
   height: 115px;
   background: image_url('logo.png') no-repeat;
@@ -53,11 +51,8 @@
   text-align: center;
 }
 .header__main_line__menu{
-  margin: 0 auto;
-  width: 92%;
-  a{
+  a.with_underline{
     line-height: 50px;
-    margin: 0 15px;
     font-family: 'MuseoSansCyrl-700';
     color:  #0080bb;
     font-size: 16px;
@@ -84,6 +79,7 @@
 
   /*Задаём стили для разделов нашего меню*/
   #menu > li {
+    margin: 0 2%;
     display:inline-block;
     height:20px;
     position:relative;
@@ -109,9 +105,6 @@
   position: absolute;
   top: 50px;
   right: 0;
-  a{
-
-  }
 }
 .header__actions{
   background-color:  #f1f1f1;
@@ -120,16 +113,75 @@
   height: 40px;
   .action__line{
     width: 100%;
-    min-width: 1000px;
     max-width: 1300px;
   }
 }
+a.red_button{
+  display: inline-block;
+  border-radius: 3px;
+  background-color:  #eb0028;
+  width: 110px;
+  height: 35px;
+  line-height: 35px;
+  font-family: 'MuseoSansCyrl-700';
+  color:  #0080bb;
+  font-size: 16px;
 
+  color: white;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
 /*---------------------END HEADER---------------------------*/
+
+/*---------------------FIXED HEADER---------------------------*/
+.fixed_header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: #fff image_url('triangles.png') no-repeat;
+  background-position: 0 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  .header {
+    width: 100%;
+    max-width: 1300px;
+    height: 85px;
+    background: none;
+    margin: 0 auto;
+    .header__contacts {
+      float: right;
+      position: relative;
+      top: 28px;
+    }
+    text-align: center;
+  }
+  .header__logo{
+    margin-top: 15px;
+    float: left;
+    img{
+      height: 50px;
+    }
+  }
+  .header__main_line{
+    margin-top: 15px;
+    width: 600px;
+    display: inline-block;
+  }
+}
+/*---------------------END FIEXD HEADER---------------------------*/
 
 .main_container{
   background: image_url('triangles.png') no-repeat;
   background-position: 0 0;
+  width: 100%;
+  min-width: 1000px;
+  .main_content{
+    max-width: 1300px;
+  }
+  .invisible_block{
+    display: none;
+  }
 }
 
 

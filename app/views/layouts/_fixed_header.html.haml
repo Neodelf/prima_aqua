@@ -1,0 +1,28 @@
+.fixed_header.invisible_block
+  .header
+    .header__logo
+      %a{ href: '/' }
+        = image_tag image_url('logo.png')
+    .header__contacts
+      = link_to '#' do
+        = image_tag 'contacts.png'
+    .header__main_line
+      .header__main_line__menu
+        %ul#menu
+          %li
+            %a{href: '#'} О воде
+            %ul
+              %li
+                %a{href: '#'} Подраздел1
+              %li
+                %a{href: '#'} Подраздел2
+              %li
+                %a{href: '#'} Подраздел3
+          %li
+            %a{href: '#'} Кулеры и помпы
+          %li
+            %a{href: '#'} Сопутствующие товары
+          %li
+            %a{href: '#'} Цены
+          %li
+            %a{href: '#'} Заказ
