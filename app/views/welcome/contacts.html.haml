@@ -1,2 +1,77 @@
-.contacts_title
-  Контакты
+= javascript_include_tag 'http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU'
+.contacts-body
+  .contacts-body-title
+    Контакты
+  #contacts-body-map
+  .contacts-body-blocks
+    .contacts-body-blocks-item
+      .contacts-body-blocks-item-title
+        .contacts-body-blocks-item-title-img
+          = image_tag 'item_office.png'
+        .contacts-body-blocks-item-title-text
+          Офис
+      .contacts-body-blocks-item-body
+        .contacts-body-blocks-item-body-text
+          Тел.: (812) 335-40-80
+          %br
+          195248, г. Санкт-Петербург, ул. Партизанская, д.25
+          %br
+          Эл. почта:
+          %span lider-aqva@metropost.ru
+    .contacts-body-blocks-item
+      .contacts-body-blocks-item-title
+        .contacts-body-blocks-item-title-img
+          = image_tag 'item_prod.png'
+        .contacts-body-blocks-item-title-text
+          Производство
+      .contacts-body-blocks-item-body
+        .contacts-body-blocks-item-body-text
+          Тел.: (812) 587-24-11
+          %br
+          195248, г. Приозерск,
+          %br
+          ул. Ленина, д.12
+
+
+
+:javascript
+  ymaps.ready(init);
+  function init () {
+    var myMap = new ymaps.Map('contacts-body-map', {
+      center: [60.630488, 30.02889],
+      zoom: 7.7
+      }),
+      office = new ymaps.Placemark([59.969037, 30.367005], {
+        hintContent: 'ул. Руднева, д.22/1 <br/> (812) 974-38-74'
+      }, {
+        // Опции.
+        // Необходимо указать данный тип макета.
+        iconLayout: 'default#image',
+        // Своё изображение иконки метки.
+        iconImageHref: '/assets/office.png',
+        // Размеры метки.
+        iconImageSize: [30, 42],
+        // Смещение левого верхнего угла иконки относительно
+        // её "ножки" (точки привязки).
+        iconImageOffset: [-3, -42]
+      }),
+      prod = new ymaps.Placemark([61.040122, 30.122703], {
+        hintContent: "ул. Жуковского, д.22 <br/>(812) 272-55-84"
+      }, {
+        // Опции.
+        // Необходимо указать данный тип макета.
+        iconLayout: 'default#image',
+        // Своё изображение иконки метки.
+        iconImageHref: '/assets/prod.png',
+        // Размеры метки.
+        iconImageSize: [30, 42],
+        // Смещение левого верхнего угла иконки относительно
+        // её "ножки" (точки привязки).
+        iconImageOffset: [-3, -42]
+      });
+
+    myMap.geoObjects.add(office);
+    myMap.geoObjects.add(prod);
+    myMap.controls.add("zoomControl");
+  }
+

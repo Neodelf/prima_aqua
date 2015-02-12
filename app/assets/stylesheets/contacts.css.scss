@@ -1,10 +1,66 @@
-.contacts_title{
+.contacts-body{
+}
+.contacts-body-title{
   font-family: 'MuseoSansCyrl-500';
   color:  #333333;
   font-size: 36px;
   line-height: 30px;
   text-align: center;
+  margin: 45px;
 }
-.contacts-map{
+#contacts-body-map{
+  height: 400px;
+  width: 1180px;
+  margin: 0 auto;
+}
+.contacts-body-blocks{
+  height: 200px;
+  width: 58%;
+  margin: 20px auto 80px;
+}
+.contacts-body-blocks-item{
+  float: left;
+  margin: 0 10px;
+  border-radius: 3px;
+  background-color:  #f7f7f7;
+  width: 400px;
+  height: 200px;
+}
 
+.contacts-body-blocks-item-title{}
+.contacts-body-blocks-item-title-img{
+  width: 18px;
+  height: 19px;
+  float: left;
+  margin-left: 39px;
+  margin-right: 14px;
+  margin-top: 24px;
+}
+.contacts-body-blocks-item-title-text{
+  font-family: MuseoSansCyrl-500;
+  color: #333;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: left;
+  padding-top: 17px;
+}
+.contacts-body-blocks-item-body{
+  float: left;
+  margin-left: 38px;
+  margin-top: 23px;
+}
+.contacts-body-blocks-item-body-text{
+  font-family: MuseoSansCyrl-300;
+  color:  #333333;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+
+  span{
+    font-family: MuseoSansCyrl;
+    color:  #0080bb;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+  }
 }
