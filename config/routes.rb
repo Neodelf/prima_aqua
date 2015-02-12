@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'welcome#home'
+  get 'contacts' => 'welcome#contacts'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
