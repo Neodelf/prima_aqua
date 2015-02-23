@@ -19,9 +19,7 @@
   overflow: hidden;
   input[type=text] {
     border-radius: 3px;
-    border-width: 1px;
-    border-color:  #d1d1d1;
-    border-style: solid;
+    border: 1px solid #d1d1d1;
     background-color:  #ffffff;
     width: 97%;
     height: 33px;
@@ -31,13 +29,6 @@
   }
 }
 .delivery-body-text-delivery{
-  span {
-    font-family: 'MuseoSansCyrl';
-    color:  #333333;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: left;
-  }
   font-family: 'MuseoSansCyrl';
   color:  #333333;
   font-size: 16px;
@@ -45,6 +36,12 @@
   text-align: left;
   width: 61%;
   float: left;
+  span {
+    color:  #333333;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: left;
+  }
   .delivery-body-text-delivery-spb{}
   .delivery-body-text-delivery-district{
     margin-top: 42px;
