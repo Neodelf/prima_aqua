@@ -1,0 +1,7 @@
+- district.each do |distr, items|
+  - items.each do |item|
+    = link_to item.name, '#', popup: item.popup
+    - if item.str
+      = image_tag 'star.png'
+    %br
+  %br
