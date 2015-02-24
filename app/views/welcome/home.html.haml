@@ -1,1 +1,111 @@
-test
+= render 'layouts/fixed_header'
+
+.main_page
+  .water__block
+    .water__block__main_image
+      =image_tag image_url('back_with_bottle.jpg')
+      .water__block__main_image__text
+        .main_image__text
+          .main_image__text__header
+            Прима Аква
+          .main_image__text__title
+            Природная вода из Карелии
+          .main_image__text__text
+            В районе Карельского перешейка на глубине 185
+            метров залегается гдовский водоносный горизонт.
+            Уже через несколько часов находящаяся в нем вода
+            окажется в школьных столовых, медицинский палатах
+            и в кулерах столичных офисов.
+          %a.main_page__button{ href: '/' }
+            Чем же так хороша Прима Аква
+    .little_images
+      .water__block__arhyz_image.block_to_inline
+        =image_tag image_url('arhyz.jpg')
+        .little_images__text
+          .little_images__text__title
+            Архыз
+          .little_images__text__body
+            Добывается из горных ледников на высоте 1507 метров над уровнем моря
+      .water__block__legend_image.block_to_inline
+        =image_tag image_url('legend.jpg')
+        .little_images__text
+          .little_images__text__title
+            Легенда Гор
+          .little_images__text__body
+            Стимулирует природный механизм самовосстановления организма
+      .water__block__yodis_image.block_to_inline
+        =image_tag image_url('yodis.jpg')
+        .little_images__text
+          .little_images__text__title
+            Йодис
+          .little_images__text__body
+            Укрепляя иммунитет и помогая энергично осваивать новые знания
+      %span.stretch
+
+  .about_company__block
+    .about_company__block_image
+      =image_tag image_url('about.jpg')
+      .about_company__text
+        .about_company__text__header
+          О компании
+        .about_company__text__quote
+          В общем, это как с благородным вином — чем тоньше напиток, тем сложнее его сделать
+        .about_company__text__quote_author
+          Василий Жуков, главный технолог
+        .about_company__text__text
+          Компания "Мир Воды" с 2002 года занимается
+          обеспечением населения Санкт-Петербурга чистой
+          питьевой водой, доставляя в офисы и квартиры
+          бутилированную воду.
+          %br
+          %br
+          На сегодня компания "Мир Воды" имеет современное
+          производство по розливу воды, расположенное в
+          удаленном от городской черты экологически чистом
+          районе Карельского перешейка
+        %a.main_page__button{ href: '/' }
+          Как мы работаем
+
+  .equipment__block
+    .equipment__block_image
+      =image_tag image_url('equipment.jpg')
+      .equipment__block__text
+        .equipment__block__text__header
+          Оборудование
+        .equipment__block__text__text
+          Процесс розлива воды организован таким образом, что до
+          потребителя доходит вода, изначальный природный состав
+          которой полностью сохранен.
+          %br
+          %br
+          Добываемая из артезианской скважины вода, проходя
+          последовательно через систему фильтров, очищается от
+          взвешенных частиц. Следующий этап очистки воды –
+          обеззараживание.
+        %a.main_page__button{ href: '/' }
+          Котолог оборудования
+
+  .delivery__block
+    .delivery__block_map
+      =image_tag image_url('map.jpg')
+      .delivery__block_map__text
+        .delivery__block_map__text__header
+          Доставка
+        .delivery__block_map__text__text
+          Доставка питьевой воды в офис и на дом по
+          Санкт-Петербургу осуществляется с
+          понедельника по субботу в удобное для Вас
+          время, доставка питьевой воды в пригороды
+          Санкт-Петербурга по графику.
+          %br
+          Доставка питьевой воды в офис и на дом
+          оформляется по телефону (812) 335-40-80
+          или через наш сайт онлайн.
+          %br
+          Вы можете самостоятельно оставить заказ воды
+          на дом и в офис и наш менеджер перезвонит Вам.
+          Для удобства розлива воды из 19л, 8л, 6л бутылей
+          мы предлагаем широкий выбор оборудования
+          (см. кулеры и помпы).
+        %a.main_page__button{ href: '/' }
+          Подробнее о доставке
