@@ -10,8 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_directory ./sass_folder
+ *= require select2
  */
 
 
@@ -187,6 +188,7 @@ a.red_button{
 
 /*-----------------------footer ----------------------------*/
 .footer{
+  float: left;
   width: 100%;
   height: 400px;
 }

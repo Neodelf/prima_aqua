@@ -1,18 +1,15 @@
 ActiveAdmin.register District do
-
-
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
   permit_params :name, :popup, :str
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
-
-
+  form do |f|
+    f.semantic_errors
+    [:name, :str].each do |param|
+      inputs "#{param.capitalize}" do
+        input param, label: false
+      end
+    end
+    inputs 'Popup' do
+      input :popup, as: :ckeditor, label: false
+    end
+    actions
+  end
 end
