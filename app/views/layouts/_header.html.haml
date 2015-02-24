@@ -32,3 +32,15 @@
 .header__actions
   .action__line
 
+
+:javascript
+  $(function() {
+    $(window).on('scroll', function() {
+      if ($('body').scrollTop() > 155){
+        $('.fixed_header').fadeIn();
+      }
+      else{
+        $('.fixed_header').fadeOut();
+      }
+    });
+  });

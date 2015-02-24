@@ -138,6 +138,8 @@ a.red_button{
 /*---------------------FIXED HEADER---------------------------*/
 .fixed_header{
   width: 100%;
+  min-width: 770px;
+  z-index: 5;
   position: fixed;
   top: 0;
   background: #fff image_url('triangles.png') no-repeat;
@@ -165,8 +167,6 @@ a.red_button{
   }
   .header__main_line{
     margin-top: 15px;
-    width: 600px;
-    display: inline-block;
   }
 }
 /*---------------------END FIEXD HEADER---------------------------*/
