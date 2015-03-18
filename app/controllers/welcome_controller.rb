@@ -1,11 +1,7 @@
 class WelcomeController < ApplicationController
-  def home
+  def home; end
 
-  end
-
-  def contacts
-
-  end
+  def contacts; end
 
   def delivery
     @district = District.search(params[:name])

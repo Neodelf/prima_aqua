@@ -17,12 +17,8 @@
         = link_to 'Обслуживание', '#'
         = link_to 'Вопросы и ответы', '#'
       .links_column
-        = link_to 'Доставка и оплата', '#'
-        = link_to 'Доставка на дом', '#'
-        = link_to 'Доставка воды в офис', '#'
-        = link_to 'В школы и детские сады', '#'
-        = link_to 'В Ленобласти', '#'
-        = link_to 'В Санкт-Петербурге', '#'
+        -@delivery_pages.each do |page|
+          = link_to page.title, page
       .links_column
         = link_to 'О компании', '#'
         = link_to 'Контакты', '#'

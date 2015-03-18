@@ -1,0 +1,48 @@
+.delivery_page
+  .delivery_page__title
+    %h1= @delivery_page.title
+  - if @delivery_page.has_water_line?
+    .delivery_page__pictures
+      .images_block
+        %a{href: '#'}
+          .images_block__image
+            = image_tag image_url('delivery_prima.jpg')
+          .images_block__title
+            Прима Аква
+          .images_block__desc
+            Натуральная питьевая вода
+            %br
+            из Карелии
+        %a{href: '#'}
+          .images_block__image
+            = image_tag image_url('delivery_arhyz.jpg')
+          .images_block__title
+            Архыз
+          .images_block__desc
+            Добывается из горных ледников на
+            %br
+            высоте 1507 метров над уровнем моря
+        %a{href: '#'}
+          .images_block__image
+            = image_tag image_url('delivery_legend.jpg')
+          .images_block__title
+            Легенда Гор
+          .images_block__desc
+            Стимулирует природный механизм
+            %br
+            самовосстановления организма
+        %a{href: '#'}
+          .images_block__image
+            = image_tag image_url('delivery_jodis.jpg')
+          .images_block__title
+            Йодис
+
+          .images_block__desc
+            Укрепляя иммунитет и помогая
+            %br
+            энергично осваивать новые знания
+
+
+  .delivery_page__content
+    = @delivery_page.content.html_safe
+

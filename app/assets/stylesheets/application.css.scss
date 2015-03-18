@@ -16,6 +16,30 @@
  */
 
 
+html,body,div,span,h1,h2,h3,h4,b,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,p,table,caption,tbody,thead,tr,th,td, ul, li, ol{margin:0;padding:0;outline:none;}
+table {border-collapse:collapse;border-spacing:0; font-size:inherit;font:100%;}
+fieldset,img {border:0;}
+caption,th,td{text-align:left; padding: 0 10px; }
+/*ul,ol{list-style: none}*/
+input,button,textarea,select,th,optgroup,option {font-family:'MuseoSansCyrl-300';font-size:inherit;font-style:inherit;font-weight:inherit;}
+/* global styles */
+html, body {height:100%; color: #58595b;}
+a, .jslink{color: blue}
+a:hover, .jslink:hover{color: #F15A2A}
+.jslink{text-decoration: underline; cursor: pointer}
+.jslink:hover{text-decoration: none}
+body{font: 13px Helvetica,sans-serif;background: #fff}
+a{cursor: pointer}
+.clearfix{
+  clear: both;
+}
+
+h1 {font-size: 26px;}
+h2 {font-size: 21px;}
+h3 {font-size: 19px;}
+h4 {font-size: 17px;}
+h1, h2, h3, .normal {font-weight: normal;color: #333132;margin: 0 0 0.35em;line-height: 1em;}
+
 /*---------------------HEADER---------------------------*/
 .header{
   width: 100%;
@@ -143,6 +167,7 @@ a.red_button{
   z-index: 5;
   position: fixed;
   top: 0;
+  left: 0;
   background: #fff image_url('triangles.png') no-repeat;
   background-position: 0 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
