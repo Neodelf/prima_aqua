@@ -1,4 +1,4 @@
-.header
+.header.main_header
   .header__contacts
     = link_to '#' do
       = image_tag 'contacts.png'
@@ -13,22 +13,34 @@
     .header__main_line__menu
       %ul#menu
         %li
-          %a{href: '#'} О воде
+          %a.with_underline{href: '#'} О воде
           %ul
             %li
-              %a{href: '#'} Подраздел1
+              %a.with_underline{href: '#'} Подраздел1
             %li
-              %a{href: '#'} Подраздел2
+              %a.with_underline{href: '#'} Подраздел2
             %li
-              %a{href: '#'} Подраздел3
+              %a.with_underline{href: '#'} Подраздел3
         %li
-          %a{href: '#'} Кулеры и помпы
+          %a.with_underline{href: '#'} Кулеры и помпы
         %li
-          %a{href: '#'} Сопутствующие товары
+          %a.with_underline{href: '#'} Сопутствующие товары
         %li
-          %a{href: '#'} Цены
+          %a.with_underline{href: '#'} Цены
         %li
-          %a{href: '#'} Заказ
+          %a.red_button{href: '#'} Заказ
 .header__actions
   .action__line
 
+
+:javascript
+  $(function() {
+    $(window).on('scroll', function() {
+      if ($('body').scrollTop() > 155){
+        $('.fixed_header').fadeIn();
+      }
+      else{
+        $('.fixed_header').fadeOut();
+      }
+    });
+  });
