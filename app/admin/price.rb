@@ -17,7 +17,9 @@ ActiveAdmin.register Price do
     column :id
     column :aqua
     column :value
-    column :volume
+    column :volume do |price|
+      price.volume.value
+    end
     column :start_count
     column :end_count
     actions
