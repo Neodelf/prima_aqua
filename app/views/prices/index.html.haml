@@ -1,0 +1,28 @@
+.prices_page
+  .prices__title
+    %h1 Цены
+
+  .prices__filters
+    .price_filter.filter__big.selected_filter{ class: ('js_filter' if @brands[:big].present?), data: { filter: 'big' }}
+      19 литров
+      .price_filter__brands
+        = @brands[:big]
+    .price_filter.filter__medium{ class: ('js_filter' if @brands[:medium].present?), data: { filter: 'medium' }}
+      от 5 до 8
+      .price_filter__brands
+        = @brands[:medium]
+    .price_filter.filter__small{ class: ('js_filter' if @brands[:small].present?), data: { filter: 'small' }}
+      от 0,33 до 1,5
+      .price_filter__brands
+        = @brands[:small]
+
+  .prices__content
+    .prices_block__big.js_prices.js_big
+      - @grouped_volumes[:big].each do |volume|
+        = render 'volume_prices', volume: volume
+    .prices_block__medium.hidden_block.js_prices.js_medium
+      - @grouped_volumes[:medium].each do |volume|
+        = render 'volume_prices', volume: volume
+    .prices_block__small.hidden_block.js_prices.js_small
+      - @grouped_volumes[:small].each do |volume|
+        = render 'volume_prices', volume: volume

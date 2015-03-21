@@ -4,6 +4,7 @@ ActiveAdmin.register Aqua do
   index do
     selectable_column
     column :id
+    column :name
     column :price do |aqua|
       ul do
         aqua.prices.each do |price|
@@ -31,6 +32,7 @@ ActiveAdmin.register Aqua do
 
   show do |aqua|
     attributes_table do
+      row :name
       row :price do
         ul do
           aqua.prices.each do |price|
@@ -62,7 +64,7 @@ ActiveAdmin.register Aqua do
 
   controller do
     def aqua_params
-      params.require(:aqua).permit(:short_description, :seo_title, :seo_description, :seo_keywords)
+      params.require(:aqua).permit(:short_description, :seo_title, :seo_description, :seo_keywordsm, :name, :docs)
     end
 
     def create
