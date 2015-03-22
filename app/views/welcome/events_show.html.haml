@@ -1,0 +1,13 @@
+.event_body
+  .event_body-back
+    = link_to events_path do
+      События &rarr;
+  .event_body-title
+    = @event.title
+  .event_body-line
+  .event_body-image
+    = image_tag @event.image.url
+  .event_body-text
+    = @event.description
+  .event_body-date
+    = Russian::strftime(@event.created_at, '%e %B %Y')

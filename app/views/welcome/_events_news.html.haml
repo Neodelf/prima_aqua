@@ -1,0 +1,12 @@
+.news
+  .news-info
+    #{info}, #{Russian::strftime(news.created_at, '%e %B %Y')}
+  .news-title
+    = news.title
+  .news-image
+    = image_tag news.image.url
+  .news-desc
+    = news.grow_descript
+  - if news.type == 'article'
+    .news-link_show
+      = link_to 'Подробнее', events_show_path(news.id)

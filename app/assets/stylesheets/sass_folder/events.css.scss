@@ -1,0 +1,125 @@
+.events-title{
+  font-family: 'MuseoSansCyrl';
+  color: #333333;
+  font-size: 36px;
+  line-height: 30px;
+  text-align: center;
+  margin: 43px 0 40px;
+}
+.events-filters{
+  margin: 0 auto 28px;
+  width: 292px;
+  overflow: hidden;
+}
+.events-filters-item{
+  font-family: 'MuseoSansCyrl';
+  color: #3B3A3C;
+  font-size: 15px;
+  line-height: 30px;
+  text-align: left;
+  float: left;
+  margin-right: 14px;
+  margin-left: 14px;
+  a{
+    text-decoration: none;
+  }
+  a:link {
+    color: #0080bb;
+  }
+  a:visited {
+    color: #0080bb;
+  }
+  a:active {
+    color: #3b3a3c;
+  }
+}
+.events-items{
+  margin: 0 auto;
+}
+/*START Events article*/
+.article{
+  width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 37px;
+}
+.article-image{
+  margin: 0px 0px -2px 0px;
+}
+.article-body{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: #3498db;
+
+}
+.article-body-title{
+  font-family: 'MuseoSansCyrl';
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 38px;
+  text-align: left;
+  padding: 27px 293px 0 22px;
+  width: 686px;
+}
+.article-body-desc{
+  font-family: 'MuseoSansCyrl';
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  padding: 10px 214px 29px 20px;
+  width: 766px;
+}
+/*FINISH Events article*/
+/*START Events news*/
+.news{
+  width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 37px;
+  min-width: 1000px;
+  max-width: 1600px;
+}
+.news-info{
+  font-family: 'MuseoSansCyrl';
+  color:  #999999;
+  font-size: 14px;
+  line-height: 36px;
+  text-align: left;
+}
+.news-title{
+  font-family: 'MuseoSansCyrl';
+  font-size: 32px;
+  line-height: 38px;
+  text-align: left;
+  width: 686px;
+  margin-bottom: 23px;
+}
+.news-desc{
+  width: 816px;
+  font-family: MuseoSansCyrl;
+  color: #383838;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  margin: 17px 0 16px;
+}
+.news-image{
+  margin: 0px 0px -2px 0px;
+}
+
+.news-link_show{
+  border-radius: 3px;
+  background-color: #0080bb;
+  width: 120px;
+  height: 35px;
+
+  a{
+    font-family: MuseoSansCyrl;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 36px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 25px;
+  }
+}
+/*FINISH Events news*/
