@@ -1,0 +1,28 @@
+.aqua_volume_block
+  .aqua__image
+    = image_tag volume.image_url(:small)
+
+  .aqua__info
+    .aqua__info_title
+      = volume.aqua.name
+      = volume.value
+    .aqua__info_text
+      =volume.aqua.short_description
+    .aqua__info_order
+      %a.red_button{href: '#'} Заказ
+
+  .aqua__prices
+    %table
+      %tr
+        %th
+          Количество
+        %th
+          Цена
+      - volume.prices.each do |price|
+        %tr
+          %td
+            = price_amount(price)
+          %td
+            = price_val(price).html_safe
+
+  .clearfix

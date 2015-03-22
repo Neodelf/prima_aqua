@@ -1,0 +1,89 @@
+.prices_page{
+  text-align: center;
+  h1{
+    margin: 30px;
+    font-family: 'MuseoSansCyrl-700';
+    color:  #333333;
+    font-size: 36px;
+    line-height: 30px;
+  }
+  .price_filter{
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'MuseoSansCyrl-700';
+    color:  #0080bb;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 20px;
+    max-width: 160px;
+    &:hover{
+      color: #3b3a3c;
+    }
+  }
+  .selected_filter{
+    color: #3b3a3c;
+  }
+  .price_filter__brands{
+    font-family: 'MuseoSansCyrl-300';
+    color:  #999999;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /*-------------------single volume block------------------------*/
+  .aqua_volume_block{
+    padding: 30px;
+    border-radius: 3px;
+    background-color:  #f7f7f7;
+    width: 940px;
+    margin: 10px auto;
+    .aqua__image{
+      width: 300px;
+      display: block;
+      float: left;
+    }
+    .aqua__info{
+      text-align: left;
+      width: 300px;
+      display: block;
+      float: left;
+    }
+    .aqua__info_title{
+      font-family: 'MuseoSansCyrl-700';
+      color:  #333333;
+      font-size: 24px;
+      line-height: 30px;
+    }
+    .aqua__info_text{
+      font-family: 'MuseoSansCyrl-300';
+      color:  #333333;
+      font-size: 16px;
+      line-height: 22px;
+      margin: 15px 0;
+    }
+    .aqua__info_order a{
+      text-align: center;
+    }
+    .aqua__prices{
+      float: left;
+      width: 220px;
+      font-family: 'MuseoSansCyrl-300';
+      color:  #333333;
+      font-size: 14px;
+      line-height: 30px;
+      table{
+        width: 220px;
+      }
+      th{
+        color:  #999999;
+        font-size: 12px;
+        border-bottom: 1px solid #ddd;
+      }
+      .ruble{
+        font-family: 'MuseoSansCyrl';
+        color:  #999999;
+        font-size: 12px;
+      }
+    }
+  }
+}

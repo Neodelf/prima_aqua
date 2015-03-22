@@ -18,7 +18,7 @@ ActiveAdmin.register Volume do
       row :aqua
       row :value
       row :image do
-        image_tag volume.image
+        image_tag volume.image_url(:small)
       end
     end
     active_admin_comments
