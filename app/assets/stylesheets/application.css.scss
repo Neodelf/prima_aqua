@@ -21,7 +21,7 @@ table {border-collapse:collapse;border-spacing:0; font-size:inherit;font:100%;}
 fieldset,img {border:0;}
 caption,th,td{text-align:left; padding: 0 10px; }
 /*ul,ol{list-style: none}*/
-input,button,textarea,select,th,optgroup,option {font-family:'MuseoSansCyrl-300';font-size:inherit;font-style:inherit;font-weight:inherit;}
+input,button,textarea,select,th,optgroup,option {font-size:inherit;font-style:inherit;font-weight:inherit;}
 /* global styles */
 html, body {height:100%; color: #58595b;}
 a, .jslink{color: blue}
@@ -43,7 +43,9 @@ h1, h2, h3, .normal {font-weight: normal;color: #333132;margin: 0 0 0.35em;line-
 .hidden_block{
   display: none;
 }
-
+.center_text_align{
+  text-align: center;
+}
 /*---------------------HEADER---------------------------*/
 .header{
   width: 100%;

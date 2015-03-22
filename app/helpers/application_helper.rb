@@ -14,4 +14,10 @@ module ApplicationHelper
       "Договорная"
     end
   end
+
+  def text_align_for_post(post)
+    if post.button_url.blank? && post.button_name.blank? && post.link_url.blank? && post.link_name.blank?
+      'center_text_align'
+    end
+  end
 end
