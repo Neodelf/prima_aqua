@@ -1,0 +1,18 @@
+.events-title
+  События
+.events-filters
+  .events-filters-item
+    = link_to 'Все', events_path
+  .events-filters-item
+    = link_to 'Акции', events_path(type: 'promotion')
+  .events-filters-item
+    = link_to 'Новости', events_path(type: 'news')
+  .events-filters-item
+    = link_to 'Статьи', events_path(type: 'article')
+.events-items
+  - @articles.each do |item|
+    - if item.type == 'promotion'
+      = render 'welcome/events_article', article: item
+    - elsif item.type == 'news' || 'article'
+      - info = item.type == 'news' ? 'НОВОСТИ' : 'СТАТЬИ'
+      = render 'welcome/events_news', news: item, info: info

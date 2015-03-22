@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'welcome#home'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
+  get 'events' => 'welcome#events'
+  get 'events/show/:id' => 'welcome#events_show', as: 'events/show'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

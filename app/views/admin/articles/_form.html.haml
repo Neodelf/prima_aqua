@@ -1,0 +1,20 @@
+= semantic_form_for [:admin, @article] do |f|
+  = f.semantic_errors *f.object.errors.keys
+
+  = f.inputs 'Title' do
+    = f.input :title, label: false
+  = f.inputs 'Description' do
+    = f.input :description, label: false
+  = f.inputs 'Short Description' do
+    = f.input :grow_descript, label: false
+  = f.inputs 'Type' do
+    = f.input :type, label: false, as: :select, collection: [['Article', 'article'],['News', 'news'], ['Promotion', 'promotion']]
+  = f.inputs 'Image' do
+    = f.file_field :image, label: false
+    %br
+    = render 'partials/image', item: @article
+  = f.inputs 'SEO' do
+    = f.input :seo_title, label: 'SEO Title'
+    = f.input :seo_description, label: 'SEO Description'
+    = f.input :seo_keywords, label: 'SEO Keywords'
+  = f.actions

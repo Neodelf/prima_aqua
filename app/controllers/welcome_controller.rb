@@ -8,4 +8,13 @@ class WelcomeController < ApplicationController
     gon.district = @district.select(:lon, :lat)
     @district = @district.order(:name).group_by{|u| u.name[0]}
   end
+
+  def events
+    @articles = Article.all
+    @articles = @articles.where(type: params[:type]) if params[:type].present?
+  end
+
+  def events_show
+    @event = Article.find(params[:id])
+  end
 end

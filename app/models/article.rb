@@ -1,3 +1,4 @@
 class Article < ActiveRecord::Base
-  mount_uploader :images, ImageUploader
+  self.inheritance_column = nil
+  mount_uploader :image, ImageUploader
 end
