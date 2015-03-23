@@ -1,4 +1,5 @@
 .aqua_posts{
+  position: relative;
   .post{
     position: relative;
     max-width: 1600px;
@@ -51,7 +52,98 @@
       font-family: 'MuseoSansCyrl-300';
       font-size: 14px;
       line-height: 24px;
+      text-decoration: none;
+      color: inherit;
+      &:hover{
+        color: #0080bb;
+        text-decoration: underline;
+      }
 
     }
+  }
+  .aqua_prices{
+    // height: calc(100% - 100px);
+    width: 280px;
+    background-color: #333;
+    opacity: 0.8;
+    color: #fff;
+  }
+  .aqua_prices_content{
+    width: 200px;
+    margin: 20% auto;
+    .aqua_prices__title{
+      font-family: 'MuseoSansCyrl-700';
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    .aqua_prices__table{
+      font-family: 'MuseoSansCyrl-300';
+      margin-bottom: 15px;
+      table{
+        width: 100%;
+      }
+      th{
+        color: #999999;
+        font-size: 12px;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 5px;
+      }
+      td{
+        color: #fff;
+        font-size: 14px;
+      }
+      tr{
+        line-height: 25px;
+      }
+    }
+    .aqua_prices__prices_link{
+      border-bottom: 1px solid #ddd;
+      border-top: 1px solid #ddd;
+      padding: 10px 0;
+      a{
+        font-family: 'MuseoSansCyrl';
+        font-size: 16px;
+        line-height: 20px;
+        color: white;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .aqua_prices__delivery_link{
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      margin: 5px 0 15px;
+      a{
+        font-family: 'MuseoSansCyrl';
+        font-size: 16px;
+        line-height: 20px;
+        color: white;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .red_button{
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .start{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .middle{
+    position: fixed;
+    top: 100px;
+    right: 0;
+  }
+  .end{
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }

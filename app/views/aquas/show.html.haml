@@ -4,3 +4,55 @@
 .aqua_posts
   - @posts.each do |post|
     = render 'aquas/post', post: post
+  .clearfix
+  .aqua_prices{ style: "height: calc(100%/#{@posts.size} - 10px);" }
+    .aqua_prices_content
+      .aqua_prices__title
+        = @aqua.name
+      .aqua_prices__table
+        %table
+          %tr
+            %th
+              Количество
+            %th
+              Цена
+          - @prices.each do |price|
+            %tr
+              %td
+                = "#{price[0]} л."
+              %td
+                = "от #{price[1]} Р."
+      .aqua_prices__prices_link
+        = link_to 'Скидки при заказе нескольких бутылок', prices_path
+      .aqua_prices__delivery_link
+        = link_to 'Условия доставки', delivery_path
+      %a.red_button{href: '#'} Заказ
+
+:javascript
+  function setClassToPrices(){
+    var aqua_prices = $('.aqua_prices');
+    if ($('body').scrollTop() > 100){
+      aqua_prices.addClass('middle');
+      aqua_prices.removeClass('start');
+      aqua_prices.removeClass('end');
+    };
+    if ($('body').scrollTop() < 100){
+      aqua_prices.addClass('start');
+      aqua_prices.removeClass('middle');
+      aqua_prices.removeClass('end');
+    };
+    if (($('body').scrollTop() + $(window).height()) > ($(document).height() - $('.footer').height() - 10)){
+      aqua_prices.addClass('end');
+      aqua_prices.removeClass('start');
+      aqua_prices.removeClass('middle');
+    };
+    aqua_prices.height($('.aqua_posts').height()/#{@posts.size} - 10);
+  }
+  $(document).ready(function(){
+    setTimeout("setClassToPrices();", 100);
+  });
+  $(function() {
+    $(window).on('scroll', function() {
+      setClassToPrices();
+    });
+  });
