@@ -1,12 +1,20 @@
 = semantic_form_for [:admin, @aqua_post]  do |f|
   = f.semantic_errors *f.object.errors.keys
   = f.inputs 'Aqua' do
+    = f.input :aqua_id, label: false, as: :select, collection: Aqua.all.map{|a| ["#{a.name}", a.id]}
+  = f.inputs 'Text color' do
+    = f.input :text_color, label: false, as: :select, collection: [['black', '#333'], ['white', '#fff']]
+  = f.inputs 'Title' do
     = f.input :title, label: false
   = f.inputs 'Description' do
-    = f.input :description, label: false
-  = f.inputs 'Price' do
-    = f.input :price, label: false
-  = f.inputs 'Images' do
+    = f.input :body, label: false
+  = f.inputs 'Button' do
+    = f.input :button_name, label: 'name'
+    = f.input :button_url, label: 'url'
+  = f.inputs 'Link' do
+    = f.input :link_name, label: 'name'
+    = f.input :link_url, label: 'url'
+  = f.inputs 'Image' do
     = f.file_field :image, label: false
     %br
     = render 'partials/image', item: @aqua_post

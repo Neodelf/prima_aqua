@@ -3,6 +3,8 @@ class Volume < ActiveRecord::Base
   belongs_to :aqua
   has_many :prices
 
+  default_scope -> { order(value: :desc) }
+
   def value_str
     if value < 3.0
       :small

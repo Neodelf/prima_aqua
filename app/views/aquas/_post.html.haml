@@ -1,0 +1,15 @@
+.post
+  .post_image
+    = image_tag post.image_url(:background)
+    .post_text{style: "color:#{post.text_color}", class: text_align_for_post(post)}
+      .post_text__header
+        = post.title
+      .post_text__body
+        = post.body
+      - if post.button_url.present? && post.button_name.present?
+        %a.post_text__button{ href: post.button_url }
+          = post.button_name
+      - if post.link_url.present? && post.link_name.present?
+        %br
+        %a.post_text__link{ href: post.link_url }
+          = "#{post.link_name} >"
