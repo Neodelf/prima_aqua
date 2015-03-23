@@ -125,10 +125,21 @@ h1, h2, h3, .normal {font-weight: normal;color: #333132;margin: 0 0 0.35em;line-
 
   /*Делаем скрытую часть видимой*/
   #menu > li:hover > ul {
+    margin-top: 2px;
     display:block;
+    z-index: 2;
+    padding: 10px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     li{
       height: 30px;
+      white-space: nowrap;
     }
+    li:first-child{
+      margin-top: -10px;
+    }
+
   }
 
 }

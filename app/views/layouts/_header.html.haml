@@ -15,12 +15,9 @@
         %li
           %a.with_underline{href: '#'} О воде
           %ul
-            %li
-              %a.with_underline{href: '#'} Подраздел1
-            %li
-              %a.with_underline{href: '#'} Подраздел2
-            %li
-              %a.with_underline{href: '#'} Подраздел3
+            - @aquas.each do |aqua|
+              %li
+                = link_to aqua.name, aqua, class: 'with_underline'
         %li
           %a.with_underline{href: '#'} Кулеры и помпы
         %li
