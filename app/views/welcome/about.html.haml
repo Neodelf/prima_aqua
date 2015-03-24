@@ -1,0 +1,6 @@
+= render 'layouts/fixed_header'
+
+.aqua_posts
+  - @posts.each do |post|
+    = render 'welcome/company_post', post: post
+  .clearfix

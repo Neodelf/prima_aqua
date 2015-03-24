@@ -20,7 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [200, 200]
   end
 
-  version :background, :if => :is_aqua_post? do
+  version :background, :if => :is_post? do
     process resize_to_fill: [1366, 768]
     process quality: 60
   end
@@ -35,8 +35,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     model.is_a? Volume
   end
 
-  def is_aqua_post? picture
-    model.is_a? AquaPost
+  def is_post? picture
+    ['AquaPost', 'CompanyPost'].include? model.class.name
   end
 
 end

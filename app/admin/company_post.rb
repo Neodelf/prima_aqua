@@ -1,18 +1,18 @@
 ActiveAdmin.register CompanyPost do
+  permit_params :title, :description, :image, :seo_title, :seo_keywords, :seo_description
+  form partial: 'admin/company_posts/form'
 
-
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  permit_params :title, :description, :background_color
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
-
-
+  show do |company_post|
+    attributes_table do
+      row :title
+      row :description
+      row :image do
+        image_tag company_post.image_url(:small)
+      end
+      row :seo_title
+      row :seo_description
+      row :seo_keywords
+    end
+    active_admin_comments
+  end
 end

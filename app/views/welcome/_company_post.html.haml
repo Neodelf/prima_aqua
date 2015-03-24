@@ -1,0 +1,9 @@
+.post
+  .post_image
+    = image_tag post.image_url((:background if post.image.version_exists?(:background)))
+    .post_text{ style: "color: white" }
+      .post_text__header
+        = post.title
+      .post_text__body
+        = post.description
+
