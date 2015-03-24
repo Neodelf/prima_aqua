@@ -7,10 +7,8 @@
   .footer__main
     .footer__main__links
       .links_column
-        = link_to 'Прима Аква', '#'
-        = link_to 'Легенда гор', '#'
-        = link_to 'Архыз', '#'
-        = link_to 'Йодис', '#'
+        - @aquas.each do |aqua|
+          = link_to aqua.name, aqua
       .links_column
         = link_to 'Кулеры и помпы', '#'
         = link_to 'Сопутствующие товары', '#'

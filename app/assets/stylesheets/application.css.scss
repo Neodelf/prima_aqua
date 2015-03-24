@@ -13,32 +13,26 @@
  *= require_self
  *= require_directory ./sass_folder
  *= require select2
+ *= require fonts
  */
 
 
 html,body,div,span,h1,h2,h3,h4,b,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,p,table,caption,tbody,thead,tr,th,td, ul, li, ol{margin:0;padding:0;outline:none;}
-table {border-collapse:collapse;border-spacing:0; font-size:inherit;font:100%;}
+table {border-collapse:collapse;border-spacing:0; font-size:inherit;}
 fieldset,img {border:0;}
 caption,th,td{text-align:left; padding: 0 10px; }
-/*ul,ol{list-style: none}*/
-input,button,textarea,select,th,optgroup,option {font-size:inherit;font-style:inherit;font-weight:inherit;}
 /* global styles */
 html, body {height:100%; color: #58595b;}
 a, .jslink{color: blue}
 a:hover, .jslink:hover{color: #F15A2A}
 .jslink{text-decoration: underline; cursor: pointer}
 .jslink:hover{text-decoration: none}
-body{font: 13px Helvetica,sans-serif;background: #fff}
+body{background: #fff}
 a{cursor: pointer}
 .clearfix{
   clear: both;
 }
 
-h1 {font-size: 26px;}
-h2 {font-size: 21px;}
-h3 {font-size: 19px;}
-h4 {font-size: 17px;}
-h1, h2, h3, .normal {font-weight: normal;color: #333132;margin: 0 0 0.35em;line-height: 1em;}
 
 .hidden_block{
   display: none;
@@ -120,6 +114,7 @@ h1, h2, h3, .normal {font-weight: normal;color: #333132;margin: 0 0 0.35em;line-
   #menu > li > ul {
     position:absolute;
     top:30px;
+    left: -10px;
     display:none;
   }
 
