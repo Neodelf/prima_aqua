@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
+  get 'payment' => 'welcome#payment'
   get 'events' => 'welcome#events'
   get 'events/show/:id' => 'welcome#events_show', as: 'events/show'
 
