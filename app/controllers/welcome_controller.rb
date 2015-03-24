@@ -2,8 +2,12 @@ class WelcomeController < ApplicationController
   def home; end
 
   def contacts; end
-  
+
   def payment; end
+
+  def about
+    @posts = CompanyPost.all
+  end
 
   def delivery
     @district = District.search(params[:name])
