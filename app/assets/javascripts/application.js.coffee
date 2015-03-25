@@ -15,3 +15,22 @@
 #= require select2
 #= require prices
 
+showPhoneModal = ->
+  $('.js_modal_back').show()
+  $('.js_modal_phone').show()
+
+closeModal = ->
+  $('.js_modal_back').hide()
+  $('.js_modal_phone').hide()
+
+$(document).on 'click', '.header__contacts', ()->
+  showPhoneModal()
+
+$(document).on 'click', '.js_modal_back', ()->
+  closeModal()
+
+$(document).on 'click', '.js_close_button', ()->
+  closeModal()
+
+submitPhoneCall = ->
+  

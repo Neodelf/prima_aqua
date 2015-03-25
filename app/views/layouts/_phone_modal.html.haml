@@ -1,0 +1,25 @@
+.modal__phone_call.js_modal_phone
+  .modal__header
+    .close_button.js_close_button
+      x
+  .modal__title
+    Перезвоните мне
+  %form.js_phone_call_form
+    .input_set
+      %label
+        Как вас зовут
+      %input.js_name
+      .clearfix
+    .input_set
+      %label
+        Телефон
+      %input.js_phone{ placeholder: '8 905 279 61 96' }
+      .clearfix
+    .input_set
+      %label
+        Время звонка
+      %input.js_time
+      .clearfix
+
+  .modal__button
+    %a.red_button.js_phone_call_submit Перезвоните мне
