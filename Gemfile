@@ -19,3 +19,7 @@ gem 'select2-rails'
 gem 'gon'
 gem 'ckeditor'
 gem 'russian'
+
+gem 'unicorn'
+
+gem 'capistrano'
