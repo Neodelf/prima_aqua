@@ -344,15 +344,28 @@ a.red_button{
     display: none;
     cursor: pointer;
   }
-  .modal__phone_call{
-    border-radius: 3px;
-    display: none;
+  .modal__view{
     position: fixed;
     top: 10%;
-    left: calc(50% - 280px);
-    width: 560px;
-    background-color: white;
     z-index: 7;
+    width: 100%;
+  }
+  .modal_window{
+    border-radius: 3px;
+    display: none;
+    margin: 0 auto;
+    background-color: white;
+  }
+  .modal__notice{
+    width: 560px;
+    z-index: 6;
+    .modal__title{
+      padding: 30px 0;
+    }
+  }
+  .modal__phone_call{
+    width: 560px;
+    height: 285px;
   }
   .modal__header{
     height: 25px;
@@ -394,6 +407,14 @@ a.red_button{
     text-align: center;
     .red_button{
       width: 200px;
+    }
+  }
+  .modal_error{
+    label{
+      color: red;
+    }
+    input{
+      border-color: red;
     }
   }
 }
