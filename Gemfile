@@ -22,4 +22,4 @@ gem 'russian'
 
 gem 'unicorn'
 
-gem 'capistrano'
+gem 'capistrano', '2.15.5'
