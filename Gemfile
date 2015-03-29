@@ -19,6 +19,7 @@ gem 'select2-rails'
 gem 'gon'
 gem 'ckeditor'
 gem 'russian'
+gem "paperclip", "~> 4.2"
 
 gem 'unicorn'
 

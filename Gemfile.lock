@@ -144,6 +144,11 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     orm_adapter (0.5.0)
+    paperclip (4.2.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.17.1)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
@@ -231,6 +236,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mini_magick
+  paperclip (~> 4.2)
   pg
   rails (= 4.1.6)
   russian
