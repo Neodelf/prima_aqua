@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :prepare_data
 
   def prepare_data
-    @delivery_pages ||= DeliveryPage.all
-    @aquas ||= Aqua.select(:id, :name).all
+    @all_delivery_pages ||= DeliveryPage.all
+    @all_aquas ||= Aqua.includes(:volumes).select(:id, :name).all
   end
 
 end

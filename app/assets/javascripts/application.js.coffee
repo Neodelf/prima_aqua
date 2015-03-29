@@ -14,6 +14,7 @@
 #= require jquery_ujs
 #= require select2
 #= require prices
+#= require order
 
 showPhoneModal = ->
   $('.js_modal_back').show()
@@ -21,15 +22,16 @@ showPhoneModal = ->
 
 closeModals = ->
   $('.js_modal_back').hide()
-  $('.js_modal_phone').hide()
-  $('.js_modal_notice').hide()
+  $('.js_modal').hide()
 
 showNotice = (msg) ->
   noticeModal = $('.js_modal_notice')
   noticeModal.find('.modal__title').html(msg)
+  $('.js_modal').hide()
   noticeModal.show()
 
-$(document).on 'click', '.header__contacts', ()->
+$(document).on 'click', '.header__contacts', (e)->
+  e.preventDefault()
   showPhoneModal()
 
 $(document).on 'click', '.js_modal_back', ()->
@@ -48,14 +50,13 @@ submitPhoneCall = (name, time, phone)->
       phone: phone
       time: time
     success: (data)->
-      $('.js_modal_phone').hide()
       showNotice('Ваш заказ принят в обработку')
       setTimeout(closeModals, 2000)
     error: (xhr)->
       closeModals()
       alert 'Упс! Что-то пошло не так.'
 
-$(document).on 'click', '.js_phone_call_submit', ()->
+$(document).on 'click', '.js_phone_call_submit', ->
   phone = $('.js_phone').val()
   name = $('.js_name').val()
   time = $('.js_time').val()

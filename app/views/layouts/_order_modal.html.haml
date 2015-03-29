@@ -1,0 +1,26 @@
+.modal_window.modal__order.js_modal.js_modal_order
+  .modal__header
+    .close_button.js_close_button
+      x
+  .modal__title
+    Заказать
+  .js_order_form.card
+    .water_template.js_aqua_template
+      .aqua_select.js_aqua_select
+        = select(:order, :auqa, options_for_select(@all_aquas.map{|aqua| [aqua.name, "#{aqua.id}-#{aqua.name}"]}))
+      .volume_select.js_volume_select
+        = select(:order, :volume, options_for_select(@all_aquas.first.volumes.map{|v| [v.value, "#{v.id}-#{v.value}"]}))
+      .amount.js_amount
+        %input
+      .price.js_price
+        %span 16
+        Р.
+    .input_set
+      %label
+        Как вас зовут
+      %input.js_name
+      .clearfix
+
+
+  .modal__button
+    %a.blue_button.js_add_position Перезвоните мне

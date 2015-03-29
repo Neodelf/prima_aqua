@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   resources :delivery_pages, only: :show
-  resources :aquas, only: :show
+  resources :aquas, only: :show do
+    resources :volumes, only: :index
+  end
   resources :prices, only: :index
   resources :phone_calls, only: :create
   root 'welcome#home'

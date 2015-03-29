@@ -1,19 +1,20 @@
 ActiveAdmin.register Aqua do
   form partial: 'admin/aquas/form'
 
+
   index do
     selectable_column
     column :id
     column :name
-    column :price do |aqua|
-      ul do
-        aqua.prices.each do |price|
-          li do
-            "#{price.value} руб. за объем от #{price.start_count}шт. до #{price.end_count}шт."
-          end
-        end
-      end
-    end
+    # column :price do |aqua|
+    #   ul do
+    #     aqua.prices.each do |price|
+    #       li do
+    #         "#{price.value} руб. за объем от #{price.start_count}шт. до #{price.end_count}шт."
+    #       end
+    #     end
+    #   end
+    # end
     column :short_description
     column 'Docs' do |aqua|
       ul do

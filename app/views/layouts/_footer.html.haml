@@ -7,7 +7,7 @@
   .footer__main
     .footer__main__links
       .links_column
-        - @aquas.each do |aqua|
+        - @all_aquas.each do |aqua|
           = link_to aqua.name, aqua
       .links_column
         = link_to 'Кулеры и помпы', '#'
@@ -15,7 +15,7 @@
         = link_to 'Обслуживание', '#'
         = link_to 'Вопросы и ответы', '#'
       .links_column
-        -@delivery_pages.each do |page|
+        -@all_delivery_pages.each do |page|
           = link_to page.title, page
       .links_column
         = link_to 'О компании', about_path

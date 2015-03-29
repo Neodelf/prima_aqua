@@ -15,7 +15,7 @@
         %li
           %a.with_underline О воде
           %ul
-            - @aquas.each do |aqua|
+            - @all_aquas.each do |aqua|
               %li
                 = link_to aqua.name, aqua, class: 'with_underline'
         %li
