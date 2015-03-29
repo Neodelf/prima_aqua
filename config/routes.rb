@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :delivery_pages, only: :show
   resources :aquas, only: :show
   resources :prices, only: :index
+  resources :phone_calls, only: :create
   root 'welcome#home'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
