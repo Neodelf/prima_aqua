@@ -22,7 +22,7 @@ task :copy_database_config, roles => :app do
   run "cp #{db_config} #{release_path}/config/database.yml"
 end
 after "deploy:update_code", :copy_config_secrets
-task :copy_config_production, roles => :app do
+task :copy_config_secrets, roles => :app do
   prod_config = "#{shared_path}/config/secrets.yml"
   run "cp #{prod_config} #{release_path}/config/secrets.yml"
 end
