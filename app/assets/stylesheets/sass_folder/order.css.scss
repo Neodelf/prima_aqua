@@ -1,0 +1,44 @@
+.modal__order{
+  min-height: 285px;
+  width: 560px;
+  padding-bottom: 20px;
+  .water_template{
+    margin: 5px auto;
+    width: 415px;
+  }
+  .aqua_select{
+    padding: 0 10px;
+    float: left;
+  }
+  .volume_select{
+    padding: 0 10px;
+    float: left;
+  }
+  .amount{
+    float: left;
+    padding: 0 10px;
+    width: 86px;
+    input{
+      text-align: center;
+      width: 40px;
+      float: left;
+    }
+    button{
+      width: 20px;
+      float: left;
+    }
+  }
+  .price{
+    padding: 0 10px;
+    float: left;
+  }
+  .remove_button{
+    padding: 0 10px;
+    float: left;
+    color: red;
+    cursor: pointer;
+    line-height: 15px;
+    font-size: 20px;
+    font-family: monospace;
+  }
+}

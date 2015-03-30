@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :delivery_pages, only: :show
   resources :aquas, only: :show do
     resources :volumes, only: :index
+    collection do 
+      get 'check_price' => 'aquas#check_price'
+    end
   end
   resources :prices, only: :index
   resources :phone_calls, only: :create

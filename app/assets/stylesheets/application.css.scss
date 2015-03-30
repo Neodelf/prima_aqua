@@ -177,12 +177,13 @@ a.blue_button{
   display: inline-block;
   border-radius: 3px;
   background-color: #0080bb;
-  width: 110px;
+  min-width: 110px;
   height: 35px;
   line-height: 35px;
   font-family: 'MuseoSansCyrl-700';
-  color:  #0080bb;
+  color:  white;
   font-size: 16px;
+  padding: 0 15px;
   text-decoration: none;
   &:hover{
     text-decoration: none;
@@ -382,10 +383,6 @@ a.blue_button{
     }
   }
   .modal__phone_call{
-    width: 560px;
-    height: 285px;
-  }
-  .modal__order{
     width: 560px;
     height: 285px;
   }

@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
 
   def prepare_data
     @all_delivery_pages ||= DeliveryPage.all
-    @all_aquas ||= Aqua.includes(:volumes).select(:id, :name).all
+    @all_aquas ||= Aqua.includes(:volumes).select(:id, :name, :id).order(:id).all
+    aqua = @all_aquas.first
+    @aqua_price = PriceService.get_price(aqua.id, aqua.volumes.first.id, 2)
   end
 
 end
