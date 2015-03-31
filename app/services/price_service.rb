@@ -4,6 +4,9 @@ class PriceService
                   where('start_count <= :count', count: amount).
                   order(:start_count).
                   last
-    price.blank? ? 'По договоренности' : price.value.to_f * amount.to_i
+    show_price(price.value, amount)
+  end
+  def self.show_price(price, amount)
+    price.to_i < 1 ? 'Договорная' : (price.to_f * amount.to_f)
   end
 end

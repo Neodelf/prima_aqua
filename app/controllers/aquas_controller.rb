@@ -1,4 +1,5 @@
 class AquasController < ApplicationController
+  skip_before_action :prepare_data, only: :check_price
   def show
     @aqua = Aqua.includes(:aqua_posts, volumes: :prices).find(params[:id])
     @posts = @aqua.aqua_posts

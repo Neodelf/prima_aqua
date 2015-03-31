@@ -9,9 +9,15 @@ if window.Storage and window.JSON
 class Order
   constructor: ->
     localStorage.setItem('product', '')
+    html = $storage("prima_state_card").get()
+    if html
+      $('.prima_state_card').html(html)
 
     $(document).on 'change', '.js-aqua-select-tag', (e)=>
       @updateVolumesSelector(e)
+
+    $(document).on 'change', '.js-volume-select-tag', (e)=>
+      @actualizePrice($(e.currentTarget).closest('.water_template'))
 
     $(document).on 'click', '.js_add_position', (e)=>
       @addPosition(e)
@@ -19,11 +25,23 @@ class Order
     $(document).on 'click', '.js_remove_position', (e)=>
       @removePosition(e)
 
+    $(document).on 'click', '.js_empty_bottles', (e)->
+      checkbox = $(e.currentTarget)
+      checkbox.attr("checked", !checkbox.attr("checked"))
+
     $(document).on 'click', '.js_increment', (e)=>
       @updateAmount(e, 1)
 
     $(document).on 'click', '.js_decrement', (e)=>
       @updateAmount(e, -1)
+
+    $(document).on 'click', '.js_submit_card', ()->
+      closeModals()
+
+
+  # improve!!! make through class
+  @saveHtml: ->
+    $storage("prima_state_card").set($('.prima_state_card').html())
 
   showModal: ->
     $('.js_modal_back').show()
@@ -44,7 +62,9 @@ class Order
       type: 'GET'
       dataType: "json"
       success: (data)=>
-        @refreshSelectTag(elem.closest('.water_template').find('.js-volume-select-tag'), data.volumes)
+        waterLine = elem.closest('.water_template')
+        @refreshSelectTag(waterLine.find('.js-volume-select-tag'), data.volumes)
+        @actualizePrice(waterLine)
 
   refreshSelectTag: (htmlTag, values)->
     html = ''
@@ -70,14 +90,16 @@ class Order
       type: 'GET'
       data:
         aqua_id: parseInt(elem.find('.js-aqua-select-tag').val())
-        volume_id: parseInt(elem.find('.js-aqua-select-tag').val())
+        volume_id: parseInt(elem.find('.js-volume-select-tag').val())
         amount: parseInt(elem.find('.js_amount_input').val())
       dataType: "json"
       success: (data)=>
         elem.find('.js_price_value').html(data.price)
         elem.find('.js_price').show()
-
-  # update value on select water end select volume
+        if parseFloat(data.price) > 1
+          elem.find('.js_currency').show()
+        else
+          elem.find('.js_currency').hide()
 
 $ ->
   order = new Order

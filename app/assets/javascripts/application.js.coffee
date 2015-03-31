@@ -21,6 +21,8 @@ showPhoneModal = ->
   $('.js_modal_phone').show()
 
 closeModals = ->
+  if $('.js_modal_order').is(":visible")
+    $storage("prima_state_card").set($('.prima_state_card').html())
   $('.js_modal_back').hide()
   $('.js_modal').hide()
 
@@ -35,6 +37,12 @@ $(document).on 'click', '.header__contacts', (e)->
   showPhoneModal()
 
 $(document).on 'click', '.js_modal_back', ()->
+  closeModals()
+
+$(document).on 'click', '.js_modal', (e)->
+  e.stopPropagation()
+
+$(document).on 'click', '.modal__view', (e)->
   closeModals()
 
 $(document).on 'click', '.js_close_button', ()->

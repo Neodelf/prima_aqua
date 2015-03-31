@@ -4,7 +4,7 @@
   padding-bottom: 20px;
   .water_template{
     margin: 5px auto;
-    width: 415px;
+    width: 435px;
   }
   .aqua_select{
     padding: 0 10px;
@@ -34,11 +34,22 @@
   }
   .remove_button{
     padding: 0 10px;
-    float: left;
+    float: right;
     color: red;
     cursor: pointer;
     line-height: 15px;
     font-size: 20px;
     font-family: monospace;
+  }
+  .submit_modal__button{
+    margin: 30px 50px;
+    text-align: right;
+    .red_button{
+      text-align: center;
+      width: 160px;
+    }
+  }
+  .modal__empty_bottles{
+    margin: -10px 50px 30px;
   }
 }
