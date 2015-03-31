@@ -1,0 +1,149 @@
+.aqua_posts{
+  position: relative;
+  .post{
+    position: relative;
+    max-width: 1600px;
+    margin: -15px auto 0;
+    img{
+      width: 100%;
+    }
+    .post_text{
+      width: 50%;
+      position: absolute;
+      top: 15%;
+      left: 3%;
+    }
+    .center_text_align.post_text{
+      margin-left: 10%;
+      margin-right: calc(10% + 280px);
+      width: calc(80% -280px) !important;
+      left: 0 !important;
+    }
+    .post_text__header{
+      font-family: 'MuseoSansCyrl-700';
+      font-size: 40px;
+      line-height: 44px;
+      margin-bottom: 10px;
+    }
+    .post_text__body{
+      font-family: 'MuseoSansCyrl';
+      font-size: 18px;
+      line-height: 24px;
+      text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    a.post_text__button{
+      border-radius: 3px;
+      border: 1px solid #333;
+      text-decoration: none;
+      background-color:  #ffffff;
+      font-family: 'MuseoSansCyrl';
+      color:  #333333;
+      font-size: 14px;
+      line-height: 24px;
+      opacity: 0.8;
+      padding: 5px 15px;
+      display: inline-block;
+      margin: 15px 0;
+      &:hover{
+        opacity: 1;
+      }
+    }
+    a.post_text__link{
+      font-family: 'MuseoSansCyrl-300';
+      font-size: 14px;
+      line-height: 24px;
+      text-decoration: none;
+      color: inherit;
+      &:hover{
+        color: #0080bb;
+        text-decoration: underline;
+      }
+
+    }
+  }
+  .aqua_prices{
+    // height: calc(100% - 100px);
+    width: 280px;
+    background-color: #333;
+    opacity: 0.8;
+    color: #fff;
+  }
+  .aqua_prices_content{
+    width: 200px;
+    margin: 20% auto;
+    .aqua_prices__title{
+      font-family: 'MuseoSansCyrl-700';
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    .aqua_prices__table{
+      font-family: 'MuseoSansCyrl-300';
+      margin-bottom: 15px;
+      table{
+        width: 100%;
+      }
+      th{
+        color: #999999;
+        font-size: 12px;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 5px;
+      }
+      td{
+        color: #fff;
+        font-size: 14px;
+      }
+      tr{
+        line-height: 25px;
+      }
+    }
+    .aqua_prices__prices_link{
+      border-bottom: 1px solid #ddd;
+      border-top: 1px solid #ddd;
+      padding: 10px 0;
+      a{
+        font-family: 'MuseoSansCyrl';
+        font-size: 16px;
+        line-height: 20px;
+        color: white;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .aqua_prices__delivery_link{
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      margin: 5px 0 15px;
+      a{
+        font-family: 'MuseoSansCyrl';
+        font-size: 16px;
+        line-height: 20px;
+        color: white;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .red_button{
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .start{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .middle{
+    position: fixed;
+    top: 100px;
+    right: 0;
+  }
+  .end{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

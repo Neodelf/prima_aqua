@@ -3,6 +3,12 @@ class WelcomeController < ApplicationController
 
   def contacts; end
 
+  def payment; end
+
+  def about
+    @posts = CompanyPost.all
+  end
+
   def delivery
     @district = District.search(params[:name])
     gon.district = @district.select(:lon, :lat)

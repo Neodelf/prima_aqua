@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def prepare_data
     @delivery_pages ||= DeliveryPage.all
+    @aquas ||= Aqua.select(:id, :name).all
   end
 
 end
