@@ -1,0 +1,55 @@
+.coolers
+  .coolers-links
+    .coolers-links-item
+      Кулеры
+    .coolers-links-item
+      Помпы
+    .coolers-links-item
+      Аксессуары
+  .coolers-line
+  .coolers-filters
+    .coolers-filters-left
+      .coolers-filters-left-item{class: ('active' if link_active?)}
+        = link_to 'Все', coolers_path
+      .coolers-filters-left-item{class: ('active' if link_active?('напольные'))}
+        = link_to 'Напольные', coolers_path(type_construction: 'напольные')
+      .coolers-filters-left-item{class: ('active' if link_active?('настольные'))}
+        = link_to 'Настольные', coolers_path(type_construction: 'настольные')
+    .coolers-filters-right
+      Сортировать по цене
+  .coolers-list
+    - @coolers.each_with_index do |cooler, index|
+      - if index == 0
+        .coolers-list-item-zero
+          .coolers-list-item-zero-title
+            .coolers-list-item-zero-title-text
+              Для чего вам нужен кулер?
+            .coolers-list-item-zero-title-img
+              = image_tag 'icon_question.png'
+          .coolers-list-item-zero-list
+            - @tags.each do |tag|
+              .coolers-list-item-zero-list-item
+                .coolers-list-item-zero-list-item-text
+                  = tag.name
+                .coolers-list-item-zero-list-item-count
+                  (#{tag.coolers.count})
+        = render 'coolers/item', cooler: cooler, index: index
+      - elsif index == 5
+        .coolers-list-item-service.for_padding
+          .coolers-list-item-service-img
+            = image_tag 'service_icon.png'
+          .coolers-list-item-service-title
+            Обслуживание
+          .coolers-list-item-service-text
+            Если вода в вашем кулере имеет неприятный запах — его стоит почистить
+          .coolers-list-item-service-link-wrapper
+            = link_to 'Подробнее', '#', class: 'coolers-list-item-service-link'
+        = render 'coolers/item', cooler: cooler, index: index
+      - else
+        = render 'coolers/item', cooler: cooler, index: index
+
+:javascript
+  $('.coolers-list-item').hover(function(){
+    $(this).find(".coolers-list-item-button-wrapper").toggleClass('hidden');
+    $(this).find('.coolers-list-item-title').toggleClass('color');
+  });

@@ -18,6 +18,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :small, :if => :is_volume? do
     process resize_to_fill: [124, 200]
+    end
+
+  version :for_index, :if => :is_cooler? do
+    process resize_to_fill: [280, 200]
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -55,6 +59,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def is_volume? picture
     model.is_a? Volume
+  end
+
+  def is_cooler? picture
+    model.is_a? Cooler
   end
 
 end

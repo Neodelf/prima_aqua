@@ -4,6 +4,39 @@ ActiveAdmin.register Cooler do
                  :power_cooling, :dimensions, :service, :seo_title, :seo_description, :seo_keywords, :tags
   form partial: 'admin/coolers/form.html.haml'
 
+  index do
+    selectable_column
+    column :id
+    column :title
+    column :description
+    column :price
+    column :type_construction
+    column :type_cooling
+    column :heat
+    column :power_heat
+    column :cooling
+    column :power_cooling
+    column :dimensions
+    column :service
+    column :seo_title
+    column :seo_description
+    column :seo_keywords
+    column :image
+    column :tags do |cooler|
+      ul do
+        cooler.tags.each do |tag|
+          li do
+            "#{tag.name}"
+          end
+        end
+      end
+    end
+    column :seo_title
+    column :seo_description
+    column :seo_keywords
+    actions
+  end
+
   show do |cooler|
     attributes_table do
       row :title
