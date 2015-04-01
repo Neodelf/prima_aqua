@@ -1,0 +1,22 @@
+.accessories
+  = render partial: 'partials/links_for_indexes'
+  .accessories-line
+  .accessories-filters
+    .accessories-filters-left
+    //.accessories-filters-left-item{class: ('active' if link_active?)}
+    //  = link_to 'Все', accessories_path
+    //.accessories-filters-left-item{class: ('active' if link_active?('напольные'))}
+    //  = link_to 'Напольные', accessories_path(type_construction: 'напольные')
+    //.accessories-filters-left-item{class: ('active' if link_active?('настольные'))}
+    //  = link_to 'Настольные', accessories_path(type_construction: 'настольные')
+    .accessories-filters-right
+      Сортировать по цене
+  .accessories-list
+    - @accessories.each_with_index do |accessory, index|
+      = render 'accessories/item', accessory: accessory, index: index
+
+:javascript
+  $('.accessories-list-item').hover(function(){
+    $(this).find(".accessories-list-item-button-wrapper").toggleClass('hidden');
+    $(this).find('.accessories-list-item-title').toggleClass('color');
+  });

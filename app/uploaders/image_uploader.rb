@@ -22,7 +22,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :for_index, :if => :is_cooler? do
     process resize_to_fill: [280, 200]
-  end
+    end
 
   version :background, :if => :is_post? do
     process resize_to_fill: [1366, 768]
@@ -44,7 +44,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def is_cooler? picture
-    model.is_a? Cooler
+    model.is_a?(Cooler) || model.is_a?(Pomp) || model.is_a?(Accessory)
   end
 
 end
