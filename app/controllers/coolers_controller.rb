@@ -1,6 +1,6 @@
 class CoolersController < ApplicationController
   def index
-    @coolers = Cooler.all.order(:id)
+    @coolers = Cooler.order(:id)
     if params[:type_construction].present?
       if params[:type_construction] == 'напольные'
         @coolers = @coolers.where('type_construction LIKE ?', '%пол%')

@@ -18,7 +18,7 @@ module ApplicationHelper
   def link_active?(params_val=nil)
     if params[:type_construction].present? && params[:type_construction] == params_val && !params_val.nil?
       true
-    elsif params_val.nil? && !params[:type_construction].present? && params[:controller] == 'coolers' && params[:action] == 'index'
+    elsif params_val.nil? && params[:type_construction].blank? && params[:controller] == 'coolers' && params[:action] == 'index'
       true
     end
   end

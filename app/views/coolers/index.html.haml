@@ -31,9 +31,7 @@
               .coolers-list-item-zero-list-item
                 .coolers-list-item-zero-list-item-text
                   = tag.name
-                .coolers-list-item-zero-list-item-count
-                  (#{tag.coolers.count})
-        = render 'coolers/item', cooler: cooler, index: index
+                  %span (#{tag.coolers.count})
       - elsif index == 5
         .coolers-list-item-service.for_padding
           .coolers-list-item-service-img
@@ -44,9 +42,7 @@
             Если вода в вашем кулере имеет неприятный запах — его стоит почистить
           .coolers-list-item-service-link-wrapper
             = link_to 'Подробнее', '#', class: 'coolers-list-item-service-link'
-        = render 'coolers/item', cooler: cooler, index: index
-      - else
-        = render 'coolers/item', cooler: cooler, index: index
+      = render 'coolers/item', cooler: cooler, index: index
 
 :javascript
   $('.coolers-list-item').hover(function(){

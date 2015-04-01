@@ -7,12 +7,12 @@
 }
 .coolers-links{
   margin: 0px auto 15px;
-  width: 449px;
+  width: 479px;
   overflow: hidden;
   padding-top: 54px;
 }
 .coolers-links-item{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color:  #0080bb;
   font-size: 24px;
   line-height: 30px;
@@ -50,7 +50,7 @@
 }
 .coolers-filters-left-item{
   float: left;
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color:  #747474;
   font-size: 15px;
   line-height: 30px;
@@ -72,7 +72,7 @@
   }
 }
 .coolers-filters-right{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color:  #3b3a3c;
   font-size: 15px;
   line-height: 30px;
@@ -110,7 +110,7 @@
   overflow: hidden;
 }
 .coolers-list-item-zero-title-text{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color: #ffffff;
   font-size: 24px;
   line-height: 30px;
@@ -130,25 +130,24 @@
   margin-bottom: 26px;
 }
 .coolers-list-item-zero-list-item-text{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color: #ffffff;
   font-size: 16px;
   line-height: 22px;
   text-align: left;
   float: left;
+  margin-bottom: 27px;
+  span {
+    font-family: 'MuseoSansCyrl';
+    color: #90bedc;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: left;
+  }
 }
-.coolers-list-item-zero-list-item-count{
-  font-family: MuseoSansCyrl;
-  color: #90bedc;
-  font-size: 14px;
-  line-height: 22px;
-  text-align: left;
-}
-
 .coolers-list-item{}
 .coolers-list-item-img{
   position: relative;
-
 }
 .coolers-list-item-img-tag{
   z-index: 2;
@@ -161,7 +160,7 @@
   font-size: 12px;
 }
 .coolers-list-item-title{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   font-size: 18px;
   line-height: 30px;
   text-align: left;
@@ -171,7 +170,7 @@
 
 }
 .coolers-list-item-options-tag{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color: #a5a5a5;
   font-size: 14px;
   line-height: 20px;
@@ -180,14 +179,14 @@
   margin-right: 11px;
 }
 .coolers-list-item-options-item{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color: #a5a5a5;
   font-size: 14px;
   line-height: 20px;
   text-align: left;
 }
 .coolers-list-item-price_button{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   font-size: 18px;
   line-height: 25px;
 }
@@ -210,7 +209,7 @@
   }
 }
 .coolers-list-item-button{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color: #FFF;
   font-size: 13px;
   border-radius: 3px;
@@ -246,14 +245,14 @@
   margin: 34px auto 32px;
 }
 .coolers-list-item-service-title{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color:  #0080bb;
   font-size: 24px;
   line-height: 30px;
   text-align: center;
 }
 .coolers-list-item-service-text{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color:  #333333;
   font-size: 18px;
   line-height: 24px;
@@ -265,7 +264,7 @@
   text-align: center;
 }
 .coolers-list-item-service-link{
-  font-family: MuseoSansCyrl;
+  font-family: 'MuseoSansCyrl';
   color:  #0080bb;
   font-size: 16px;
   line-height: 24px;
