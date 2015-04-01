@@ -1,6 +1,6 @@
 .modal__order{
   min-height: 285px;
-  width: 560px;
+  width: 620px;
   padding-bottom: 20px;
   .water_template{
     margin: 5px auto;
@@ -51,5 +51,71 @@
   }
   .modal__empty_bottles{
     margin: -10px 50px 30px;
+  }
+
+}
+.order_form{
+  margin: 10px 40px 25px;
+  label{
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 16px;
+    float: left;
+    line-height: 35px;
+    .hint{
+      color: rgb(161, 161, 161);
+    }
+  }
+  .name{
+    label{
+      line-height: 18px;
+    }
+  }
+  .delivery_comment{
+    label{
+      line-height: 18px;
+    }
+  }
+  input{
+    width: 300px;
+    line-height: 35px;
+    font-size: 18px;
+    float: right;
+    padding: 0 10px;
+  }
+  textarea{
+    width: 308px;
+    padding: 7px;
+    float: right;
+    font-size: 16px;
+  }
+  .order_input{
+    margin: 7px 0;
+  }
+}
+.custome_selector{
+  border: 1px solid gray;
+  border-radius: 3px;
+  color: rgb(161, 161, 161);
+  line-height: 35px;
+  font-family: 'MuseoSansCyrl-300';
+  font-size: 16px;
+  display: inline-block;
+  .variant{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 10px;
+    &:hover{
+      color: #333;
+    }
+  }
+  .first_variant{
+    border-right: 1px solid gray;
+  }
+  .second_variant{
+
+  }
+  .active{
+    color: #333;
+    background-color: rgb(213, 237, 255);
   }
 }

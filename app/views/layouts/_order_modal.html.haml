@@ -2,11 +2,11 @@
   .modal__header
     .close_button.js_close_button
       x
-  .card
+  .card.hidden_block
     .prima_state_card
       .modal__title
         Заказать
-      .js_order_form.card
+      .js_card_form.card
         .js_aqua_template.hidden_block
           =render 'layouts/order_position'
 
@@ -24,7 +24,10 @@
       .submit_modal__button
         %a.red_button.js_submit_card Оформить заказ
 
-  .order.hidden_block
+  .order
     .prima_state_order
-    
+      .modal__title
+        Оформление заказа
+      .js_order_form.order
+        =render 'layouts/order_form'
   .clearfix

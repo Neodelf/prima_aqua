@@ -1,0 +1,60 @@
+.order_form
+  .order__customer
+    .order__customer_type_selector
+      .custome_selector.js_customer_type_selector
+        .variant.first_variant.active.js_first_ctype
+          Я частное лицо
+        .variant.second_variant.js_second_ctype
+          Компания
+    .order__customer.js_individual
+      .order_input.name.js_name
+        %label
+          Как вас зовут
+          %br
+          %span.hint или № договора
+        = text_field_tag :name
+        .clearfix
+      .order_input.phone.js_phone
+        %label Телефон
+        = text_field_tag :phone
+        .clearfix
+      .order_input.address.js_address
+        %label Адрес
+        = text_field_tag :address
+        .clearfix
+    .order__customer.js_company
+      .order_input.name.js_name
+        %label
+          Название компании
+          %br
+          %span.hint или № договора
+        = text_field_tag :name
+        .clearfix
+      .order_input.phone.js_phone
+        %label Телефон
+        = text_field_tag :phone
+        .clearfix
+      .order_input.address.js_address
+        %label Адрес
+        = text_field_tag :address
+        .clearfix
+
+  .order__register_form
+    -# should be added with profile
+
+  .order__delivery_form
+    .order_input.delivery_date
+    .order_input.delivery_time
+      .custome_selector.js_delivery_time_selector
+        .variant.first_variant.active.js_morning
+          с 9 до 17 часов
+        .variant.second_variant.js_evening
+          с 17 до 22 часов
+    .order_input.delivery_comment
+      %label
+        Дополнительная
+        %br
+        информация
+      = text_area_tag(:comment, '', size: "26x5")
+
+  .order__buttons
