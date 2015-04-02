@@ -1,6 +1,6 @@
 class Cooler < ActiveRecord::Base
   has_and_belongs_to_many :tags
-  mount_uploader :image, ImageUploader
+  has_many :images, as: :imageable, dependent: :destroy
 
   def has_tag?(name)
     tags.where(name: name).any?

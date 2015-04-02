@@ -5,10 +5,19 @@
   :power_cooling, :dimensions, :service, :seo_title, :seo_description, :seo_keywords].each do |attr|
     = f.inputs attr.to_s.capitalize! do
       = f.input attr, label: false
-  = f.inputs 'Image' do
-    = f.file_field :image, label: false
+  //= f.inputs 'Image' do
+  //  = f.file_field :image, label: false
+  //  %br
+  //  = render 'partials/image', item: @cooler
+
+  = f.inputs 'Images' do
+    = f.fields_for :image do |image|
+      = image.file_field :name, multiple: :true, name: 'image[name][]'
     %br
-    = render 'partials/image', item: @cooler
+    = render 'partials/images', item: @cooler
+
+
+
   = f.inputs 'Tags' do
     = f.select :tags, Tag.all.collect{|t| [t.name, t.id]}, {promt: true}, {id: 'tags', style: 'width:300px', multiple: true}
 
