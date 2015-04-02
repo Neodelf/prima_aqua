@@ -1,0 +1,16 @@
+.pomps
+  = render partial: 'partials/links_for_indexes'
+  .pomps-line
+  .pomps-filters
+    .pomps-filters-left
+    //.pomps-filters-left-item{class: ('active' if link_active?)}
+    //  = link_to 'Все', pomps_path
+    //.pomps-filters-left-item{class: ('active' if link_active?('напольные'))}
+    //  = link_to 'Напольные', pomps_path(type_construction: 'напольные')
+    //.pomps-filters-left-item{class: ('active' if link_active?('настольные'))}
+    //  = link_to 'Настольные', pomps_path(type_construction: 'настольные')
+    .pomps-filters-right
+      Сортировать по цене
+  .pomps-list
+    - @pomps.each_with_index do |pomp, index|
+      = render 'pomps/item', pomp: pomp, index: index

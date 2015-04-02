@@ -1,0 +1,293 @@
+.coolers{
+  min-width: 1000px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #F5F5F5;
+}
+.coolers-links{
+  margin: 0px auto 15px;
+  width: 479px;
+  overflow: hidden;
+  padding-top: 54px;
+}
+.coolers-links-item{
+  font-family: 'MuseoSansCyrl';
+  color:  #0080bb;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: left;
+  margin-right: 29px;
+  margin-left: 29px;
+  float: left;
+  a{
+    text-decoration: none;
+  }
+  a:link {
+    color: #0080bb;
+  }
+  a:visited {
+    color: #0080bb;
+  }
+  a:active {
+    color: #3b3a3c;
+  }
+}
+.coolers-line{
+  border-color:  #dddddd;
+  width: 1180px;
+  height: 1px;
+  margin: 0 auto 18px;
+  background: #DDD;
+}
+.coolers-filters{
+  overflow: hidden;
+  width: 1180px;
+  margin: 0 auto 40px;
+}
+.coolers-filters-left{
+  float: left;
+}
+.coolers-filters-left-item{
+  float: left;
+  font-family: 'MuseoSansCyrl';
+  color:  #747474;
+  font-size: 15px;
+  line-height: 30px;
+  text-align: left;
+  margin-right: 29px;
+  a{
+    text-decoration: none;
+  }
+  a:link {
+    color: #747474;
+  }
+  a:visited {
+    color: #747474;
+  }
+}
+.active{
+  a{
+    color:  #3b3a3c !important;
+  }
+}
+.coolers-filters-right{
+  font-family: 'MuseoSansCyrl';
+  color:  #3b3a3c;
+  font-size: 15px;
+  line-height: 30px;
+  text-align: right;
+  float: right;
+}
+.coolers-list{
+  width: 1180px;
+  margin: 0 auto;
+}
+.coolers-list-item{
+  border-radius: 3px;
+  height: 320px;
+  display: inline-block;
+  vertical-align:bottom;
+  position: relative;
+  margin-bottom: 40px;
+  width: 280px;
+}
+.coolers-list-item-zero{
+  border-radius: 3px;
+  background-color:  #3498db;
+  height: 320px;
+  display: inline-block;
+  vertical-align:bottom;
+  position: relative;
+  margin-bottom: 40px;
+  width: 280px;
+}
+.for_padding{
+  margin-left: 16px;
+}
+.coolers-list-item-zero-title{
+  margin: 26px 25px 27px 26px;
+  overflow: hidden;
+}
+.coolers-list-item-zero-title-text{
+  font-family: 'MuseoSansCyrl';
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: left;
+  margin-right: 25px;
+  float: left;
+  width: 157px;
+}
+.coolers-list-item-zero-title-img{
+  float: right;
+  margin-top: 8px;
+}
+.coolers-list-item-zero-list{
+  margin: 0 10% 34px 26px;
+}
+.coolers-list-item-zero-list-item{
+  margin-bottom: 26px;
+}
+.coolers-list-item-zero-list-item-text{
+  font-family: 'MuseoSansCyrl';
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: left;
+  float: left;
+  margin-bottom: 27px;
+  span {
+    font-family: 'MuseoSansCyrl';
+    color: #90bedc;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: left;
+  }
+}
+.coolers-list-item{
+  .coolers-list-item-button-wrapper{
+    display: none;
+  }
+  &:hover {
+    .coolers-list-item-button-wrapper {
+      display: block;
+    }
+    .coolers-list-item-title {
+      color: #0080bb;
+    }
+  }
+}
+.coolers-list-item-img{
+  position: relative;
+}
+.coolers-list-item-img-tag{
+  z-index: 2;
+  position: absolute;
+  bottom: 0px;
+  padding: 4px;
+  background-color: #38B448;
+  font-weight: bold;
+  color: #FFF;
+  font-size: 12px;
+}
+.coolers-list-item-title{
+  font-family: 'MuseoSansCyrl';
+  font-size: 18px;
+  line-height: 30px;
+  text-align: left;
+  color: black;
+}
+.coolers-list-item-options{
+
+}
+.coolers-list-item-options-tag{
+  font-family: 'MuseoSansCyrl';
+  color: #a5a5a5;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  float: left;
+  margin-right: 11px;
+}
+.coolers-list-item-options-item{
+  font-family: 'MuseoSansCyrl';
+  color: #a5a5a5;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+}
+.coolers-list-item-price_button{
+  font-family: 'MuseoSansCyrl';
+  font-size: 18px;
+  line-height: 25px;
+}
+.coolers-list-item-price{
+  float: left;
+  margin-right: 13px;
+}
+.coolers-list-item-price-count{
+  color: #3b3a3c;
+  float: left;
+  margin-right: 3px;
+  span {
+    color: #acacac;
+    display: inline-block;
+    border-bottom: 1px solid;
+    line-height: 0;
+    width: 8px;
+    height: 3px;
+    font-size: 13.0pt;
+    box-sizing: border-box;
+  }
+}
+.coolers-list-item-price-currency{
+  color: #acacac;
+}
+.coolers-list-item-button-wrapper{
+  a{
+    text-decoration: none;
+    color: white;
+  }
+}
+.coolers-list-item-button{
+  font-family: 'MuseoSansCyrl';
+  color: #FFF;
+  font-size: 13px;
+  border-radius: 3px;
+  background-color: #EB0028;
+  width: 85px;
+  height: 25px;
+  float: left;
+  text-align: center;
+  margin-top: 0px;
+  line-height: 25px;
+}
+.hidden{
+  visibility: hidden;
+}
+.color{
+  color: #0080bb;
+}
+
+.coolers-list-item-service{
+  border-radius: 3px;
+  background-color:  #ffffff;
+  height: 320px;
+  display: inline-block;
+  vertical-align:bottom;
+  position: relative;
+  margin-bottom: 40px;
+  width: 280px;
+}
+.coolers-list-item-service-img{
+  width: 107px;
+  height: 99px;
+  margin: 34px auto 32px;
+}
+.coolers-list-item-service-title{
+  font-family: 'MuseoSansCyrl';
+  color:  #0080bb;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+}
+.coolers-list-item-service-text{
+  font-family: 'MuseoSansCyrl';
+  color:  #333333;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  margin: 18px 26px 0px;
+}
+.coolers-list-item-service-link-wrapper{
+  margin: 0 auto 23px;
+  text-align: center;
+}
+.coolers-list-item-service-link{
+  font-family: 'MuseoSansCyrl';
+  color:  #0080bb;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: underline;
+}

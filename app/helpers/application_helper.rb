@@ -15,6 +15,11 @@ module ApplicationHelper
     end
   end
 
+  def link_active?(params_val=nil)
+    params[:type_construction].present? && params[:type_construction] == params_val && !params_val.nil? ||
+    params_val.nil? && params[:type_construction].blank? && params[:controller] == 'coolers' && params[:action] == 'index'
+  end
+
   def text_align_for_post(post)
     if post.button_url.blank? && post.button_name.blank? && post.link_url.blank? && post.link_name.blank?
       'center_text_align'
