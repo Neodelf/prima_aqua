@@ -82,6 +82,9 @@
     float: right;
     padding: 0 10px;
   }
+  input.datepicker{
+    width: 150px;
+  }
   textarea{
     width: 308px;
     padding: 7px;
@@ -112,10 +115,15 @@
     border-right: 1px solid gray;
   }
   .second_variant{
-
+    margin-left: -4px;
   }
   .active{
     color: #333;
     background-color: rgb(213, 237, 255);
+  }
+  .variant.disabled{
+    background-color: #DADADA;
+    cursor: default;
+    color: #333;
   }
 }

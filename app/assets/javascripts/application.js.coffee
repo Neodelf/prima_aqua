@@ -15,6 +15,7 @@
 #= require select2
 #= require prices
 #= require order
+#= require jquery-ui/datepicker
 
 showPhoneModal = ->
   $('.js_modal_back').show()

@@ -7,7 +7,7 @@ class AquasController < ApplicationController
   end
 
   def check_price
-    price = PriceService.get_price(params[:aqua_id], params[:volume_id], params[:amount])
+    price = OrderService.get_price(params[:aqua_id], params[:volume_id], params[:amount])
     render json: {price: price}, status: :ok
   end
 end

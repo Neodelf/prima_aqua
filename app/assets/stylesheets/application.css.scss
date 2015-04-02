@@ -14,6 +14,7 @@
  *= require_directory ./sass_folder
  *= require select2
  *= require fonts
+ *= require jquery-ui/datepicker
  */
 
 
@@ -363,7 +364,7 @@ a.blue_button{
     display: none;
   }
   .modal__view{
-    position: fixed;
+    position: absolute;
     top: 10%;
     z-index: 7;
     width: 100%;

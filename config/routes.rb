@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
+  get 'check_time' => 'welcome#check_time'
   get 'payment' => 'welcome#payment'
   get 'about' => 'welcome#about'
   get 'events' => 'welcome#events'

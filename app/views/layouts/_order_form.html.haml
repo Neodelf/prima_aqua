@@ -1,12 +1,12 @@
 .order_form
   .order__customer
     .order__customer_type_selector
-      .custome_selector.js_customer_type_selector
-        .variant.first_variant.active.js_first_ctype
+      .custome_selector.js_customer_type_selector{ data: { val: :individual }}
+        .variant.first_variant.active.js_variant{ data: { val: :individual }}
           Я частное лицо
-        .variant.second_variant.js_second_ctype
+        .variant.second_variant.js_variant{ data: { val: :company }}
           Компания
-    .order__customer.js_individual
+    .order__customer_form.js_individual
       .order_input.name.js_name
         %label
           Как вас зовут
@@ -22,7 +22,7 @@
         %label Адрес
         = text_field_tag :address
         .clearfix
-    .order__customer.js_company
+    .order__customer_form.js_company.hidden_block
       .order_input.name.js_name
         %label
           Название компании
@@ -44,11 +44,14 @@
 
   .order__delivery_form
     .order_input.delivery_date
+      %label Дата доставки
+      %input.datepicker
+        .clearfix
     .order_input.delivery_time
-      .custome_selector.js_delivery_time_selector
-        .variant.first_variant.active.js_morning
+      .custome_selector.js_delivery_time_selector{ data: { val: :morning }}
+        .variant.first_variant.active.disabled.js_morning{ data: { val: :morning }}
           с 9 до 17 часов
-        .variant.second_variant.js_evening
+        .variant.second_variant.disabled.js_evening{ data: { val: :evening }}
           с 17 до 22 часов
     .order_input.delivery_comment
       %label

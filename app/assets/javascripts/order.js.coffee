@@ -38,10 +38,39 @@ class Order
     $(document).on 'click', '.js_submit_card', ()->
       closeModals()
 
+    $(document).on 'click', '.js_variant', (e)=>
+      elem = $(e.currentTarget)
+      if  !elem.hasClass('disabled') && @isShoudProcessed(elem)
+        $('.order__customer_form').toggleClass('hidden_block')
+
+
 
   # improve!!! make through class
   @saveHtml: ->
     $storage("prima_state_card").set($('.prima_state_card').html())
+
+  checkAvailableTime: ()->
+    $.ajax
+      url: "/check_time?data=#{$('.datepicker').val()}"
+      type: 'GET'
+      dataType: "json"
+      success: (msg)=>
+        disabled = $('.disabled')
+        if msg.length > 0
+          disabled.addClass('active').removeClass('disabled')
+          for i in msg
+            if i == 1
+              $('.js_morning').addClass('disabled').removeClass('active')
+            else if i == 2
+              $('.js_evening').addClass('disabled').removeClass('active')
+        else
+          disabled.removeClass('disabled')
+
+
+
+  isShoudProcessed: (elem)->
+    elem.hasClass('first_variant') && $('.js_company').is(':visible') ||
+    elem.hasClass('second_variant') && $('.js_individual').is(':visible')
 
   showModal: ->
     $('.js_modal_back').show()
@@ -101,7 +130,28 @@ class Order
         else
           elem.find('.js_currency').hide()
 
+$(document).on 'click', '.variant', (e)->
+  elem = $(e.currentTarget)
+  unless  elem.hasClass('disabled') || elem.hasClass('active')
+    console.log '---------should change view--------------'
+    selector = elem.closest('.custome_selector')
+    selector.find('.variant').toggleClass('active')
+    selector.data('val', elem.data('val'))
+
+
+
 $ ->
   order = new Order
+  $('.datepicker').datepicker(
+    dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
+    dateFormat: "dd-mm-yy"
+    firstDay: 1
+    nextText: ">"
+    prevText: "<"
+    minDate: new Date()
+    monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+    onSelect: (date) ->
+      order.checkAvailableTime()
+  )
   $(document).on 'click', '.red_button', ->
     order.showModal()
