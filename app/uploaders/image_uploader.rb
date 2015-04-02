@@ -16,9 +16,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :small, :if => :is_volume? do
-    process resize_to_fill: [124, 200]
-    end
+  version :small do
+    process resize_to_limit: [200, 200]
+  end
 
   version :for_index, :if => :is_cooler? do
     process resize_to_fill: [280, 200]

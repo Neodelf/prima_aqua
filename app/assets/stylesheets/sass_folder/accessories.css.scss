@@ -118,7 +118,19 @@
     text-align: left;
   }
 }
-.accessories-list-item{}
+.accessories-list-item{
+  .accessories-list-item-button-wrapper{
+    display: none;
+  }
+  &:hover{
+    .accessories-list-item-button-wrapper{
+      display: block;
+    }
+    .accessories-list-item-title{
+      color: #0080bb;
+    }
+  }
+}
 .accessories-list-item-img{
   position: relative;
 }

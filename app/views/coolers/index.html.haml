@@ -37,9 +37,3 @@
           .coolers-list-item-service-link-wrapper
             = link_to 'Подробнее', '#', class: 'coolers-list-item-service-link'
       = render 'coolers/item', cooler: cooler, index: index
-
-:javascript
-  $('.coolers-list-item').hover(function(){
-    $(this).find(".coolers-list-item-button-wrapper").toggleClass('hidden');
-    $(this).find('.coolers-list-item-title').toggleClass('color');
-  });

@@ -14,9 +14,3 @@
   .accessories-list
     - @accessories.each_with_index do |accessory, index|
       = render 'accessories/item', accessory: accessory, index: index
-
-:javascript
-  $('.accessories-list-item').hover(function(){
-    $(this).find(".accessories-list-item-button-wrapper").toggleClass('hidden');
-    $(this).find('.accessories-list-item-title').toggleClass('color');
-  });

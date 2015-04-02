@@ -14,9 +14,3 @@
   .pomps-list
     - @pomps.each_with_index do |pomp, index|
       = render 'pomps/item', pomp: pomp, index: index
-
-:javascript
-  $('.pomps-list-item').hover(function(){
-    $(this).find(".pomps-list-item-button-wrapper").toggleClass('hidden');
-    $(this).find('.pomps-list-item-title').toggleClass('color');
-  });

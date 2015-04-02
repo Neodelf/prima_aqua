@@ -145,7 +145,19 @@
     text-align: left;
   }
 }
-.coolers-list-item{}
+.coolers-list-item{
+  .coolers-list-item-button-wrapper{
+    display: none;
+  }
+  &:hover {
+    .coolers-list-item-button-wrapper {
+      display: block;
+    }
+    .coolers-list-item-title {
+      color: #0080bb;
+    }
+  }
+}
 .coolers-list-item-img{
   position: relative;
 }

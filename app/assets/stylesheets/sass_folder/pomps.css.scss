@@ -118,7 +118,19 @@
     text-align: left;
   }
 }
-.pomps-list-item{}
+.pomps-list-item{
+  .pomps-list-item-button-wrapper{
+    display: none;
+  }
+  &:hover {
+    .pomps-list-item-button-wrapper {
+      display: block;
+    }
+    .pomps-list-item-title {
+      color: #0080bb;
+    }
+  }
+}
 .pomps-list-item-img{
   position: relative;
 }
