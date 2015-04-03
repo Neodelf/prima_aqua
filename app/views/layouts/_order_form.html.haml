@@ -58,6 +58,11 @@
         Дополнительная
         %br
         информация
-      = text_area_tag(:comment, '', size: "26x5")
+      = text_area_tag(:comment, '', size: '26x5')
 
   .order__buttons
+    .back_button
+      %a.with_blue_button.js_order_change_step Назад к заказу
+    .submit_button
+      %a.red_button.js_order_back Подтвердить
+    .clearfix

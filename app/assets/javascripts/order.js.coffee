@@ -35,8 +35,8 @@ class Order
     $(document).on 'click', '.js_decrement', (e)=>
       @updateAmount(e, -1)
 
-    $(document).on 'click', '.js_submit_card', ()->
-      closeModals()
+    $(document).on 'click', '.js_order_change_step', ()=>
+      @changeOrderStep()
 
     $(document).on 'click', '.js_variant', (e)=>
       elem = $(e.currentTarget)
@@ -66,7 +66,8 @@ class Order
         else
           disabled.removeClass('disabled')
 
-
+  changeOrderStep: ->
+    $('.order_step').toggleClass('hidden_block')
 
   isShoudProcessed: (elem)->
     elem.hasClass('first_variant') && $('.js_company').is(':visible') ||

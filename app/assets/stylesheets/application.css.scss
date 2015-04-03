@@ -165,9 +165,8 @@ a.red_button{
   height: 35px;
   line-height: 35px;
   font-family: 'MuseoSansCyrl-700';
-  color:  #0080bb;
   font-size: 16px;
-
+  padding: 0 15px;
   color: white;
   text-decoration: none;
   &:hover{
@@ -187,6 +186,25 @@ a.blue_button{
   padding: 0 15px;
   text-decoration: none;
   &:hover{
+    text-decoration: none;
+  }
+}
+a.with_blue_button{
+  display: inline-block;
+  border-radius: 3px;
+  background-color: white;
+  min-width: 110px;
+  height: 35px;
+  line-height: 35px;
+  font-family: 'MuseoSansCyrl-700';
+  color: #0080bb;
+  border: 1px solid #0080bb;
+  font-size: 16px;
+  padding: 0 15px;
+  text-decoration: none;
+  opacity: 0.9;
+  &:hover{
+    opacity: 1;
     text-decoration: none;
   }
 }

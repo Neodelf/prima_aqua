@@ -61,6 +61,7 @@
     font-size: 16px;
     float: left;
     line-height: 35px;
+    min-width: 215px;
     .hint{
       color: rgb(161, 161, 161);
     }
@@ -79,7 +80,6 @@
     width: 300px;
     line-height: 35px;
     font-size: 18px;
-    float: right;
     padding: 0 10px;
   }
   input.datepicker{
@@ -88,11 +88,20 @@
   textarea{
     width: 308px;
     padding: 7px;
-    float: right;
     font-size: 16px;
   }
   .order_input{
     margin: 7px 0;
+  }
+  .back_button{
+    float: left;
+  }
+  .submit_button{
+    float: right;
+    opacity: 0.7;
+    &:hover{
+      opacity: 1;
+    }
   }
 }
 .custome_selector{
