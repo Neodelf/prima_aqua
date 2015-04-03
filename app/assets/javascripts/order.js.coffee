@@ -13,6 +13,8 @@ class Order
     if html
       $('.prima_state_card').html(html)
 
+    @isValid = false
+
     $(document).on 'change', '.js-aqua-select-tag', (e)=>
       @updateVolumesSelector(e)
 
@@ -130,6 +132,31 @@ class Order
           elem.find('.js_currency').show()
         else
           elem.find('.js_currency').hide()
+
+  makingOrderToSubmit: =>
+    data =  {
+              products: @getProducts(),
+              info: @getInfo()
+            }
+    data
+
+  getInfo: ->
+    info = {}
+    info['customer_type'] = $('.js_customer_type_selector').data('val')
+    form = $(".js_#{info['customer_type']}")
+    info['name'] = form.find('.js_name').val()
+    info['phone'] = form.find('.js_phone').val()
+    info['address'] = form.find('.js_address').val()
+    info['date'] = $('.datepicker').val()
+    info['time'] = $('.js_delivery_time_selector').data('val')
+    info['comment'] = $('.js_comment').val()
+
+  getProducts: ->
+    products = {}
+    product_lines = $('.products').find('.water_temlate')
+    for line in product_lines
+      products['aqua'] = line.find('.js-aqua-select-tag').val()
+
 
 $(document).on 'click', '.variant', (e)->
   elem = $(e.currentTarget)
