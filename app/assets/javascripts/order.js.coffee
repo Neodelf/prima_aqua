@@ -8,10 +8,10 @@ if window.Storage and window.JSON
 
 class Order
   constructor: ->
-    localStorage.setItem('product', '')
-    html = $storage("prima_state_card").get()
-    if html
-      $('.prima_state_card').html(html)
+    #localStorage.setItem('product', '')
+    #html = $storage("prima_state_card").get()
+    #if html
+    #  $('.prima_state_card').html(html)
 
     @isValid = false
 
@@ -19,7 +19,7 @@ class Order
       @updateVolumesSelector(e)
 
     $(document).on 'change', '.js-volume-select-tag', (e)=>
-      @actualizePrice($(e.currentTarget).closest('.water_template'))
+      @actualizeWaterPrice($(e.currentTarget).closest('.water_template'))
 
     $(document).on 'click', '.js_add_position', (e)=>
       @addPosition(e)
@@ -27,15 +27,19 @@ class Order
     $(document).on 'click', '.js_remove_position', (e)=>
       @removePosition(e)
 
+    $(document).on 'click', '.js_remove_accessory', (e)=>
+      @removeAccessory(e)
+
     $(document).on 'click', '.js_empty_bottles', (e)->
       checkbox = $(e.currentTarget)
       checkbox.attr("checked", !checkbox.attr("checked"))
 
     $(document).on 'click', '.js_increment', (e)=>
-      @updateAmount(e, 1)
-
-    $(document).on 'click', '.js_decrement', (e)=>
-      @updateAmount(e, -1)
+      elem = $(e.currentTarget)
+      if elem.data('product') == 'aqua'
+        @updateWaterAmount(elem)
+      else
+        @updateProductAmount(elem)
 
     $(document).on 'click', '.js_order_change_step', ()=>
       @changeOrderStep()
@@ -49,7 +53,8 @@ class Order
 
   # improve!!! make through class
   @saveHtml: ->
-    $storage("prima_state_card").set($('.prima_state_card').html())
+    #$storage("prima_state_card").set($('.prima_state_card').html())
+    console.log '--------------should be saved values of products'
 
   checkAvailableTime: ()->
     $.ajax
@@ -86,6 +91,10 @@ class Order
     elem = $(e.currentTarget)
     elem.closest('.water_template').remove()
 
+  removeAccessory: (e)->
+    elem = $(e.currentTarget)
+    elem.closest('.accessory_template').remove()
+
   updateVolumesSelector: (e)->
     elem = $(e.currentTarget)
     aqua_id = parseInt(elem.val())
@@ -95,27 +104,35 @@ class Order
       dataType: "json"
       success: (data)=>
         waterLine = elem.closest('.water_template')
-        @refreshSelectTag(waterLine.find('.js-volume-select-tag'), data.volumes)
-        @actualizePrice(waterLine)
+        @refreshWaterSelectTag(waterLine.find('.js-volume-select-tag'), data.volumes)
+        @actualizeWaterPrice(waterLine)
 
-  refreshSelectTag: (htmlTag, values)->
+  refreshWaterSelectTag: (htmlTag, values)->
     html = ''
     for val in values
       html += "<option value='#{val}'>#{val.split('-')[1]}</option>"
     htmlTag.html(html)
 
-  updateAmount: (e, num)->
-    elem = $(e.currentTarget)
+  updateWaterAmount: (elem)->
+    num = elem.data('step')
     input = elem.closest('.js_amount').find('input')
     val = parseInt(input.val())
-    if num > 0
-      input.val(val + 1)
-    else
-      if val > 2
-        input.val(val - 1)
-    @actualizePrice(elem.closest('.water_template'))
+    console.log '-------------------', num
+    console.log '-------------------', val
+    if num > 0 || val > 2
+      console.log '=========================', num
+      input.val(val + num)
+    @actualizeWaterPrice(elem.closest('.water_template'))
 
-  actualizePrice: (elem)->
+  updateProductAmount: (elem)->
+    num = elem.data('step')
+    input = elem.closest('.js_amount').find('input')
+    val = parseInt(input.val())
+    if num > 0 || val > 2
+      input.val(val + num)
+    @actualizeAccessoryPrice(elem.closest('.accessory_template'))
+
+  actualizeWaterPrice: (elem)->
     elem.find('.js_price').hide()
     $.ajax
       url: "/aquas/check_price"
@@ -126,7 +143,25 @@ class Order
         amount: parseInt(elem.find('.js_amount_input').val())
       dataType: "json"
       success: (data)=>
-        elem.find('.js_price_value').html(data.price)
+        elem.find('.js_price_value').html(data.price.toFixed(2))
+        elem.find('.js_price').show()
+        if parseFloat(data.price) > 1
+          elem.find('.js_currency').show()
+        else
+          elem.find('.js_currency').hide()
+
+  actualizeAccessoryPrice: (elem)->
+    elem.find('.js_price').hide()
+    $.ajax
+      url: "/accessory/check_price"
+      type: 'GET'
+      data:
+        aqua_id: parseInt(elem.find('.js-aqua-select-tag').val())
+        volume_id: parseInt(elem.find('.js-volume-select-tag').val())
+        amount: parseInt(elem.find('.js_amount_input').val())
+      dataType: "json"
+      success: (data)=>
+        elem.find('.js_price_value').html(data.price.toFixed(2))
         elem.find('.js_price').show()
         if parseFloat(data.price) > 1
           elem.find('.js_currency').show()
@@ -150,12 +185,24 @@ class Order
     info['date'] = $('.datepicker').val()
     info['time'] = $('.js_delivery_time_selector').data('val')
     info['comment'] = $('.js_comment').val()
+    info['empty_bottles'] = $('.js_empty_bottles').val()
 
-  getProducts: ->
+  getProducts: =>
     products = {}
     product_lines = $('.products').find('.water_temlate')
+    if product_lines.length > 0
+      products['aquas'] = @getWaters(product_lines)
+
+  getWaters: (product_lines)->
+    products = []
     for line in product_lines
-      products['aqua'] = line.find('.js-aqua-select-tag').val()
+      product = {}
+      product['aqua'] = line.find('.js-aqua-select-tag').val()
+      product['volume'] = line.find('.js-volume-select-tag').val()
+      product['amount'] = line.find('.js_amount_input').val()
+      products.push(product)
+    products
+
 
 
 $(document).on 'click', '.variant', (e)->

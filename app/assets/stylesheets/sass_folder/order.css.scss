@@ -52,6 +52,32 @@
   .modal__empty_bottles{
     margin: -10px 50px 30px;
   }
+  .card_additional{
+    margin: 10px 25px 30px;
+    .additional__title{
+      font-family: 'MuseoSansCyrl';
+      font-weight: bold;
+      font-size: 16px;
+      float: left;
+    }
+    .additional__filters{
+      float: right;
+      font-family: 'MuseoSansCyrl-300';
+      font-size: 12px;
+      .filter{
+        cursor: pointer;
+        display: inline-block;
+        color: #0080bb;
+        margin-left: 15px;
+        &:hover{
+          color: #00557b;
+        }
+      }
+      .active{
+        color: #333333;
+      }
+    }
+  }
 
 }
 .order_form{

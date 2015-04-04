@@ -2,13 +2,15 @@
   .modal__header
     .close_button.js_close_button
       x
-  .card.order_step.hidden_block
+  .card.order_step
     .prima_state_card
       .modal__title
         Заказать
       .js_card_form.card
         .js_aqua_template.hidden_block
           =render 'layouts/order_position'
+        .js_accessory_template.hidden_block
+          =render 'layouts/order_accessory'
 
         .products
           =render 'layouts/order_position'
@@ -24,7 +26,19 @@
       .submit_modal__button
         %a.red_button.js_order_change_step Оформить заказ
 
-  .order.order_step
+    .card_additional
+      .additional__title
+        Может пригодиться
+      .additional__filters
+        .filter.js_all.active
+          Все
+        .filter.js_cooler
+          Кулеры
+        .filter.js_accessory
+          Аксессуары
+
+
+  .order.order_step.hidden_block
     .prima_state_order
       .modal__title
         Оформление заказа

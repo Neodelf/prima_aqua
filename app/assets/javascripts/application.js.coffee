@@ -22,8 +22,8 @@ showPhoneModal = ->
   $('.js_modal_phone').show()
 
 closeModals = ->
-  if $('.js_modal_order').is(":visible")
-    $storage("prima_state_card").set($('.prima_state_card').html())
+  #if $('.js_modal_order').is(":visible")
+  #  $storage("prima_state_card").set($('.prima_state_card').html())
   $('.js_modal_back').hide()
   $('.js_modal').hide()
 
