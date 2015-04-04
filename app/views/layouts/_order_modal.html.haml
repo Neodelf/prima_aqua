@@ -36,6 +36,11 @@
           Кулеры
         .filter.js_accessory
           Аксессуары
+      .clearfix
+
+      .js_order__products
+        - @order_coolers.each do |cooler|
+          = render 'partials/product', product: cooler
 
 
   .order.order_step.hidden_block

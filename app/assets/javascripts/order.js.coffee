@@ -84,6 +84,13 @@ class Order
     $('.js_modal_back').show()
     $('.js_modal_order').show()
 
+    $('.js_order__products').slick
+      infinite: true
+      slidesToShow: 3
+      slidesToScroll: 3
+      prevArrow: '<button type="button" class="slick-prev"><</button>'
+      nextArrow: '<button type="button" class="slick-next">></button>'
+
   addPosition: (e)->
     $('.products').append($('.js_aqua_template').html())
 

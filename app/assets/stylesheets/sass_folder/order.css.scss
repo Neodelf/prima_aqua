@@ -78,7 +78,40 @@
       }
     }
   }
-
+  .product{
+    width: 140px;
+    overflow: hidden;
+    position: relative;
+    &:hover{
+      .add_to_card{
+        display: inline-block;
+        margin: 0 auto;
+        position: absolute;
+        top: 60px;
+        left: 8px;
+      }
+    }
+    .add_to_card{
+      display: none;
+    }
+    img{
+      height: 140px;
+      width: 140px;
+    }
+  }
+  .card_additional{
+    .js_order__products{
+      text-align: center;
+      width: 535px;
+      margin: 15px auto;
+    }
+    .product__image img{
+      display: inline-block;
+    }
+    button:before{
+      color: #0080bb;
+    }
+  }
 }
 .order_form{
   margin: 10px 40px 25px;

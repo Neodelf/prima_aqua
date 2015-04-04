@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     @all_aquas ||= Aqua.includes(:volumes).select(:id, :name, :id).order(:id).all
     aqua = @all_aquas.first
     @aqua_price = OrderService.get_price(aqua.id, aqua.volumes.first.id, 2)
+    @order_coolers = Cooler.includes(:images).select(:id, :title, :price)
   end
 
 end
