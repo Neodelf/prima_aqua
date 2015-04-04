@@ -1,0 +1,6 @@
+- if item.persisted?
+  %ul
+    - item.images.each do |image|
+      %li
+        = image_tag(image.name.url(:small))
+

@@ -20,9 +20,17 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [200, 200]
   end
 
+  version :one_cooler do
+    process resize_to_fill: [100, 100]
+  end
+
+  version :one_cooler_main do
+    process resize_to_limit: [400, 400]
+  end
+
   version :for_index, :if => :is_cooler? do
     process resize_to_fill: [280, 200]
-    end
+  end
 
   version :background, :if => :is_post? do
     process resize_to_fill: [1366, 768]

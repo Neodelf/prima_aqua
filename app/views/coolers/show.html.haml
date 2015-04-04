@@ -1,0 +1,65 @@
+.cooler
+  .cooler-top_link
+    Кулеры и помпы →
+  .cooler-title
+    #{@cooler.title}
+  .cooler-line
+  .cooler-left_right
+    .cooler-left
+      .cooler-left-main_img
+        = image_tag @cooler.images.first.name.url(:one_cooler_main)
+      .cooler-left-list_imgs
+        - @cooler.images.limit(3).each do |img|
+          = image_tag img.name.url(:one_cooler)
+    .cooler-right
+      .cooler-right-price_button
+        .cooler-right-price
+          .cooler-right-price-count
+            = @cooler.price
+            %span Р
+        .cooler-right-button-wrapper
+          = link_to 'Купить', '#', class: 'cooler-right-button'
+      .coolers-right-options
+        .coolers-right-options-tag
+          = @cooler.tags.first.name
+        .coolers-right-options-item
+          = @cooler.type_cooling
+      .coolers-right-desc
+        = @cooler.description
+      .coolers-right-params_title
+        Технические характеристики
+      .coolers-right-params_table
+        .coolers-right-params_table-left
+          .coolers-right-params_table-left-item
+            Тип конструкции
+          .coolers-right-params_table-left-item
+            Тип охлаждения
+          .coolers-right-params_table-left-item
+            Нагрев
+          .coolers-right-params_table-left-item
+            Мощность нагрева
+          .coolers-right-params_table-left-item
+            Охлаждение
+          .coolers-right-params_table-left-item
+            Мощность охлаждения
+          .coolers-right-params_table-left-item
+            Габариты (ш*г*в)
+        .coolers-right-params_table-right
+          .coolers-right-params_table-right-item
+            = @cooler.type_construction
+          .coolers-right-params_table-right-item
+            = @cooler.type_cooling
+          .coolers-right-params_table-right-item
+            = @cooler.heat
+          .coolers-right-params_table-right-item
+            = @cooler.power_heat
+          .coolers-right-params_table-right-item
+            = @cooler.cooling
+          .coolers-right-params_table-right-item
+            = @cooler.power_cooling
+          .coolers-right-params_table-right-item
+            = @cooler.dimensions
+      .coolers-right-service_title
+        Обслуживание
+      .coolers-right-service_desc
+        = @cooler.service
