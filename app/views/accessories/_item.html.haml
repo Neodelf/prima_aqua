@@ -1,0 +1,12 @@
+.accessories-list-item{ class: ('for_padding' if index % 4 != 0)}
+  .accessories-list-item-img
+    = image_tag accessory.image.url(:for_index)
+  .accessories-list-item-title
+    = accessory.title
+  .accessories-list-item-price_button
+    .accessories-list-item-price
+      .accessories-list-item-price-count
+        = accessory.price
+        %span P
+    .accessories-list-item-button-wrapper
+      = link_to 'Купить', '#', class: 'accessories-list-item-button'

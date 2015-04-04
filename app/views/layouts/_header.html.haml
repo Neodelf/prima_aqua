@@ -4,11 +4,11 @@
       = image_tag 'contacts.png'
   .header__top_line
     .header__top_line__menu
-      = link_to 'События', '#'
+      = link_to 'События', '/events'
       = link_to 'Оплата', payment_path
-      = link_to 'Доставка', '#'
-      = link_to 'Контакты', '#'
-      = link_to 'Вход', '#'
+      = link_to 'Доставка', '/delivery'
+      = link_to 'Контакты', '/contacts'
+      = link_to 'Вход', '#' if false
   .header__main_line
     .header__main_line__menu
       %ul#menu
