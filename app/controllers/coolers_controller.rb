@@ -10,4 +10,8 @@ class CoolersController < ApplicationController
     end
     @tags = Tag.all.includes(:coolers).limit(4)
   end
+
+  def show
+    @cooler = Cooler.find(params[:id])
+  end
 end

@@ -70,6 +70,7 @@ ActiveAdmin.register Cooler do
     def create
       @cooler = Cooler.new(permitted_params[:cooler])
       params[:cooler][:tags].map{|tag_id| @cooler.tags << Tag.find(tag_id) unless tag_id.blank? }
+      @cooler.images.build(params[:image][:name].map{|str| {name: str} }) if params[:image].present?
 
       respond_to do |format|
         if @cooler.save
@@ -84,6 +85,8 @@ ActiveAdmin.register Cooler do
       @cooler = Cooler.find(params[:id])
       @cooler.tags.delete_all
       params[:cooler][:tags].map{|tag_id| @cooler.tags << Tag.find(tag_id) unless tag_id.blank? }
+      @cooler.images.delete_all
+      @cooler.images.build(params[:image][:name].map{|str| {name: str} }) if params[:image].present?
 
       respond_to do |format|
         if @cooler.update_attributes(permitted_params[:cooler])
@@ -94,6 +97,4 @@ ActiveAdmin.register Cooler do
       end
     end
   end
-
-
 end
