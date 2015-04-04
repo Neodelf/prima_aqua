@@ -20,15 +20,15 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [200, 200]
   end
 
-  version :one_cooler do
+  version :one_cooler, :if => :is_cooler? do
     process resize_to_fill: [100, 100]
   end
 
-  version :one_cooler_main do
+  version :one_cooler_main, :if => :is_cooler? do
     process resize_to_limit: [400, 400]
   end
 
-  version :for_index, :if => :is_cooler? do
+  version :for_index, :if => :is_product? do
     process resize_to_fill: [280, 200]
   end
 
@@ -42,6 +42,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   private
+  def is_cooler? picture
+    model.is_a? Image
+  end
 
   def is_volume? picture
     model.is_a? Volume
@@ -51,8 +54,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     ['AquaPost', 'CompanyPost'].include? model.class.name
   end
 
-  def is_cooler? picture
-    model.is_a?(Cooler) || model.is_a?(Pomp) || model.is_a?(Accessory)
+  def is_product? picture
+    model.is_a?(Pomp) || model.is_a?(Accessory)
   end
 
 end
