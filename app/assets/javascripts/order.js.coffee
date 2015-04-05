@@ -68,6 +68,52 @@ class Order
   @saveHtml: ->
     #$storage("prima_state_card").set($('.prima_state_card').html())
 
+  restoreCard: =>
+    card = JSON.parse(localStorage.getItem('prima_aqua_card'))
+    if card.info
+      @fillOrderForm(card.info)
+    if card.items
+      @restoreAquas(card.items.aquas) if card.items.aquas
+      @restoreAccessories(card.items.accessories) if card.items.accessories
+
+  restoreAquas: (aquas)=>
+    html = ''
+    products = $('.products')
+    products.html('')
+    for aqua in aquas
+      products.append($('.js_aqua_template').html())
+      product = products.find('.water_template').last()
+      product.find('.js_amount_input').val(aqua.amount)
+      product.find('.js-aqua-select-tag').val(aqua.aqua)
+      $.ajax
+        url: "/aquas/#{aqua.aqua}/volumes"
+        type: 'GET'
+        dataType: "json"
+        success: (data)=>
+          @refreshWaterSelectTag(product.find('.js-volume-select-tag'), data.volumes)
+          product.find('.js-volume-select-tag').val(aqua.volume)
+      @actualizeWaterPrice(product, aqua.aqua, aqua.volume, aqua.amount)
+
+
+  restoreAccessories: (products)=>
+    html = ''
+    for product in products
+      html = html + @productHtml(product.name, product.amount, product.price, product.id, product.step)
+    $('.products').append(html)
+
+  fillOrderForm: (info)=>
+    form = $(".js_#{info.customer_type}")
+    $('.order__customer_form ').addClass('.hidden_block')
+    form.removeClass('.hidden_block')
+    $('.variant').removeClass('.active')
+    $('div.variant[data-val="individual"]').addClass('.active')
+    form.find('#name').val(info.name)
+    form.find('#phone').val(info.phone)
+    form.find('#address').val(info.address)
+    $('#comment').val(info.comment)
+    $('.datepicker').val(info.date)
+    @checkAvailableTime()
+
   filterProducts: (type, e)->
     $('.filter_active').removeClass('filter_active')
     $(e.currentTarget).addClass('filter_active')
@@ -110,7 +156,7 @@ class Order
   showModal: =>
     $('.js_modal_back').show()
     $('.js_modal_order').show()
-    if $storage("prima_aqua_card").get() && $storage("prima_aqua_card").get().length > 1
+    if $storage("prima_aqua_card").get() && (!!$storage("prima_aqua_card").get().items || !!$storage("prima_aqua_card").get().info)
       @restoreCard()
 
     $('.js_order__products').slick
@@ -119,9 +165,6 @@ class Order
       slidesToScroll: 3
       prevArrow: '<button type="button" class="slick-prev"><</button>'
       nextArrow: '<button type="button" class="slick-next">></button>'
-
-  restoreCard: ->
-
 
   addPosition: (e)->
     $('.products').append($('.js_aqua_template').html())
@@ -148,12 +191,12 @@ class Order
 
   insertProduct: (elem)->
     attr = elem.data()
-    $('.products').append(@productHtml(attr.type, attr.title, attr.amount, attr.price, attr.id))
+    $('.products').append(@productHtml(attr.title, attr.amount, attr.price, attr.id))
 
 
-  productHtml: (type, name, amount, price, id)->
-    step = amount
-    step1 = '-' + amount
+  productHtml: (name, amount, price, id, step=false)->
+    step = amount unless step
+    step1 = '-' + step
     html = "<div class='accessory_template js_product_item' data-id=#{id}>
               <div class='accessory_name'>
                 #{name}
@@ -202,15 +245,15 @@ class Order
       input.val(val + num)
       @actualizeAccessoryPrice(elem.closest('.accessory_template'), num > 0)
 
-  actualizeWaterPrice: (elem)->
+  actualizeWaterPrice: (elem, aqua = false, volume = false, amount = false)->
     elem.find('.js_price').hide()
     $.ajax
       url: "/aquas/check_price"
       type: 'GET'
       data:
-        aqua_id: parseInt(elem.find('.js-aqua-select-tag').val())
-        volume_id: parseInt(elem.find('.js-volume-select-tag').val())
-        amount: parseInt(elem.find('.js_amount_input').val())
+        aqua_id: aqua || parseInt(elem.find('.js-aqua-select-tag').val())
+        volume_id: volume || parseInt(elem.find('.js-volume-select-tag').val())
+        amount: amount || parseInt(elem.find('.js_amount_input').val())
       dataType: "json"
       success: (data)=>
         elem.find('.js_price_value').html(data.price.toFixed(2))
@@ -240,9 +283,10 @@ class Order
     info = {}
     info['customer_type'] = $('.js_customer_type_selector').data('val')
     form = $(".js_#{info['customer_type']}")
-    info['name'] = form.find('.js_name').val()
-    info['phone'] = form.find('.js_phone').val()
-    info['address'] = form.find('.js_address').val()
+    console.log form.find('#name').val()
+    info['name'] = form.find('#name').val()
+    info['phone'] = form.find('#phone').val()
+    info['address'] = form.find('#address').val()
     info['date'] = $('.datepicker').val()
     info['time'] = $('.js_delivery_time_selector').data('val')
     info['comment'] = $('.js_comment').val()
