@@ -37,6 +37,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process quality: 60
   end
 
+  version :order_small, :if => :is_product? do
+    process resize_to_limit: [1400, 140]
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end

@@ -14,28 +14,45 @@
 #= require jquery_ujs
 #= require select2
 #= require prices
+#= require order
+#= require jquery-ui/datepicker
 
 showPhoneModal = ->
   $('.js_modal_back').show()
   $('.js_modal_phone').show()
 
 closeModals = ->
+  #if $('.js_modal_order').is(":visible")
+  #  $storage("prima_state_card").set($('.prima_state_card').html())
   $('.js_modal_back').hide()
-  $('.js_modal_phone').hide()
-  $('.js_modal_notice').hide()
+  $('.js_modal').hide()
 
 showNotice = (msg) ->
   noticeModal = $('.js_modal_notice')
   noticeModal.find('.modal__title').html(msg)
+  $('.js_modal').hide()
   noticeModal.show()
 
-$(document).on 'click', '.header__contacts', ()->
+$(document).on 'click', '.header__contacts', (e)->
+  e.preventDefault()
   showPhoneModal()
 
-$(document).on 'click', '.js_modal_back', ()->
+$(document).on 'click', '.js_modal', (e)->
+  e.stopPropagation()
+
+$(document).on 'click', '.js_modal_back', ->
+  if $('.js_modal_order').is(':visible')
+    $(document).trigger('closingOrder')
   closeModals()
 
-$(document).on 'click', '.js_close_button', ()->
+$(document).on 'click', '.modal__view', ->
+  if $('.js_modal_order').is(':visible')
+    $(document).trigger('closingOrder')
+  closeModals()
+
+$(document).on 'click', '.js_close_button', ->
+  if $('.js_modal_order').is(':visible')
+    $(document).trigger('closingOrder')
   closeModals()
 
 submitPhoneCall = (name, time, phone)->
@@ -48,14 +65,13 @@ submitPhoneCall = (name, time, phone)->
       phone: phone
       time: time
     success: (data)->
-      $('.js_modal_phone').hide()
       showNotice('Ваш заказ принят в обработку')
       setTimeout(closeModals, 2000)
     error: (xhr)->
       closeModals()
       alert 'Упс! Что-то пошло не так.'
 
-$(document).on 'click', '.js_phone_call_submit', ()->
+$(document).on 'click', '.js_phone_call_submit', ->
   phone = $('.js_phone').val()
   name = $('.js_name').val()
   time = $('.js_time').val()

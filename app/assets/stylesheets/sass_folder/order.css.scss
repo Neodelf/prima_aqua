@@ -1,0 +1,218 @@
+.modal__order{
+  min-height: 285px;
+  width: 620px;
+  padding-bottom: 20px;
+  .water_template{
+    margin: 5px auto;
+    width: 455px;
+  }
+  .aqua_select{
+    padding: 0 10px;
+    float: left;
+  }
+  .volume_select{
+    padding: 0 10px;
+    float: left;
+  }
+  .amount{
+    margin-left: 220px;
+    padding: 0 10px;
+    width: 86px;
+    input{
+      text-align: center;
+      width: 40px;
+      float: left;
+    }
+    button{
+      width: 20px;
+      float: left;
+    }
+  }
+  .price{
+    padding: 0 10px;
+    float: right;
+  }
+  .remove_button{
+    padding: 0 10px;
+    float: right;
+    color: red;
+    cursor: pointer;
+    line-height: 15px;
+    font-size: 20px;
+    font-family: monospace;
+  }
+  .submit_modal__button{
+    margin: 30px 50px;
+    text-align: right;
+    .red_button{
+      text-align: center;
+      width: 160px;
+    }
+  }
+  .modal__empty_bottles{
+    margin: -10px 50px 30px;
+  }
+  .card_additional{
+    margin: 10px 25px 30px;
+    .additional__title{
+      font-family: 'MuseoSansCyrl';
+      font-weight: bold;
+      font-size: 16px;
+      float: left;
+    }
+    .additional__filters{
+      float: right;
+      font-family: 'MuseoSansCyrl-300';
+      font-size: 12px;
+      .filter{
+        cursor: pointer;
+        display: inline-block;
+        color: #0080bb;
+        margin-left: 15px;
+        &:hover{
+          color: #00557b;
+        }
+      }
+      .filter_active{
+        color: #333333;
+      }
+    }
+  }
+  .product{
+    width: 140px;
+    overflow: hidden;
+    position: relative;
+    &:hover{
+      .add_to_card{
+        display: inline-block;
+        margin: 0 auto;
+        position: absolute;
+        top: 60px;
+        left: 8px;
+      }
+    }
+    .add_to_card{
+      display: none;
+    }
+    img{
+      height: 140px;
+      width: 140px;
+    }
+  }
+  .card_additional{
+    .js_order__products{
+      text-align: center;
+      width: 535px;
+      margin: 15px auto;
+    }
+    .product__image img{
+      display: inline-block;
+    }
+    button:before{
+      color: #0080bb;
+    }
+  }
+  .accessory_template{
+    margin: 5px auto;
+    width: 455px;
+  }
+  .accessory_type{
+    padding: 0 10px;
+    float: left;
+    display: inline-block;
+    input{
+      width: 80px;
+    }
+  }
+  .accessory_name{
+    padding: 0 10px;
+    width: 210px;
+    float: left;
+    display: inline-block;
+    input{
+      width: 80px;
+    }
+  }
+}
+.order_form{
+  margin: 10px 40px 25px;
+  label{
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 16px;
+    float: left;
+    line-height: 35px;
+    min-width: 215px;
+    .hint{
+      color: rgb(161, 161, 161);
+    }
+  }
+  .name{
+    label{
+      line-height: 18px;
+    }
+  }
+  .delivery_comment{
+    label{
+      line-height: 18px;
+    }
+  }
+  input{
+    width: 300px;
+    line-height: 35px;
+    font-size: 18px;
+    padding: 0 10px;
+  }
+  input.datepicker{
+    width: 150px;
+  }
+  textarea{
+    width: 308px;
+    padding: 7px;
+    font-size: 16px;
+  }
+  .order_input{
+    margin: 7px 0;
+  }
+  .back_button{
+    float: left;
+  }
+  .submit_button{
+    float: right;
+    opacity: 0.7;
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+.custome_selector{
+  border: 1px solid gray;
+  border-radius: 3px;
+  color: rgb(161, 161, 161);
+  line-height: 35px;
+  font-family: 'MuseoSansCyrl-300';
+  font-size: 16px;
+  display: inline-block;
+  .variant{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 10px;
+    &:hover{
+      color: #333;
+    }
+  }
+  .first_variant{
+    border-right: 1px solid gray;
+  }
+  .second_variant{
+    margin-left: -4px;
+  }
+  .active{
+    color: #333;
+    background-color: rgb(213, 237, 255);
+  }
+  .variant.disabled{
+    background-color: #DADADA;
+    cursor: default;
+    color: #333;
+  }
+}

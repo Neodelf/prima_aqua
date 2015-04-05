@@ -5,4 +5,12 @@ class Cooler < ActiveRecord::Base
   def has_tag?(name)
     tags.where(name: name).any?
   end
+
+  def image_url(version)
+    images.first.name_url(version)
+  end
+
+  def type
+    'Кулер'
+  end
 end

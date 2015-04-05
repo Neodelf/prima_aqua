@@ -1,0 +1,68 @@
+.order_form
+  .order__customer
+    .order__customer_type_selector
+      .custome_selector.js_customer_type_selector{ data: { val: :individual }}
+        .variant.first_variant.active.js_variant{ data: { val: :individual }}
+          Я частное лицо
+        .variant.second_variant.js_variant{ data: { val: :company }}
+          Компания
+    .order__customer_form.js_individual
+      .order_input.name.js_name
+        %label
+          Как вас зовут
+          %br
+          %span.hint или № договора
+        = text_field_tag :name
+        .clearfix
+      .order_input.phone.js_phone
+        %label Телефон
+        = text_field_tag :phone
+        .clearfix
+      .order_input.address.js_address
+        %label Адрес
+        = text_field_tag :address
+        .clearfix
+    .order__customer_form.js_company.hidden_block
+      .order_input.name.js_name
+        %label
+          Название компании
+          %br
+          %span.hint или № договора
+        = text_field_tag :name
+        .clearfix
+      .order_input.phone.js_phone
+        %label Телефон
+        = text_field_tag :phone
+        .clearfix
+      .order_input.address.js_address
+        %label Адрес
+        = text_field_tag :address
+        .clearfix
+
+  .order__register_form
+    -# should be added with profile
+
+  .order__delivery_form
+    .order_input.delivery_date
+      %label Дата доставки
+      %input.datepicker
+        .clearfix
+    .order_input.delivery_time
+      .custome_selector.js_delivery_time_selector{ data: { val: :morning }}
+        .variant.first_variant.active.disabled.js_morning{ data: { val: :morning }}
+          с 9 до 17 часов
+        .variant.second_variant.disabled.js_evening{ data: { val: :evening }}
+          с 17 до 22 часов
+    .order_input.delivery_comment
+      %label
+        Дополнительная
+        %br
+        информация
+      = text_area_tag(:comment, '', size: '26x5', class: 'js_comment')
+
+  .order__buttons
+    .back_button
+      %a.with_blue_button.js_order_change_step Назад к заказу
+    .submit_button
+      %a.red_button.js_order_back Подтвердить
+    .clearfix

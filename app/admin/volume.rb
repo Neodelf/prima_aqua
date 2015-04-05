@@ -1,6 +1,6 @@
 ActiveAdmin.register Volume do
 
-  permit_params :value, :aqua_id, :image
+  permit_params :value, :aqua_id, :image, :deposit
 
   form partial: 'admin/volumes/form'
 
@@ -9,6 +9,7 @@ ActiveAdmin.register Volume do
     column :id
     column :aqua
     column :value
+    column :deposit
     column :image
     actions
   end
@@ -17,6 +18,7 @@ ActiveAdmin.register Volume do
     attributes_table do
       row :aqua
       row :value
+      row :deposit
       row :image do
         image_tag volume.image_url(:small)
       end

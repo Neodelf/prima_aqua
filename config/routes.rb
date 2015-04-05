@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   resources :delivery_pages, only: :show
-  resources :aquas, only: :show
+  resources :aquas, only: :show do
+    resources :volumes, only: :index
+    collection do 
+      get 'check_price' => 'aquas#check_price'
+    end
+  end
   resources :prices, only: :index
   resources :coolers, only: [:index, :show]
   resources :pomps, only: :index
@@ -11,6 +16,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
+  get 'check_time' => 'welcome#check_time'
   get 'payment' => 'welcome#payment'
   get 'about' => 'welcome#about'
   get 'events' => 'welcome#events'

@@ -1,0 +1,52 @@
+.modal_window.modal__order.js_modal.js_modal_order
+  .modal__header
+    .close_button.js_close_button
+      x
+  .card.order_step
+    .prima_state_card
+      .modal__title
+        Заказать
+      .js_card_form.card
+        .js_aqua_template.hidden_block
+          =render 'layouts/order_position'
+        .js_accessory_template.hidden_block
+          =render 'layouts/order_accessory'
+
+        .products
+          =render 'layouts/order_position'
+
+      .modal__button
+        %a.blue_button.js_add_position Добавить позицию
+
+      .modal__empty_bottles{ title: 'Наши бутыли сделаны из поликорбоната. Он намного лучше и дороже обычного пластика, поэтому мы просим вас оставлять залог'}
+        %input.js_empty_bottles{ type: 'checkbox', checked: false }
+        %label
+          У меня достаточно пустых бутылей
+
+      .submit_modal__button
+        %a.red_button.js_order_change_step Оформить заказ
+
+    .card_additional
+      .additional__title
+        Может пригодиться
+      .additional__filters
+        .filter.js_all.filter_active
+          Все
+        .filter.js_cooler
+          Кулеры
+        .filter.js_accessory
+          Аксессуары
+      .clearfix
+
+      .js_order__products
+        - @order_coolers.each do |cooler|
+          = render 'partials/product', product: cooler
+
+
+  .order.order_step.hidden_block
+    .prima_state_order
+      .modal__title
+        Оформление заказа
+      .js_order_form.order
+        =render 'layouts/order_form'
+  .clearfix

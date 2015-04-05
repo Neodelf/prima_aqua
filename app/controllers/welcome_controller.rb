@@ -23,4 +23,8 @@ class WelcomeController < ApplicationController
   def events_show
     @event = Article.find(params[:id])
   end
+
+  def check_time
+    render json: OrderService.check_date(params[:data])
+  end
 end

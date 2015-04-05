@@ -1,0 +1,20 @@
+.water_template.js_product_item
+  .aqua_select.js_aqua_select
+    - water_options = options_for_select(@all_aquas.map{ |aqua| [aqua.name, "#{aqua.id}-#{aqua.name}"] })
+    = select_tag( :auqa, water_options, { class: 'js-aqua-select-tag'})
+  .volume_select.js_volume_select
+    - volume_options = options_for_select(@all_aquas.first.volumes.map{ |v| [v.value, "#{v.id}-#{v.value }"]})
+    = select_tag( :volume, volume_options, {class: 'js-volume-select-tag'})
+  .amount.js_amount
+    %button.js_increment{data: { step: -1, product: 'aqua' }}
+      = '-'
+    %input{ value: 2, disabled: true, class: 'js_amount_input' }
+    %button.js_increment{data: { step: 1, product: 'aqua' }}
+      +
+  .remove_button.js_remove_position
+    x
+  .price.js_price
+    %span.js_price_value= @aqua_price
+    %span.js_currency{ class: ('hidden_block' if @aqua_price.to_i == 0)}
+      Р.
+  .clearfix

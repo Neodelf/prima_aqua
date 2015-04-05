@@ -1,0 +1,18 @@
+.accessory_template
+  .accessory_type
+    %input{ value: '', disabled: true, class: 'js_accessory_type' }
+  .accessory_name
+    %input{ value: '', disabled: true, class: 'js_accessory_name' }
+  .amount.js_amount
+    %button.js_increment{data: { step: -1, product: 'accessory' }}
+      = '-'
+    %input{ value: 2, disabled: true, class: 'js_accessory_amount' }
+    %button.js_increment{data: { step: 1, product: 'accessory' }}
+      +
+  .price.js_price
+    %span.js_price_value
+    %span.js_currency
+      Р.
+  .remove_button.js_remove_accessory
+    x
+  .clearfix
