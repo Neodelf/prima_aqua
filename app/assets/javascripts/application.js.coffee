@@ -37,16 +37,22 @@ $(document).on 'click', '.header__contacts', (e)->
   e.preventDefault()
   showPhoneModal()
 
-$(document).on 'click', '.js_modal_back', ()->
-  closeModals()
-
 $(document).on 'click', '.js_modal', (e)->
   e.stopPropagation()
 
-$(document).on 'click', '.modal__view', (e)->
+$(document).on 'click', '.js_modal_back', ->
+  if $('.js_modal_order').is(':visible')
+    $(document).trigger('closingOrder')
   closeModals()
 
-$(document).on 'click', '.js_close_button', ()->
+$(document).on 'click', '.modal__view', ->
+  if $('.js_modal_order').is(':visible')
+    $(document).trigger('closingOrder')
+  closeModals()
+
+$(document).on 'click', '.js_close_button', ->
+  if $('.js_modal_order').is(':visible')
+    $(document).trigger('closingOrder')
   closeModals()
 
 submitPhoneCall = (name, time, phone)->

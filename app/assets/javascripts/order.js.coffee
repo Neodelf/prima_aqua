@@ -107,9 +107,11 @@ class Order
     elem.hasClass('first_variant') && $('.js_company').is(':visible') ||
     elem.hasClass('second_variant') && $('.js_individual').is(':visible')
 
-  showModal: ->
+  showModal: =>
     $('.js_modal_back').show()
     $('.js_modal_order').show()
+    if $storage("prima_aqua_card").get() && $storage("prima_aqua_card").get().length > 1
+      @restoreCard()
 
     $('.js_order__products').slick
       infinite: true
@@ -117,6 +119,9 @@ class Order
       slidesToScroll: 3
       prevArrow: '<button type="button" class="slick-prev"><</button>'
       nextArrow: '<button type="button" class="slick-next">></button>'
+
+  restoreCard: ->
+
 
   addPosition: (e)->
     $('.products').append($('.js_aqua_template').html())
@@ -242,23 +247,50 @@ class Order
     info['time'] = $('.js_delivery_time_selector').data('val')
     info['comment'] = $('.js_comment').val()
     info['empty_bottles'] = $('.js_empty_bottles').val()
+    info
 
   getProducts: =>
     products = {}
-    product_lines = $('.products').find('.water_temlate')
-    if product_lines.length > 0
-      products['aquas'] = @getWaters(product_lines)
+    water_lines = $('.products').find('.water_template')
+    accessory_lines = $('.products').find('.accessory_template')
+    if water_lines.length > 0
+      products['aquas'] = @getWaters(water_lines)
+    if accessory_lines.length > 0
+      products['accessories'] = @getAcessories(accessory_lines)
+    products
 
   getWaters: (product_lines)->
     products = []
-    for line in product_lines
+    for elem in product_lines
+      line = $(elem)
       product = {}
       product['aqua'] = line.find('.js-aqua-select-tag').val()
       product['volume'] = line.find('.js-volume-select-tag').val()
       product['amount'] = line.find('.js_amount_input').val()
+      product['price'] = parseFloat(line.find('.js_price_value').text())
       products.push(product)
     products
 
+  getAcessories: (product_lines)->
+    products = []
+    for elem in product_lines
+      line = $(elem)
+      product = {}
+      product['name'] = line.find('.accessory_name').text().trim()
+      product['amount'] = line.find('.js_accessory_amount').val()
+      product['price'] = line.find('.js_price').data('price')
+      product['info'] = line.data('id')
+      product['step'] = line.find('.js_increment').last().data('step')
+      products.push(product)
+    products
+
+  getOrderInfo: =>
+    orderItems = @getProducts()
+    info = @getInfo()
+    { items: orderItems, info: info }
+
+  cacheData: =>
+    $storage("prima_aqua_card").set(@getOrderInfo())
 
 
 $(document).on 'click', '.variant', (e)->
@@ -283,5 +315,8 @@ $ ->
     onSelect: (date) ->
       order.checkAvailableTime()
   )
-  $(document).on 'click', '.red_button', ->
+  $(document).on 'click', '.js_order_button', ->
     order.showModal()
+
+  $(document).on 'closingOrder', ->
+    order.cacheData()
