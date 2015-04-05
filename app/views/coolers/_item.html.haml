@@ -1,6 +1,6 @@
 .coolers-list-item{ class: ('for_padding' if index % 3 != 0 || index == 0)}
   .coolers-list-item-img
-    = image_tag cooler.image.url(:for_index)
+    = image_tag cooler.images.first.name_url(:for_index)
     - if cooler.has_tag?('Выгодно')
       .coolers-list-item-img-tag
         Выгодно

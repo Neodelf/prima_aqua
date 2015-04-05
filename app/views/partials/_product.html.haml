@@ -1,4 +1,4 @@
-.product
+.product{ class: "js#{product.class.to_s}" }
   .product__image
     = image_tag product.image_url(:order_small)
   .product__title
@@ -6,4 +6,5 @@
   .product__price
     = product.price
   .add_to_card
-    %a.blue_button.js_add_product Добавить в заказ
+    %a.blue_button.js_add_product{data: {type: product.type, id: "#{product.id}-#{product.class.to_s}", amount: 1, title: product.title, price: product.price }}
+      Добавить в заказ

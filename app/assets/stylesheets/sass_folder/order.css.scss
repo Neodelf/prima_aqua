@@ -4,7 +4,7 @@
   padding-bottom: 20px;
   .water_template{
     margin: 5px auto;
-    width: 435px;
+    width: 455px;
   }
   .aqua_select{
     padding: 0 10px;
@@ -15,7 +15,7 @@
     float: left;
   }
   .amount{
-    float: left;
+    margin-left: 220px;
     padding: 0 10px;
     width: 86px;
     input{
@@ -30,7 +30,7 @@
   }
   .price{
     padding: 0 10px;
-    float: left;
+    float: right;
   }
   .remove_button{
     padding: 0 10px;
@@ -73,7 +73,7 @@
           color: #00557b;
         }
       }
-      .active{
+      .filter_active{
         color: #333333;
       }
     }
@@ -110,6 +110,27 @@
     }
     button:before{
       color: #0080bb;
+    }
+  }
+  .accessory_template{
+    margin: 5px auto;
+    width: 455px;
+  }
+  .accessory_type{
+    padding: 0 10px;
+    float: left;
+    display: inline-block;
+    input{
+      width: 80px;
+    }
+  }
+  .accessory_name{
+    padding: 0 10px;
+    width: 210px;
+    float: left;
+    display: inline-block;
+    input{
+      width: 80px;
     }
   }
 }

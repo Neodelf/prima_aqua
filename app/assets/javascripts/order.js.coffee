@@ -49,12 +49,39 @@ class Order
       if  !elem.hasClass('disabled') && @isShoudProcessed(elem)
         $('.order__customer_form').toggleClass('hidden_block')
 
+    $(document).on 'click', '.js_add_product', (e)=>
+      elem = $(e.currentTarget)
+      @insertProduct(elem)
+
+    $(document).on 'click', '.js_all', (e)=>
+      @filterProducts('all', e)
+
+    $(document).on 'click', '.js_cooler', (e)=>
+      @filterProducts('cooler', e)
+
+    $(document).on 'click', '.js_accessory', (e)=>
+      @filterProducts('accessory', e)
+
 
 
   # improve!!! make through class
   @saveHtml: ->
     #$storage("prima_state_card").set($('.prima_state_card').html())
-    console.log '--------------should be saved values of products'
+
+  filterProducts: (type, e)->
+    $('.filter_active').removeClass('filter_active')
+    $(e.currentTarget).addClass('filter_active')
+    carousel = $('.js_order__products')
+    klass = false
+    klass = if type == 'cooler'
+              '.jsCooler'
+            else if type == 'accessory'
+              '.jsAccessory'
+    if klass
+      $('.js_order__products').slick('slickFilter', klass)
+    else
+      $('.js_order__products').slick('slickUnfilter')
+
 
   checkAvailableTime: ()->
     $.ajax
@@ -114,6 +141,40 @@ class Order
         @refreshWaterSelectTag(waterLine.find('.js-volume-select-tag'), data.volumes)
         @actualizeWaterPrice(waterLine)
 
+  insertProduct: (elem)->
+    attr = elem.data()
+    $('.products').append(@productHtml(attr.type, attr.title, attr.amount, attr.price, attr.id))
+
+
+  productHtml: (type, name, amount, price, id)->
+    step = amount
+    step1 = '-' + amount
+    html = "<div class='accessory_template js_product_item' data-id=#{id}>
+              <div class='accessory_name'>
+                #{name}
+              </div>
+              <div class='amount js_amount'>
+                <button class='js_increment' data-product='accessory' data-step=#{step1}>
+                  -
+                </button>
+                <input value='#{amount}' disabled='disabled' class='js_accessory_amount'/>
+                <button class='js_increment' data-product='accessory' data-step='#{step}'>
+                  +
+                </button>
+              </div>
+              <div class='remove_button js_remove_accessory'>
+                x
+              </div>
+              <div class='price js_price' data-price='#{price}'>
+                <span class='js_price_value'>#{price.toFixed(2)}</span>
+                <span class='js_currency'>
+                  Р.
+                </span>
+              </div>
+              <div class='clearfix'></div>
+            </div>"
+    html
+
   refreshWaterSelectTag: (htmlTag, values)->
     html = ''
     for val in values
@@ -124,20 +185,17 @@ class Order
     num = elem.data('step')
     input = elem.closest('.js_amount').find('input')
     val = parseInt(input.val())
-    console.log '-------------------', num
-    console.log '-------------------', val
     if num > 0 || val > 2
-      console.log '=========================', num
       input.val(val + num)
-    @actualizeWaterPrice(elem.closest('.water_template'))
+      @actualizeWaterPrice(elem.closest('.water_template'))
 
   updateProductAmount: (elem)->
     num = elem.data('step')
     input = elem.closest('.js_amount').find('input')
     val = parseInt(input.val())
-    if num > 0 || val > 2
+    if num > 0 || (val + num) > 0
       input.val(val + num)
-    @actualizeAccessoryPrice(elem.closest('.accessory_template'))
+      @actualizeAccessoryPrice(elem.closest('.accessory_template'), num > 0)
 
   actualizeWaterPrice: (elem)->
     elem.find('.js_price').hide()
@@ -157,23 +215,14 @@ class Order
         else
           elem.find('.js_currency').hide()
 
-  actualizeAccessoryPrice: (elem)->
-    elem.find('.js_price').hide()
-    $.ajax
-      url: "/accessory/check_price"
-      type: 'GET'
-      data:
-        aqua_id: parseInt(elem.find('.js-aqua-select-tag').val())
-        volume_id: parseInt(elem.find('.js-volume-select-tag').val())
-        amount: parseInt(elem.find('.js_amount_input').val())
-      dataType: "json"
-      success: (data)=>
-        elem.find('.js_price_value').html(data.price.toFixed(2))
-        elem.find('.js_price').show()
-        if parseFloat(data.price) > 1
-          elem.find('.js_currency').show()
-        else
-          elem.find('.js_currency').hide()
+  actualizeAccessoryPrice: (elem, isPositive)->
+    priceBlock = elem.find('.js_price')
+    priceBlock.hide()
+    price = parseFloat(priceBlock.data('price'))
+    oldcost = parseFloat(elem.find('.js_price_value').html())
+    newCost = if isPositive then oldcost+price else oldcost-price
+    elem.find('.js_price_value').html(newCost.toFixed(2))
+    priceBlock.show()
 
   makingOrderToSubmit: =>
     data =  {
@@ -215,7 +264,6 @@ class Order
 $(document).on 'click', '.variant', (e)->
   elem = $(e.currentTarget)
   unless  elem.hasClass('disabled') || elem.hasClass('active')
-    console.log '---------should change view--------------'
     selector = elem.closest('.custome_selector')
     selector.find('.variant').toggleClass('active')
     selector.data('val', elem.data('val'))

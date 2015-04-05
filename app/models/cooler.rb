@@ -9,4 +9,8 @@ class Cooler < ActiveRecord::Base
   def image_url(version)
     images.first.name_url(version)
   end
+
+  def type
+    'Кулер'
+  end
 end
