@@ -1,11 +1,14 @@
 .cooler{}
 .cooler-top_link{
-  font-family: 'MuseoSansCyrl';
+  text-align: center;
+  a {font-family: 'MuseoSansCyrl';
   color:  #0080bb;
   font-size: 15px;
   line-height: 30px;
   text-align: center;
   margin-bottom: 11px;
+    text-decoration: none;
+  }
 }
 .cooler-title{
   font-family: 'MuseoSansCyrl';

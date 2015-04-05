@@ -154,7 +154,7 @@
       display: block;
     }
     .coolers-list-item-title {
-      color: #0080bb;
+      a {color: #0080bb;}
     }
   }
 }
@@ -172,11 +172,12 @@
   font-size: 12px;
 }
 .coolers-list-item-title{
-  font-family: 'MuseoSansCyrl';
+  a {font-family: 'MuseoSansCyrl';
   font-size: 18px;
   line-height: 30px;
   text-align: left;
   color: black;
+  text-decoration: none;}
 }
 .coolers-list-item-options{
 

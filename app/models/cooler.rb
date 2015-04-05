@@ -7,7 +7,7 @@ class Cooler < ActiveRecord::Base
   end
 
   def image_url(version)
-    images.first.name_url(version)
+    images.first.name.url(version) if images.first.present?
   end
 
   def type
