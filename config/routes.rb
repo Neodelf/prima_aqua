@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
   resources :prices, only: :index
-  resources :coolers, only: [:index, :show]
+  resources :coolers, only: [:index, :show] do
+    collection do
+      get 'get_image'
+    end
+  end
   resources :pomps, only: :index
   resources :accessories, only: :index
   resources :phone_calls, only: :create
