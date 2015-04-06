@@ -15,4 +15,8 @@ class CoolersController < ApplicationController
   def show
     @cooler = Cooler.find(params[:id])
   end
+
+  def get_image
+    @image = Image.find(params[:id])
+  end
 end

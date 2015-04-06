@@ -40,11 +40,24 @@
   margin-bottom: 10px;
 }
 .cooler-left-list_imgs{
+  height: 125px;
   text-align: center;
+  img {
+    //display: inline-block;
+    cursor: pointer;
+  }
 }
 .cooler-left-list_imgs-item{
+  height: 125px;
+  vertical-align: top;
+  display: inline-block;
+
+
   width: 100px;
-  float: left;
+  img {
+    //display: inline-block;
+    cursor: pointer;
+  }
 }
 .cooler-right{
   width: 760px;
