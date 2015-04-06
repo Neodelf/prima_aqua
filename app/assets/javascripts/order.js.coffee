@@ -62,11 +62,21 @@ class Order
     $(document).on 'click', '.js_accessory', (e)=>
       @filterProducts('accessory', e)
 
-
+    $(document).on 'click', '.js_order_back', =>
+      @createOrder()
 
   # improve!!! make through class
   @saveHtml: ->
     #$storage("prima_state_card").set($('.prima_state_card').html())
+
+  createOrder: =>
+    $.ajax
+      url: "/orders"
+      type: 'POST'
+      dataType: "json"
+      data: @getOrderInfo()
+      success: (data)=>
+
 
   restoreCard: =>
     card = JSON.parse(localStorage.getItem('prima_aqua_card'))
@@ -90,15 +100,16 @@ class Order
         type: 'GET'
         dataType: "json"
         success: (data)=>
-          @refreshWaterSelectTag(product.find('.js-volume-select-tag'), data.volumes)
-          product.find('.js-volume-select-tag').val(aqua.volume)
-      @actualizeWaterPrice(product, aqua.aqua, aqua.volume, aqua.amount)
+          @refreshWaterSelectTag(product.find('.js-volume-select-tag'), data.volumes, aqua.volume)
+          product.find('.js_price_value').text(aqua.price.toFixed(2))
+          #product.find('.js-volume-select-tag').val(aqua.volume)
+      #@actualizeWaterPrice(product, aqua.aqua, aqua.volume, aqua.amount)
 
 
   restoreAccessories: (products)=>
     html = ''
     for product in products
-      html = html + @productHtml(product.name, product.amount, product.price, product.id, product.step)
+      html = html + @productHtml(product.name, product.amount, product.price, product.info, product.step)
     $('.products').append(html)
 
   fillOrderForm: (info)=>
@@ -195,6 +206,7 @@ class Order
 
 
   productHtml: (name, amount, price, id, step=false)->
+    cost = if step then parseInt(amount)/parseInt(step) * parseFloat(price) else price
     step = amount unless step
     step1 = '-' + step
     html = "<div class='accessory_template js_product_item' data-id=#{id}>
@@ -214,7 +226,7 @@ class Order
                 x
               </div>
               <div class='price js_price' data-price='#{price}'>
-                <span class='js_price_value'>#{price.toFixed(2)}</span>
+                <span class='js_price_value'>#{cost.toFixed(2)}</span>
                 <span class='js_currency'>
                   Р.
                 </span>
@@ -223,11 +235,13 @@ class Order
             </div>"
     html
 
-  refreshWaterSelectTag: (htmlTag, values)->
+  refreshWaterSelectTag: (htmlTag, values, value = false)->
     html = ''
     for val in values
       html += "<option value='#{val}'>#{val.split('-')[1]}</option>"
     htmlTag.html(html)
+    if value
+      htmlTag.val(value)
 
   updateWaterAmount: (elem)->
     num = elem.data('step')
@@ -272,12 +286,6 @@ class Order
     elem.find('.js_price_value').html(newCost.toFixed(2))
     priceBlock.show()
 
-  makingOrderToSubmit: =>
-    data =  {
-              products: @getProducts(),
-              info: @getInfo()
-            }
-    data
 
   getInfo: ->
     info = {}

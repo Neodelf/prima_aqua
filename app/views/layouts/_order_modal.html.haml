@@ -26,21 +26,22 @@
       .submit_modal__button
         %a.red_button.js_order_change_step Оформить заказ
 
-    .card_additional
-      .additional__title
-        Может пригодиться
-      .additional__filters
-        .filter.js_all.filter_active
-          Все
-        .filter.js_cooler
-          Кулеры
-        .filter.js_accessory
-          Аксессуары
-      .clearfix
+    - if @order_coolers.present?
+      .card_additional
+        .additional__title
+          Может пригодиться
+        .additional__filters
+          .filter.js_all.filter_active
+            Все
+          .filter.js_cooler
+            Кулеры
+          .filter.js_accessory
+            Аксессуары
+        .clearfix
 
-      .js_order__products
-        - @order_coolers.each do |cooler|
-          = render 'partials/product', product: cooler
+        .js_order__products
+          - @order_coolers.each do |cooler|
+            = render 'partials/product', product: cooler
 
 
   .order.order_step.hidden_block
