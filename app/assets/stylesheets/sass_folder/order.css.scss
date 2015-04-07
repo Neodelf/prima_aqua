@@ -133,6 +133,64 @@
       width: 80px;
     }
   }
+  .rubles{
+    color: #acacac;
+    display: inline-block;
+    border-bottom: 1px solid;
+    line-height: 0;
+    width: 8px;
+    height: 3px;
+    font-size: 13.0pt;
+    box-sizing: border-box;
+  }
+  .prima_state_thanks{
+    margin: 0 auto;
+    width: 82%;
+    .bill_product{
+      padding: 10px 0;
+      border-bottom: 1px solid #acacac;
+    }
+    .bill_product_name{
+      float: left;
+      display: inline-block;
+    }
+    .bill_product_cost{
+      float: right;
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+    }
+    .bill_product_amount{
+      float: right;
+      text-align: center;
+      display: inline-block;
+      width: 100px;
+    }
+    .order_total{
+      margin-top: 15px;
+    }
+    .couriers_info{
+      width: 200px;
+      float: left;
+      color: #acacac;
+      img{
+        max-width: 200px;
+      }
+    }
+    .price_info{
+      width: 300px;
+      float: right;
+      text-align: right;
+    }
+    .price_info__delivery{
+      color: #acacac;
+    }
+    .finish_order_button{
+      margin-top: 15px;
+      float: right;
+      text-align: center;
+    }
+  }
 }
 .order_form{
   margin: 10px 40px 25px;

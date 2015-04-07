@@ -26,25 +26,26 @@ class OrderService
     end
     result
   end
-  #"aquas"=>{"0"=>{"aqua"=>"1-Prima Aqua", "volume"=>"5-19.0", "amount"=>"3", "price"=>"480"}}
-  #"accessories"=>{"0"=>{"name"=>"Cooler 2", "amount"=>"2", "price"=>"123", "info"=>"2-Cooler", "step"=>"1"}, "1"=>{"name"=>"Cooler 2", "amount"=>"3", "price"=>"123", "info"=>"2-Cooler", "step"=>"1"}}
   def self.get_order_json(params)
     ar = []
-    cost = 0
-    params['items']['aquas'].each_pair do |_, aqua|
+    cost = 0.0
+    prefix = ''
+    params['aquas'].each_pair do |_, aqua|
       name = Aqua.where(id: aqua['aqua']).pluck(:name).first
       volume = Volume.find(aqua['volume'])
       amount = aqua['amount'].to_i
-      prc = amount*volume.value
-
+      prc = get_price(aqua['aqua'], aqua['volume'], amount)
+      prc.to_f > 1 ? (cost += prc.to_f) : (prefix = 'Доворная')
       ar.push({ name: "#{name} #{volume.value}", amount: amount, cost: prc })
     end
-    params['items']['accessories'].each_pair do |_, product|
+    params['accessories'].each_pair do |_, product|
       id, klass = product['info'].split('-')
       pr = klass.classify.constantize.find(id)
       amount = product['amount'].to_i
-      ar.push({ name: pr.name, amount: amount, price: amount*pr.price })
+      prc = amount*pr.price
+      cost += prc
+      ar.push({ name: pr.title, amount: amount, cost: prc })
     end
-    {items: ar, }
+    { items: ar, total: prefix + cost.to_s }
   end
 end

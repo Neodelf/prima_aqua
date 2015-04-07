@@ -6,7 +6,7 @@
     .prima_state_card
       .modal__title
         Заказать
-      .js_card_form.card
+      .js_card_form
         .js_aqua_template.hidden_block
           =render 'layouts/order_position'
         .js_accessory_template.hidden_block
@@ -50,4 +50,28 @@
         Оформление заказа
       .js_order_form.order
         =render 'layouts/order_form'
+
+  .thanks.hidden_block
+    .prima_state_thanks
+      .modal__title
+        Ваш заказ оформлен
+      .order_result.js_bill
+      .clearfix
+      .order_total
+        .couriers_info
+          Курьеры принимают
+          %br
+          банковские карты
+          %br
+          = image_tag image_url('cards.png')
+        .price_info
+          .price_info__total
+            %b Итого:
+            %span.js_total_price
+            %span.rubles P
+            %span.total_deposit
+          .price_info__delivery
+            Доставка - бесплатно
+        .finish_order_button
+          %a.red_button.js_order_finish Отлично!
   .clearfix
