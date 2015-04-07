@@ -17,6 +17,13 @@ Rails.application.routes.draw do
   resources :pomps, only: :index
   resources :accessories, only: :index
   resources :phone_calls, only: :create
+  resources :products do
+    collection do
+      get 'cups'
+      get 'plates'
+      get 'mixers'
+    end
+  end
   root 'welcome#home'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
