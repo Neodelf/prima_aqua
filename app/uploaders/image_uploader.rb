@@ -59,7 +59,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def is_product? picture
-    model.is_a?(Image) || model.is_a?(Pomp) || model.is_a?(Accessory)
+    model.is_a?(Image) || model.is_a?(Pomp) || model.is_a?(Accessory) || model.is_a?(Product)
   end
 
 end

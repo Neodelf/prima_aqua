@@ -54,7 +54,7 @@ ActiveAdmin.register Cooler do
       row :seo_description
       row :seo_keywords
       row :image do
-        image_tag cooler.image.url
+        image_tag cooler.images.first.name.url if cooler.images.first.present?
       end
     end
     active_admin_comments

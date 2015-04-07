@@ -1,16 +1,16 @@
 .cooler
   .cooler-top_link
-    Кулеры и помпы →
+    = link_to 'Кулеры и помпы →', coolers_path
   .cooler-title
     #{@cooler.title}
   .cooler-line
   .cooler-left_right
     .cooler-left
       .cooler-left-main_img
-        = image_tag @cooler.images.first.name.url(:one_cooler_main)
+        = render 'coolers/main_img', image: @cooler.images.first
       .cooler-left-list_imgs
         - @cooler.images.limit(3).each do |img|
-          = image_tag img.name.url(:one_cooler)
+          = image_tag img.name.url(:one_cooler), id: "image_#{img.id}"
     .cooler-right
       .cooler-right-price_button
         .cooler-right-price
@@ -63,3 +63,17 @@
         Обслуживание
       .coolers-right-service_desc
         = @cooler.service
+
+:javascript
+  $("[id^='image_']").click(function(){
+    var id = $(this).attr('id').split('_').pop();
+    $.ajax({
+        url: '/coolers/get_image?id='+id,
+        method: "GET"
+    }).success(function(data) {
+
+    }).error(function(data) {
+        console.log(data.data);
+    });
+
+  })
