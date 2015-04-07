@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :pomps, only: :index
   resources :accessories, only: :index
   resources :phone_calls, only: :create
+  resources :orders, only: :create
   resources :products do
     collection do
       get 'cups'
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   get 'events' => 'welcome#events'
   get 'events/show/:id' => 'welcome#events_show', as: 'events/show'
 
+  root 'welcome#home'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users

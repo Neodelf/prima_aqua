@@ -55,6 +55,11 @@ $(document).on 'click', '.js_close_button', ->
     $(document).trigger('closingOrder')
   closeModals()
 
+$(document).on 'click', '.js_order_finish', ->
+  if $('.js_modal_order').is(':visible')
+    $(document).trigger('closingOrder')
+  closeModals()
+
 submitPhoneCall = (name, time, phone)->
   $.ajax
     url: '/phone_calls'
