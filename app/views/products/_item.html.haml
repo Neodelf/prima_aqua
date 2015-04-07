@@ -1,0 +1,12 @@
+.pomps-list-item{ class: ('for_padding' if index % 4 != 0)}
+  .pomps-list-item-img
+    = image_tag item.image.url(:for_index)
+  .pomps-list-item-title
+    = item.title
+  .pomps-list-item-price_button
+    .pomps-list-item-price
+      .pomps-list-item-price-count
+        = item.price
+        %span P
+    .pomps-list-item-button-wrapper
+      = link_to 'Купить', '#', class: 'pomps-list-item-button'

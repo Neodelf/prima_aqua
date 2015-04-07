@@ -25,4 +25,8 @@ module ApplicationHelper
       'center_text_align'
     end
   end
+
+  def active_products?(current)
+    current == params[:action]
+  end
 end
