@@ -268,7 +268,7 @@ class Order
     num = elem.data('step')
     input = elem.closest('.js_amount').find('input')
     val = parseInt(input.val())
-    if num > 0 || val > 2
+    if num > 0 || val > 1
       input.val(val + num)
       @actualizeWaterPrice(elem.closest('.water_template'))
 
