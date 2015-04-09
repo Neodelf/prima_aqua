@@ -9,9 +9,9 @@
     = link_to cooler.title, cooler_path(cooler)
   .coolers-list-item-options
     .coolers-list-item-options-tag
-      = cooler.tags.first.name
+      = link_to cooler.tags.first.name, coolers_path(tag: cooler.tags.first.name)
     .coolers-list-item-options-item
-      = cooler.type_cooling
+      = link_to cooler.type_cooling, coolers_path(type_cooling: cooler.type_cooling)
   .coolers-list-item-price_button
     .coolers-list-item-price
       .coolers-list-item-price-count
