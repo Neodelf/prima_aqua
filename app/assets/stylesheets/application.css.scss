@@ -49,8 +49,6 @@ a{cursor: pointer}
   width: 100%;
   max-width: 1300px;
   height: 115px;
-  background: image_url('logo.png') no-repeat;
-  background-position: 0 20px;
   margin: 0 auto;
   position: relative;
 }
@@ -141,6 +139,12 @@ a{cursor: pointer}
 
   }
 
+}
+.main_header{
+  .header__logo{
+    float: left;
+    margin-top: 20px;
+  }
 }
 .header__contacts{
   position: absolute;
