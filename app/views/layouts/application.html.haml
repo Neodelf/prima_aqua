@@ -23,3 +23,6 @@
         = render 'layouts/phone_modal'
         = render 'layouts/modal_notice'
         = render 'layouts/order_modal'
+        - unless current_user
+          = render 'devise/sessions/new'
+          -#= render 'devise/registrations/new'

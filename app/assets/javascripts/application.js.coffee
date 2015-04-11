@@ -33,9 +33,16 @@ showNotice = (msg) ->
   $('.js_modal').hide()
   noticeModal.show()
 
+showSignIn = ->
+  $('.js_modal_back').show()
+  $('.js_login').show()
+
 $(document).on 'click', '.header__contacts', (e)->
   e.preventDefault()
   showPhoneModal()
+
+$(document).on 'click', '.js_sign_in', ->
+  showSignIn
 
 $(document).on 'click', '.js_modal', (e)->
   e.stopPropagation()
