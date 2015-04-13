@@ -1,16 +1,22 @@
-.login.js_login
-  %h2 Вход
-  = form_for(:user, url: session_path(:user)) do |f|
-    .field
-      = f.label :email
-      %br
-      = f.email_field :email, autofocus: true
-    .field
-      = f.label :password
-      %br
-      = f.password_field :password, autocomplete: 'off'
-    .actions
-      = f.submit 'Войти'
+.modal_window.modal__login.js_modal.js_login
+  .modal__header
+    .close_button.js_close_button
+      x
+  .modal__title
+    Вход
 
-  = link_to 'Регистрация', '#'
-  = link_to 'забыли пароль?', new_password_path(:user)
+  = form_for(:user, url: session_path(:user)) do |f|
+    .input_set
+      = f.label 'E-mail'
+      = f.email_field :email, autofocus: true
+      .clearfix
+    .input_set
+      = f.label 'Пароль'
+      = f.password_field :password, autocomplete: 'off'
+      .clearfix
+    .actions
+      = f.submit 'Войти', class: 'red_button'
+      .clearfix
+  .help_links
+    = link_to 'Регистрация', '#', class: 'left_floated_link js_register'
+    = link_to 'забыли пароль?', new_password_path(:user), class: 'right_floated_link'

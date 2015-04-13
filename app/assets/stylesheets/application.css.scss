@@ -178,6 +178,23 @@ a.red_button{
     text-decoration: none;
   }
 }
+.red_button{
+  display: inline-block;
+  border: 0;
+  border-radius: 3px;
+  background-color:  #eb0028;
+  width: 110px;
+  height: 35px;
+  line-height: 35px;
+  font-family: 'MuseoSansCyrl-700';
+  font-size: 16px;
+  padding: 0 15px;
+  color: white;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
 a.blue_button{
   display: inline-block;
   border-radius: 3px;
@@ -409,6 +426,42 @@ a.with_blue_button{
     width: 560px;
     height: 285px;
   }
+  .modal__login{
+    width: 560px;
+    height: 285px;
+  }
+  .modal__registration{
+    width: 600px;
+    min-height: 285px;
+    form{
+      padding-bottom: 10px;
+    }
+    .actions{
+      margin-bottom: 20px;
+    }
+    .red_button{
+      margin-top: 5px;
+      width: 200px;
+    }
+    .input_set{
+      input{
+        line-height: 35px;
+      }
+      label.with_hint{
+        line-height: 20px;
+      }
+      label{
+        font-family: 'MuseoSansCyrl-300';
+        font-size: 16px;
+        float: left;
+        line-height: 35px;
+        width: 160px;
+        .hint{
+          color: rgb(161, 161, 161);
+        }
+      }
+    }
+  }
   .modal__header{
     height: 25px;
     text-align: right;
@@ -438,10 +491,27 @@ a.with_blue_button{
       line-height: 22px;
     }
     input{
+      border: 1px solid #989899;
       width: 305px;
       line-height: 22px;
       float: right;
       padding: 0 10px;
+    }
+  }
+  .actions{
+    text-align: center;
+    input{
+      cursor: pointer;
+    }
+  }
+  .help_links{
+    width: 82%;
+    margin: 15px auto;
+    .left_floated_link{
+      float: left;
+    }
+    .right_floated_link{
+      float: right;
     }
   }
   .modal__button{
