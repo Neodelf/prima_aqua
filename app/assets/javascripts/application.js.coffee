@@ -71,6 +71,22 @@ submitPhoneCall = (name, time, phone)->
       closeModals()
       alert 'Упс! Что-то пошло не так.'
 
+submitService = (name, address, phone)->
+  $.ajax
+    url: '/services'
+    type: 'POST'
+    dataType: "json"
+    data:
+      name: name
+      phone: phone
+      address: address
+    success: (data)->
+      showNotice('Ваш заказ принят в обработку')
+      setTimeout(closeModals, 2000)
+    error: (xhr)->
+      closeModals()
+      alert 'Упс! Что-то пошло не так.'
+
 $(document).on 'click', '.js_phone_call_submit', ->
   phone = $('.js_phone').val()
   name = $('.js_name').val()
@@ -86,3 +102,25 @@ $(document).on 'click', '.js_phone_call_submit', ->
     unless phone
       $('.js_phone').closest(".input_set").addClass('modal_error')
 
+$(document).on 'click', 'div.service-body_imgs-img > div > a', (e)->
+  e.preventDefault()
+  showServiceModal()
+
+showServiceModal = ->
+  $('.js_modal_back').show()
+  $('.js_modal_service').show()
+
+$(document).on 'click', '.js_service_submit', ->
+  phone = $('.js_service_phone').val()
+  name = $('.js_service_name').val()
+  address = $('.js_service_address').val()
+  if phone && name && address
+    submitService(name, address, phone)
+  else
+    $('.modal_error').removeClass('modal_error')
+    unless address
+      $('.js_service_address').closest(".input_set").addClass('modal_error')
+    unless name
+      $('.js_service_name').closest(".input_set").addClass('modal_error')
+    unless phone
+      $('.js_service_phone').closest(".input_set").addClass('modal_error')

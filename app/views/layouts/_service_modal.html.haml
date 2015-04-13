@@ -1,0 +1,27 @@
+.modal_window.modal__service.js_modal.js_modal_service
+  .modal__header
+    .close_button.js_close_button
+      x
+  .modal__title
+    Обслуживание кулеров
+  .modal__undertitle
+    Мы свяжемся с Вами для уточнения деталей
+  %form.js_service_form
+    .input_set
+      %label
+        Как вас зовут
+      %input.js_service_name
+      .clearfix
+    .input_set
+      %label
+        Телефон
+      %input.js_service_phone{ placeholder: '8 905 279 61 96' }
+      .clearfix
+    .input_set
+      %label
+        Адрес
+      %input.js_service_address
+      .clearfix
+
+  .modal__button
+    %a.red_button.js_service_submit Заказать обработку

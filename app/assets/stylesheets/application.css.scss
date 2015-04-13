@@ -404,6 +404,10 @@ a.with_blue_button{
     width: 560px;
     height: 285px;
   }
+  .modal__service {
+    width: 560px;
+    height: 330px;
+  }
   .modal__header{
     height: 25px;
     text-align: right;
@@ -422,6 +426,14 @@ a.with_blue_button{
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
+  }
+  .modal__undertitle{
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 16px;
+    text-align: center;
+    float: left;
+    line-height: 22px;
+    margin: 0px 50px 24px;
   }
   .input_set{
     margin: 10px 50px;
