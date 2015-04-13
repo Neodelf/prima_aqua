@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
   get 'events' => 'welcome#events'
   get 'events/show/:id' => 'welcome#events_show', as: 'events/show'
+  get 'service' => 'welcome#service'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

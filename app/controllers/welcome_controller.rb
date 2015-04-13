@@ -27,4 +27,7 @@ class WelcomeController < ApplicationController
   def check_time
     render json: OrderService.check_date(params[:data])
   end
+
+  def service
+  end
 end
