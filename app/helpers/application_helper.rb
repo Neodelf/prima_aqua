@@ -29,4 +29,12 @@ module ApplicationHelper
   def active_products?(current)
     current == params[:action]
   end
+  def products_list(order)
+    json = JSON.parse(order.order_info.gsub('=>', ':'))
+    json['aquas'].values.map do |val|
+      name = val['aqua'].split('-').last
+      volume = val['volume'].split('-').last
+      "#{name} - #{volume}, кол-во: #{val['amount']}, цена: #{val['price']} руб."
+    end.join('<br/>')
+  end
 end

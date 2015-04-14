@@ -2,6 +2,18 @@
   = render 'profile_menu'
 
   %h2 Мои заказы
+  %table
+    %tr
+      %th
+        Код заказа
+      %th
+        Дата доставки
+      %th
+        Время доставки
+      %th
+        Комментарий
+      %th
+        Товары
 
-  - @orders.each do |order|
-    = render 'order', order: order
+    - @orders.each do |order|
+      = render 'order', order: order
