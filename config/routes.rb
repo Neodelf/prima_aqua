@@ -30,7 +30,6 @@ Rails.application.routes.draw do
   end
   get 'profile' => 'welcome#profile'
   get 'profile/orders' => 'welcome#orders'
-  get 'profile/edit' => 'users/registrations#edit'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
   get 'check_time' => 'welcome#check_time'

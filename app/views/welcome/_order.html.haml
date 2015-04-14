@@ -1,0 +1,12 @@
+.order__item
+  %tr
+    %td
+      = order.id
+    %td
+      = order.delivery_date
+    %td
+      = order.delivery_time
+    %td
+      = order.customer_comment
+    %td
+      = products_list(order).html_safe

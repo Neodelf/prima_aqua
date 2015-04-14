@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def create
     @order = Order.new
+    @order.user = current_user if current_user
     @order.order_info = params['items'].to_s
     @order.customer_type = params['info']['customer_type']
     @order.customer_name = params['info']['name']

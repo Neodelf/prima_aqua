@@ -1,0 +1,43 @@
+.profile{
+  margin: 30px auto;
+  width: 90%;
+  text-align: center;
+  .profile_menu{
+    text-align: center;
+    font-family: 'MuseoSansCyrl';
+    font-size: 18px;
+    margin: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #989899;
+    a{
+      padding: 10px;
+      color: #0080bb;
+    }
+  }
+  table{
+    margin: 10px auto;
+  }
+  form{
+    font-size: 16px;
+    font-family: 'MuseoSansCyrl';
+    margin: 20px;
+    .field{
+      margin: 5px 0;
+    }
+    label{
+      width: 160px;
+      display: inline-block;
+      text-align: left;
+      line-height: 35px;
+    }
+    input{
+      width: 300px;
+      line-height: 35px;
+      padding: 0 10px;
+    }
+    input.red_button{
+      margin-top: 15px;
+      width: 150px;
+    }
+  }
+}
