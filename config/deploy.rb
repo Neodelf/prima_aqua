@@ -26,11 +26,6 @@ task :copy_config_secrets, roles => :app do
   prod_config = "#{shared_path}/config/secrets.yml"
   run "cp #{prod_config} #{release_path}/config/secrets.yml"
 end
-after "deploy:update_code", :create_custome_symlink
-desc 'Make symlink for additional prima-aqua files'
-task :create_custome_symlink do
-  run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
-end
 
 # В rails 3 по умолчанию включена функция assets pipelining,
 # которая позволяет значительно уменьшить размер статических
