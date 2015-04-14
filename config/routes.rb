@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
+
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :delivery_pages, only: :show
   resources :aquas, only: :show do
     resources :volumes, only: :index
@@ -25,6 +27,9 @@ Rails.application.routes.draw do
       get 'mixers'
     end
   end
+  get 'profile' => 'welcome#profile'
+  get 'profile/orders' => 'welcome#orders'
+  get 'profile/edit' => 'users/registrations#edit'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
   get 'check_time' => 'welcome#check_time'
@@ -36,7 +41,6 @@ Rails.application.routes.draw do
   root 'welcome#home'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

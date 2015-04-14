@@ -11,7 +11,11 @@
       = link_to 'Оплата', payment_path
       = link_to 'Доставка', '/delivery'
       = link_to 'Контакты', '/contacts'
-      = link_to 'Вход', '#', class: 'js_sign_in'
+      - if current_user
+        = link_to 'Профиль', '/profile'
+        = link_to 'Выход', destroy_user_session_path, method: :delete
+      - else
+        = link_to 'Вход', '#', class: 'js_sign_in'
   .header__main_line
     .header__main_line__menu
       %ul#menu
