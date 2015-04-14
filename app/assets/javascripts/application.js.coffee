@@ -37,12 +37,20 @@ showSignIn = ->
   $('.js_modal_back').show()
   $('.js_login').show()
 
+showRegistration = ->
+  $('.js_modal_back').show()
+  $('.js_registration_modal').show()
+
 $(document).on 'click', '.header__contacts', (e)->
   e.preventDefault()
   showPhoneModal()
 
 $(document).on 'click', '.js_sign_in', ->
-  showSignIn
+  showSignIn()
+
+$(document).on 'click', '.js_register', ->
+  closeModals()
+  showRegistration()
 
 $(document).on 'click', '.js_modal', (e)->
   e.stopPropagation()

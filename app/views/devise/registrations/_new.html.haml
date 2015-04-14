@@ -1,0 +1,37 @@
+.modal_window.modal__registration.js_modal.js_registration_modal
+  .modal__header
+    .close_button.js_close_button
+      x
+  .modal__title
+    Зарегистрироваться
+  = form_for(:user, url: registration_path(:user)) do |f|
+    .input_set
+      %label.with_hint
+        Как вас зовут
+        %br
+        %span.hint или № договора
+      = f.text_field :name
+      .clearfix
+    .input_set
+      = f.label 'Телефон'
+      = f.phone_field :phone
+      .clearfix
+    .input_set
+      = f.label 'Адрес'
+      = f.text_field :address
+      .clearfix
+    .input_set
+      = f.label 'E-mail'
+      = f.email_field :email
+      .clearfix
+    .input_set
+      = f.label 'Пароль'
+      = f.password_field :password, autocomplete: 'off'
+      .clearfix
+    .input_set
+      = f.label 'Повторите пароль'
+      = f.password_field :password_confirmation, autocomplete: 'off'
+      .clearfix
+    .actions
+      = f.submit 'Зарегистрироваться', class: 'red_button'
+      .clearfix

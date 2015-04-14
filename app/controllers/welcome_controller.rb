@@ -5,6 +5,18 @@ class WelcomeController < ApplicationController
 
   def payment; end
 
+  def profile
+    redirect_to root_path unless current_user
+  end
+
+  def orders
+    if current_user
+      @orders = current_user.orders
+    else
+      redirect_to root_path
+    end
+  end
+
   def about
     @posts = CompanyPost.all
   end
