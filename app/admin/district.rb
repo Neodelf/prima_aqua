@@ -2,7 +2,7 @@ ActiveAdmin.register District do
   permit_params :name, :popup, :str
   form do |f|
     f.semantic_errors
-    [:name, :str].each do |param|
+    [:name, :str, :lat, :lon].each do |param|
       inputs "#{param.capitalize}" do
         input param, label: false
       end

@@ -29,7 +29,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :for_index, :if => :is_product? do
-    process resize_to_fill: [280, 200]
+    process resize_to_limit: [280, 200]
   end
 
   version :background, :if => :is_post? do
