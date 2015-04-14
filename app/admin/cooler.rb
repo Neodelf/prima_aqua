@@ -83,10 +83,15 @@ ActiveAdmin.register Cooler do
 
     def update
       @cooler = Cooler.find(params[:id])
-      @cooler.tags.delete_all
-      params[:cooler][:tags].map{|tag_id| @cooler.tags << Tag.find(tag_id) unless tag_id.blank? }
-      @cooler.images.delete_all
-      @cooler.images.build(params[:image][:name].map{|str| {name: str} }) if params[:image].present?
+      if params[:cooler][:tags].present?
+        @cooler.tags.delete_all
+        params[:cooler][:tags].map{|tag_id| @cooler.tags << Tag.find(tag_id) unless tag_id.blank? }
+      end
+
+      if params[:image][:name].present?
+        @cooler.images.delete_all
+        @cooler.images.build(params[:image][:name].map{|str| {name: str} }) if params[:image].present?
+      end
 
       respond_to do |format|
         if @cooler.update_attributes(permitted_params[:cooler])

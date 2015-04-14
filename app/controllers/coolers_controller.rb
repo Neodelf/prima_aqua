@@ -13,7 +13,11 @@ class CoolersController < ApplicationController
                else
                  Cooler.all
                end
-    @coolers = @coolers.to_a.sort_by { |cooler| cooler.has_tag?('Выгодно') ? 0 : 1}
+    @coolers = if params[:order] == 'price'
+                 @coolers.order(:price)
+               else
+                 @coolers.to_a.sort_by { |cooler| cooler.has_tag?('Выгодно') ? 0 : 1}
+               end
     @tags = Tag.all.includes(:coolers).limit(4)
   end
 
