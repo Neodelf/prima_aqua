@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
 
   def orders
     if current_user
-      @orders = current_user.orders
+      @orders = current_user.orders.order(created_at: :desc)
     else
       redirect_to root_path
     end

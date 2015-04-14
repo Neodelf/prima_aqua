@@ -1,0 +1,7 @@
+.profile
+  = render 'profile_menu'
+
+  %h2 Мои заказы
+
+  - @orders.each do |order|
+    = render 'order', order: order
