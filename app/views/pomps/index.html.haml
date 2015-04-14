@@ -10,7 +10,7 @@
     //.pomps-filters-left-item{class: ('active' if link_active?('настольные'))}
     //  = link_to 'Настольные', pomps_path(type_construction: 'настольные')
     .pomps-filters-right
-      Сортировать по цене
+      = link_to 'Сортировать по цене', pomps_path(order: 'price')
   .pomps-list
     - @pomps.each_with_index do |pomp, index|
       = render 'pomps/item', pomp: pomp, index: index
