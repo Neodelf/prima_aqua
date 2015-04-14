@@ -26,4 +26,26 @@ class OrderService
     end
     result
   end
+  def self.get_order_json(params)
+    ar = []
+    cost = 0.0
+    prefix = ''
+    params['aquas'].each_pair do |_, aqua|
+      name = Aqua.where(id: aqua['aqua']).pluck(:name).first
+      volume = Volume.find(aqua['volume'])
+      amount = aqua['amount'].to_i
+      prc = get_price(aqua['aqua'], aqua['volume'], amount)
+      prc.to_f > 1 ? (cost += prc.to_f) : (prefix = 'Доворная')
+      ar.push({ name: "#{name} #{volume.value}", amount: amount, cost: prc })
+    end
+    params['accessories'].each_pair do |_, product|
+      id, klass = product['info'].split('-')
+      pr = klass.classify.constantize.find(id)
+      amount = product['amount'].to_i
+      prc = amount*pr.price
+      cost += prc
+      ar.push({ name: pr.title, amount: amount, cost: prc })
+    end
+    { items: ar, total: prefix + cost.to_s }
+  end
 end

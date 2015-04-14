@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :accessories, only: :index
   resources :phone_calls, only: :create
   resources :services, only: :create
+  resources :orders, only: :create
   resources :products do
     collection do
       get 'cups'
@@ -25,7 +26,6 @@ Rails.application.routes.draw do
       get 'mixers'
     end
   end
-  root 'welcome#home'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
   get 'check_time' => 'welcome#check_time'
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'events/show/:id' => 'welcome#events_show', as: 'events/show'
   get 'service' => 'welcome#service'
 
+  root 'welcome#home'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users

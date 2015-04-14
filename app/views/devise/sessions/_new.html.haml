@@ -1,0 +1,16 @@
+.login.js_login
+  %h2 Вход
+  = form_for(:user, url: session_path(:user)) do |f|
+    .field
+      = f.label :email
+      %br
+      = f.email_field :email, autofocus: true
+    .field
+      = f.label :password
+      %br
+      = f.password_field :password, autocomplete: 'off'
+    .actions
+      = f.submit 'Войти'
+
+  = link_to 'Регистрация', '#'
+  = link_to 'забыли пароль?', new_password_path(:user)
