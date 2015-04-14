@@ -5,6 +5,5 @@ class PompsController < ApplicationController
                    else
                      Pomp.order(:id)
                    end
-    @tags = Tag.includes(:coolers).limit(4)
   end
 end
