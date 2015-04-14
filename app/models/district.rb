@@ -13,10 +13,14 @@ class District < ActiveRecord::Base
   private
   def set_coord
     if self.lat.blank? && self.lon.blank?
-      url = "http://geocode-maps.yandex.ru/1.x/?format=json&geocode=#{self.name}&ll=59.936952,30.327541&spn=3,3"
+      url = "http://geocode-maps.yandex.ru/1.x/?format=json&geocode=#{d.name.split.join('+')}&ll=30.327541,59.936952&spn=2,2&rspn=1"
       response = JSON.parse(Net::HTTP.get_response(URI.parse(URI.encode(url))).body)
-      self.lon, self.lat = response['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos'].split
-      self.save
+      d.lon, d.lat = if response['response']['GeoObjectCollection']['featureMember'].present?
+                       response['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos'].split
+                     else
+                       [0,0]
+                     end
+      d.save
     end
   end
 end

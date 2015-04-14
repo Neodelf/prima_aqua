@@ -144,6 +144,10 @@
     line-height: 22px;
     text-align: left;
   }
+  a{
+    color: #ffffff;
+    text-decoration: none;
+  }
 }
 .coolers-list-item{
   .coolers-list-item-button-wrapper{
@@ -164,7 +168,7 @@
 .coolers-list-item-img-tag{
   z-index: 2;
   position: absolute;
-  bottom: 0px;
+  bottom: 5px;
   padding: 4px;
   background-color: #38B448;
   font-weight: bold;
@@ -184,19 +188,25 @@
 }
 .coolers-list-item-options-tag{
   font-family: 'MuseoSansCyrl';
-  color: #a5a5a5;
   font-size: 14px;
   line-height: 20px;
   text-align: left;
   float: left;
   margin-right: 11px;
+  a{
+    color: #a5a5a5;
+    text-decoration: none;
+  }
 }
 .coolers-list-item-options-item{
   font-family: 'MuseoSansCyrl';
-  color: #a5a5a5;
   font-size: 14px;
   line-height: 20px;
   text-align: left;
+  a{
+    color: #a5a5a5;
+    text-decoration: none;
+  }
 }
 .coolers-list-item-price_button{
   font-family: 'MuseoSansCyrl';

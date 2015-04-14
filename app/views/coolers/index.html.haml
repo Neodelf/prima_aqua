@@ -24,7 +24,7 @@
             - @tags.each do |tag|
               .coolers-list-item-zero-list-item
                 .coolers-list-item-zero-list-item-text
-                  = tag.name
+                  = link_to tag.name, coolers_path(tag: tag.name)
                   %span (#{tag.coolers.count})
       - elsif index == 5
         .coolers-list-item-service.for_padding
