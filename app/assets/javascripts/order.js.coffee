@@ -65,16 +65,22 @@ class Order
     $(document).on 'click', '.js_order_back', =>
       @createOrder()
 
+    $(document).on 'change', '.js_order_register_flag', ->
+      $('.js_order__register_form').toggleClass('hidden_block')
+
   # improve!!! make through class
   @saveHtml: ->
     #$storage("prima_state_card").set($('.prima_state_card').html())
 
   createOrder: =>
+    infoData = @getOrderInfo()
+    infoData['email'] = $('.datepicker').val()
+    infoData['password'] = $('.js_delivery_time_selector').data('val')
     $.ajax
       url: "/orders"
       type: 'POST'
       dataType: "json"
-      data: @getOrderInfo()
+      data: infoData
       success: (data)=>
         localStorage.removeItem('prima_aqua_card')
         list = $('.js_bill')
@@ -319,7 +325,8 @@ class Order
     info['date'] = $('.datepicker').val()
     info['time'] = $('.js_delivery_time_selector').data('val')
     info['comment'] = $('.js_comment').val()
-    info['empty_bottles'] = $('.js_empty_bottles').val()
+    info['empty_bottles'] = $('.js_empty_bottles').is(':checked')
+    info['register_flag'] = $('.js_order_register_flag').is(':checked')
     info
 
   getProducts: =>

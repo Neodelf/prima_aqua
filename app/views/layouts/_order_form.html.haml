@@ -1,46 +1,59 @@
 .order_form
   .order__customer
     .order__customer_type_selector
-      .custome_selector.js_customer_type_selector{ data: { val: :individual }}
-        .variant.first_variant.active.js_variant{ data: { val: :individual }}
+      .custome_selector.js_customer_type_selector{ data: { val: (current_user.try(:customer_type) || :individual) }}
+        .variant.first_variant.js_variant{ data: { val: :individual }, class: ('active' unless current_user.try(:company?)) }
           Я частное лицо
-        .variant.second_variant.js_variant{ data: { val: :company }}
+        .variant.second_variant.js_variant{ data: { val: :company }, class: ('active' if current_user.try(:company?)) }
           Компания
-    .order__customer_form.js_individual
+    .order__customer_form.js_individual{ class: ('hidden_block' if current_user.try(:company?)) }
       .order_input.name.js_name
         %label
           Как вас зовут
           %br
           %span.hint или № договора
-        = text_field_tag :name
+        = text_field_tag :name, (current_user.try(:name) if current_user.try(:individual?))
         .clearfix
       .order_input.phone.js_phone
         %label Телефон
-        = text_field_tag :phone
+        = phone_field_tag :phone, (current_user.try(:phone) if current_user.try(:individual?))
         .clearfix
       .order_input.address.js_address
         %label Адрес
-        = text_field_tag :address
+        = text_field_tag :address, (current_user.try(:address) if current_user.try(:individual?))
         .clearfix
-    .order__customer_form.js_company.hidden_block
+    .order__customer_form.js_company{ class: ('hidden_block' unless current_user.try(:company?)) }
       .order_input.name.js_name
         %label
           Название компании
           %br
           %span.hint или № договора
-        = text_field_tag :name
+        = text_field_tag :name, (current_user.try(:name) if current_user.try(:company?))
         .clearfix
       .order_input.phone.js_phone
         %label Телефон
-        = text_field_tag :phone
+        = phone_field_tag :phone, (current_user.try(:phone) if current_user.try(:company?))
         .clearfix
       .order_input.address.js_address
         %label Адрес
-        = text_field_tag :address
+        = text_field_tag :address, (current_user.try(:address) if current_user.try(:company?))
         .clearfix
-
-  .order__register_form
-    -# should be added with profile
+  - unless current_user
+    .order__register_form
+      .order_input.register_flag
+        = check_box_tag 'test', nil, false, class: 'js_order_register_flag'
+        %label Зарегистрироваться и больше ни когда не вводить контакты
+      .js_order__register_form.hidden_block
+        .order_input.email.js_phone
+          %label
+            E-mail
+          = email_field_tag :email
+          .clearfix
+        .order_input.password.js_address
+          %label Пароль
+          = password_field_tag :password
+          .clearfix
+      .clearfix
 
   .order__delivery_form
     .order_input.delivery_date
