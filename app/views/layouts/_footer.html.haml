@@ -13,15 +13,15 @@
         = link_to 'Кулеры и помпы', coolers_path
         = link_to 'Сопутствующие товары', cups_products_path
         = link_to 'Обслуживание', service_path
-        = link_to 'Вопросы и ответы', '#'
+        -#= link_to 'Вопросы и ответы', '#'
       .links_column
         -@all_delivery_pages.each do |page|
           = link_to page.title, page
       .links_column
         = link_to 'О компании', about_path
         = link_to 'Контакты', '/contacts'
-        = link_to 'Партнеры', '#'
-        = link_to 'Сотрудничество', '#'
+        -#= link_to 'Партнеры', '#'
+        -#= link_to 'Сотрудничество', '#'
     .footer__main__info
       .info_column
         = image_tag image_url('car.jpg')
