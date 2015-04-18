@@ -6,5 +6,5 @@
   .product__price
     = product.price
   .add_to_card
-    %a.blue_button.js_add_product{data: {type: product.type, id: "#{product.id}-#{product.class.to_s}", amount: 1, title: product.title, price: product.price }}
+    %a.blue_button.js_add_product{data: {id: "#{product.id}-#{product.class.to_s}", amount: 1, title: product.title, price: product.price }}
       Добавить в заказ

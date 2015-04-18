@@ -62,6 +62,9 @@ class Order
     $(document).on 'click', '.js_accessory', (e)=>
       @filterProducts('accessory', e)
 
+    $(document).on 'click', '.js_product', (e)=>
+      @filterProducts('product', e)
+
     $(document).on 'click', '.js_order_back', =>
       @createOrder()
 
@@ -161,6 +164,8 @@ class Order
               '.jsCooler'
             else if type == 'accessory'
               '.jsAccessory'
+            else if type == 'product'
+              '.jsProduct'
     if klass
       $('.js_order__products').slick('slickFilter', klass)
     else
