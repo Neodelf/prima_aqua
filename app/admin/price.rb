@@ -5,7 +5,7 @@ ActiveAdmin.register Price do
     f.inputs do
       f.input :aqua_id, label: 'Aqua', as: :select, collection: Aqua.all.map{|a| ["#{a.name}", a.id]}
       f.input :value
-      f.input :volume_id, label: 'Volume', as: :select, collection: option_groups_from_collection_for_select(Aqua.all, :volumes, :name, :id, :value)
+      f.input :volume_id, label: 'Volume', as: :select, collection: option_groups_from_collection_for_select(Aqua.all, :volumes, :name, :id, :value, @price.volume_id)
       f.input :start_count
       f.input :end_count
       f.actions
