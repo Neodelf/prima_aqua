@@ -26,7 +26,7 @@
       .submit_modal__button
         %a.red_button.js_order_change_step Оформить заказ
 
-    - if @order_coolers.present?
+    - if @items.present?
       .card_additional
         .additional__title
           Может пригодиться
@@ -37,10 +37,12 @@
             Кулеры
           .filter.js_accessory
             Аксессуары
+          .filter.js_product
+            Сопут. тов.
         .clearfix
 
         .js_order__products
-          - @order_coolers.each do |cooler|
+          - @items.shuffle.each do |cooler|
             = render 'partials/product', product: cooler
 
 

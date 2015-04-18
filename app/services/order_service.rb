@@ -11,7 +11,7 @@ class OrderService
   end
 
   def self.check_date(date)
-    dt = Date.parse(date)
+    dt = date.present? ? Date.parse(date) : Date.today
     setting = OrderSetting.first
     result = []
     puts setting.disabled_day?(dt) || setting.disabled_date?(dt)
