@@ -41,11 +41,18 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [140, 140]
   end
 
+  version :medium, :if => :is_promo? do
+    process resize_to_limit: [900, 900]
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end
 
   private
+  def is_promo? picture
+    model.is_a? Article
+  end
   def is_cooler? picture
     model.is_a? Image
   end
