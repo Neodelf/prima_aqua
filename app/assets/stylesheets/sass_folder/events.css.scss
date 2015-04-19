@@ -8,8 +8,9 @@
 }
 .events-filters{
   margin: 0 auto 28px;
-  width: 292px;
+  width: 340px;
   overflow: hidden;
+  text-align: center;
 }
 .events-filters-item{
   font-family: 'MuseoSansCyrl';
@@ -17,7 +18,7 @@
   font-size: 15px;
   line-height: 30px;
   text-align: left;
-  float: left;
+  display: inline-block;
   margin-right: 14px;
   margin-left: 14px;
   a{

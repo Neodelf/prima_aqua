@@ -152,14 +152,41 @@ a{cursor: pointer}
   top: 50px;
   right: 0;
 }
+.header__actions.slick-slider {
+  margin-bottom: 16px;
+}
 .header__actions{
   background-color:  #f1f1f1;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 40px;
+  .slick-slide{
+    margin-left: 40px;
+  }
   .action__line{
     width: 100%;
     max-width: 1300px;
+    line-height: 40px;
+    text-align: center;
+    a{
+      color: #0080bb;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  .slick-prev{
+    left: 27px;
+    &:before {
+      color: #0080bb;
+    }
+  }
+  .slick-next{
+    right: 27px;
+    &:before{
+      color: #0080bb;
+    }
   }
 }
 a.red_button{

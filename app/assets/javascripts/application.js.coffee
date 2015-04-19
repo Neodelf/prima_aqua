@@ -144,3 +144,13 @@ $(document).on 'click', '.js_service_submit', ->
       $('.js_service_name').closest(".input_set").addClass('modal_error')
     unless phone
       $('.js_service_phone').closest(".input_set").addClass('modal_error')
+
+$ ->
+  $('.header__actions').slick({
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true
+    prevArrow: '<button type="button" class="slick-prev"><</button>'
+    nextArrow: '<button type="button" class="slick-next">></button>'
+  });
