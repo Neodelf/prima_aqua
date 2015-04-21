@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-  after_create :mail
+  after_commit :mail, on: :create
 
   private
   def mail
