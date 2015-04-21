@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %p
+      Тип заказчика: #{@product.customer_type}
+      %br/
+      Имя/№ Договора: #{@product.customer_name}
+      %br/
+      Телефон: #{@product.customer_phone}
+      %br/
+      Адрес: #{@product.delivery_address}
+      %br/
+      Дата: #{@product.delivery_date}
+      %br/
+      Время: #{@product.delivery_time}
+      %br/
+      Комментарий: #{@product.customer_comment}
+      %br/
+      Депозит: #{@product.customer_deposit}
+      %br/
+
+      %table
+        %tr
+          %th
+            Название
+          %th
+            Кол-во
+          %th
+            Цена
+        - @ar.each do |item|
+          %tr
+            %td=item[:name]
+            %td=item[:amount]
+            %td=item[:cost]
