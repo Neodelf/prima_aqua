@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     @aqua_price = OrderService.get_price(aqua.id, aqua.volumes.first.id, 2)
     @items = Cooler.includes(:images).select(:id, :title, :price).first(10)
     @items += Accessory.select(:id, :title, :price, :image).first(10)
+    @items += Product.select(:id, :title, :price, :image).first(10)
     @actions = Article.where(type: 'promotion').all
   end
 
