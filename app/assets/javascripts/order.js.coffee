@@ -75,37 +75,50 @@ class Order
   @saveHtml: ->
     #$storage("prima_state_card").set($('.prima_state_card').html())
 
+  validateForm: (info) =>
+    msg = []
+    flag = Object.keys(info['items']).length > 0
+    msg.push('Добавьте товары в заказ') unless flag
+
+    { isValid: flag, errors: msg }
+
   createOrder: =>
     infoData = @getOrderInfo()
-    infoData['email'] = $('.datepicker').val()
-    infoData['password'] = $('.js_delivery_time_selector').data('val')
-    $.ajax
-      url: "/orders"
-      type: 'POST'
-      dataType: "json"
-      data: infoData
-      success: (data)=>
-        localStorage.removeItem('prima_aqua_card')
-        list = $('.js_bill')
-        html = ''
-        for item in data.items
-          html += "<div class='bill_product'>
-                    <span class='bill_product_name'>
-                      #{item.name}
-                    </span>
-                    <span class='bill_product_cost'>
-                      #{item.cost}
-                      <span class='rubles'>Р</span>
-                    </span>
-                    <span class='bill_product_amount'>
-                      #{item.amount}
-                    </span>
-                    <div class='clearfix'></div>
-                  </div>"
-        list.append(html)
-        $('.js_total_price').text(parseFloat(data.total).toFixed(2))
-        $('.order_step').addClass('hidden_block')
-        $('.thanks').removeClass('hidden_block')
+    res = validateForm(infoData)
+    infoData['email'] = $('#email').val()
+    infoData['password'] = $('#password').data('val')
+    if res['isValid']
+      $.ajax
+        url: "/orders"
+        type: 'POST'
+        dataType: "json"
+        data: infoData
+        success: (data)=>
+          localStorage.removeItem('prima_aqua_card')
+          list = $('.js_bill')
+          html = ''
+          for item in data.items
+            html += "<div class='bill_product'>
+                      <span class='bill_product_name'>
+                        #{item.name}
+                      </span>
+                      <span class='bill_product_cost'>
+                        #{item.cost}
+                        <span class='rubles'>Р</span>
+                      </span>
+                      <span class='bill_product_amount'>
+                        #{item.amount}
+                      </span>
+                      <div class='clearfix'></div>
+                    </div>"
+          list.append(html)
+          $('.js_total_price').text(parseFloat(data.total).toFixed(2))
+          $('.order_step').addClass('hidden_block')
+          $('.thanks').removeClass('hidden_block')
+    else
+      @showErrors(res['errors'])
+
+  showErrors: (errors)=>
 
 
   restoreCard: =>
