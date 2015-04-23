@@ -77,14 +77,37 @@ class Order
 
   validateForm: (info) =>
     msg = []
-    flag = Object.keys(info['items']).length > 0
-    msg.push('Добавьте товары в заказ') unless flag
+    $('.error_field').removeClass('error_field')
+    msg.push('Добавьте товары в заказ') unless Object.keys(info['items']).length > 0
+    customer_type = $('.js_customer_type_selector').data('val')
+    form = $(".js_#{customer_type}")
 
+    if form.find('#name').val().length < 2
+      msg.push('Заполните ваше имя')
+      form.find('#name').addClass('error_field')
+
+    if form.find('#phone').val().length < 2
+      msg.push('Заполните ваш телефон')
+      form.find('#phone').addClass('error_field')
+
+    if form.find('#address').val().length < 2
+      msg.push('Заполните ваш адрес')
+      form.find('#address').addClass('error_field')
+
+    if $('.datepicker').val().length < 2
+      msg.push('Выберите дату доставки')
+      form.find('.datepicker').addClass('error_field')
+
+    if $('.js_delivery_time_selector').data('val').length < 2
+      msg.push('Выберите время доставки')
+      form.find('.js_delivery_time_selector').addClass('error_field')
+
+    flag = msg.length < 1
     { isValid: flag, errors: msg }
 
   createOrder: =>
     infoData = @getOrderInfo()
-    res = validateForm(infoData)
+    res = @validateForm(infoData)
     infoData['email'] = $('#email').val()
     infoData['password'] = $('#password').data('val')
     if res['isValid']
@@ -94,6 +117,7 @@ class Order
         dataType: "json"
         data: infoData
         success: (data)=>
+          $('.order_error_messages').html('')
           localStorage.removeItem('prima_aqua_card')
           list = $('.js_bill')
           html = ''
@@ -119,7 +143,10 @@ class Order
       @showErrors(res['errors'])
 
   showErrors: (errors)=>
-
+    html = '<p>Пожалуйста, исправьте следующие пункты: </p> <ol>'
+    for msg in errors
+      html += '<li>'+msg+'</li>'
+    $('.order_error_messages').html(html + '</ol>')
 
   restoreCard: =>
     card = JSON.parse(localStorage.getItem('prima_aqua_card'))
