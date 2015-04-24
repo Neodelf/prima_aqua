@@ -50,4 +50,5 @@ Rails.application.configure do
       password: Rails.application.secrets.mail_password,
       enable_starttls_auto: false
   }
+  config.cache_classes = true
 end
