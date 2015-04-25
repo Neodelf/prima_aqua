@@ -1,11 +1,16 @@
 .order_form
   .order__customer
+
+    .order__signin_button
+      %a.blue_button.js_order_signin Войти
+
     .order__customer_type_selector
       .custome_selector.js_customer_type_selector{ data: { val: (current_user.try(:customer_type) || :individual) }}
         .variant.first_variant.js_variant{ data: { val: :individual }, class: ('active' unless current_user.try(:company?)) }
           Я частное лицо
         .variant.second_variant.js_variant{ data: { val: :company }, class: ('active' if current_user.try(:company?)) }
           Компания
+
     .order__customer_form.js_individual{ class: ('hidden_block' if current_user.try(:company?)) }
       .order_input.name.js_name
         %label
@@ -61,11 +66,14 @@
       %input.datepicker
         .clearfix
     .order_input.delivery_time
+      %label Время
       .custome_selector.js_delivery_time_selector{ data: { val: :morning }}
         .variant.first_variant.active.disabled.js_morning{ data: { val: :morning }}
           с 9 до 17 часов
         .variant.second_variant.disabled.js_evening{ data: { val: :evening }}
           с 17 до 22 часов
+      .delivery_hint
+        Доставка в день заказа только вечером
     .order_input.delivery_comment
       %label
         Дополнительная

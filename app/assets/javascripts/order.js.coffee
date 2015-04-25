@@ -344,10 +344,17 @@ class Order
       success: (data)=>
         elem.find('.js_price_value').html(data.price.toFixed(2))
         elem.find('.js_price').show()
+        elem.find('.js_deposit').html(data.deposit)
         if parseFloat(data.price) > 1
           elem.find('.js_currency').show()
         else
           elem.find('.js_currency').hide()
+
+  actualizeDeposit: ->
+    sum = 0.0
+    for dep in $('.products').find('.js_deposit')
+      sum += parseFloat(dep.html())
+    sum
 
   actualizeAccessoryPrice: (elem, isPositive)->
     priceBlock = elem.find('.js_price')

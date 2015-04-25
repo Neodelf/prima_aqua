@@ -52,6 +52,10 @@ $(document).on 'click', '.js_register', ->
   closeModals()
   showRegistration()
 
+$(document).on 'click', '.js_order_signin', ->
+  closeModals()
+  showSignIn()
+
 $(document).on 'click', '.js_modal', (e)->
   e.stopPropagation()
 

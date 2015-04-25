@@ -8,6 +8,7 @@ class AquasController < ApplicationController
 
   def check_price
     price = OrderService.get_price(params[:aqua_id], params[:volume_id], params[:amount])
-    render json: {price: price}, status: :ok
+    deposit = Volume.find_by(id: params[:volume_id]).deposit.to_i
+    render json: {price: price, deposit: deposit*(params[:amount].to_i)}, status: :ok
   end
 end

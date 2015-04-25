@@ -266,6 +266,20 @@
       opacity: 1;
     }
   }
+  .delivery_hint{
+    color: rgb(161, 161, 161);
+    font-size: 14px;
+    margin: 5px 0 12px 215px;
+  }
+  .order__signin_button{
+    float: right;
+  }
+  .order__customer_type_selector{
+    margin-bottom: 20px;
+  }
+  .blue_button{
+    min-width: inherit;
+  }
 }
 .custome_selector{
   border: 1px solid gray;
