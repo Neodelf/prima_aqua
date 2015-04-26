@@ -14,6 +14,8 @@
         = link_to 'Настольные', coolers_path(type_construction: 'настольные')
     .coolers-filters-right
       = link_to 'Сортировать по цене', coolers_path(order: 'price')
+      - if params[:order].present?
+        = '&#9650;'.html_safe
   .coolers-list
     - @coolers.each_with_index do |cooler, index|
       - if index == 0
