@@ -1,7 +1,7 @@
 .coolers-links
-  .coolers-links-item
+  .coolers-links-item{class: ('active' if params[:controller] == 'coolers')}
     = link_to 'Кулеры', coolers_path
-  .coolers-links-item
+  .coolers-links-item{class: ('active' if params[:controller] == 'pomps')}
     = link_to 'Помпы', pomps_path
-  .coolers-links-item
+  .coolers-links-item{class: ('active' if params[:controller] == 'accessories')}
     = link_to 'Аксессуары', accessories_path
