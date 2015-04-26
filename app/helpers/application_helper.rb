@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def title(page_title)
-    content_for(:title) { page_title.to_s + ' - Prima Aqua' }
+    content_for(:title) { page_title.to_s + ' Prima Aqua' }
   end
 
   def meta_keywords(content)
