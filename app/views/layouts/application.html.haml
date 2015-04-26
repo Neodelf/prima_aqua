@@ -1,7 +1,9 @@
 !!!
 %html
   %head
-    %title Prima-aqua
+    %title= content_for?(:title) ? yield(:title) : content_for(:title){'Доставка воды - Prima-aqua'}
+    %description= content_for?(:description) ? yield(:description) : content_for(:description){'Доставка воды - Prima-aqua. Санкт-Петербург и Ленинградская облать'}
+    %keywords= content_for?(:keywords) ? yield(:keywords) : content_for(:keywords){'Доставка воды, Prima-aqua, заказать воду, купить, помпа, мешалка, стаканчик'}
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
