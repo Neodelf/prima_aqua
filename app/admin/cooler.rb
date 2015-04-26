@@ -88,9 +88,9 @@ ActiveAdmin.register Cooler do
         params[:cooler][:tags].map{|tag_id| @cooler.tags << Tag.find(tag_id) unless tag_id.blank? }
       end
 
-      if params[:image][:name].present?
+      if params[:image].present? && params[:image][:name].present?
         @cooler.images.delete_all
-        @cooler.images.build(params[:image][:name].map{|str| {name: str} }) if params[:image].present?
+        @cooler.images.build(params[:image][:name].map{|str| {name: str} })
       end
 
       respond_to do |format|
