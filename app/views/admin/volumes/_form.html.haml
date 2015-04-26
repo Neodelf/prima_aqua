@@ -2,6 +2,8 @@
   = f.semantic_errors *f.object.errors.keys
   = f.inputs 'Value' do
     = f.input :value, label: false
+  = f.inputs 'Deposit' do
+    = f.input :deposit, label: false
   = f.inputs 'Aqua' do
     = f.input :aqua_id, label: false, as: :select, collection: Aqua.all.map{|a| ["#{a.name}", a.id]}
   = f.inputs 'Images' do

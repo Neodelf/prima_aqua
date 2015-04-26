@@ -23,7 +23,14 @@
         %input.js_empty_bottles{ type: 'checkbox', checked: false }
         %label
           У меня достаточно пустых бутылей
-
+        .modal__empty_bottles__deposit
+          Залог:
+          %span.js_dep.js_order_deposit
+            = @deposit ? @deposit : 150
+          %span.js_dep.js_null_order_deposit.hidden_block
+            0
+          %span.js_currency
+            Р.
       .submit_modal__button
         %a.red_button.js_order_change_step Оформить заказ
 

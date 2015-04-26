@@ -26,10 +26,11 @@ class OrdersController < ApplicationController
     @order.delivery_time = params['info']['time'] == 'morning' ? 'с 9 до 17' : 'с 17 до 22'
     @order.customer_comment = params['info']['comment']
     @order.customer_deposit = (params['info']['empty_bottles'] == 'true')
+    @order.deposit = params['info']['deposit']
     @order.log = params.except(%w(action controller)).to_s
     json = OrderService.get_order_json(params['items'])
     if @order.save
-      render json: json, status: :ok
+      render json: json.merge(deposit: params['info']['deposit']), status: :ok
     else
       render json: json, status: 500
     end
