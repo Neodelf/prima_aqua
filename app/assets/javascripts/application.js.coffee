@@ -56,6 +56,9 @@ $(document).on 'click', '.js_order_signin', ->
   closeModals()
   showSignIn()
 
+$(document).on 'click', '.js_to_show_hint', (e) ->
+  $(e.currentTarget).parents('.js_to_hint').find('.js_hint').toggleClass('hidden_block')
+
 $(document).on 'click', '.js_modal', (e)->
   e.stopPropagation()
 
