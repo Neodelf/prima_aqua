@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
     @all_delivery_pages ||= DeliveryPage.all
     @all_aquas ||= Aqua.includes(:volumes).select(:id, :name, :id).order(:id).all
     aqua = @all_aquas.first
-    @aqua_price = OrderService.get_price(aqua.id, aqua.volumes.first.id, 2)
+    volume = aqua.volumes.first
+    @aqua_price = OrderService.get_price(aqua.id, volume.id, 2)
+    @deposit = volume.deposit.to_i * 2
     @items = Cooler.includes(:images).select(:id, :title, :price).first(10)
     @items += Accessory.select(:id, :title, :price, :image).first(10)
     @items += Product.select(:id, :title, :price, :image).first(10)
