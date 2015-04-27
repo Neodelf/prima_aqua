@@ -7,8 +7,9 @@ ActiveAdmin.register AquaPost do
   show do |aqua_post|
     attributes_table do
       row :aqua
-      row :text_color
       row :title
+      row :position
+      row :text_color
       row :body
       row :button_name
       row :hint
