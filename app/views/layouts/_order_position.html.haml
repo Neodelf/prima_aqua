@@ -17,4 +17,6 @@
     %span.js_price_value= @aqua_price
     %span.js_currency{ class: ('hidden_block' if @aqua_price.to_i == 0)}
       Р.
+  .deposit.js_deposit.hidden_block
+    = @deposit
   .clearfix

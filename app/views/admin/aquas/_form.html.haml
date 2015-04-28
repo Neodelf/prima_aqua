@@ -9,7 +9,6 @@
       = doc.file_field :name, multiple: :true, name: 'doc[name][]', label: false
     - if @aqua.docs.any?
       = link_to "Удалить все документы", destroy_all_docs_admin_aqua_path(@aqua.id), method: :delete, data: { confirm: 'Вы уверены, что хотите удалить все документы?' }
-    - if @aqua.persisted?
       - @aqua.docs.each do |doc|
         %br
         = link_to "Cкачать #{doc.name.file.filename}", open_admin_doc_path(doc.id)

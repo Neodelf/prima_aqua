@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= content_for?(:title) ? yield(:title) : content_for(:title){'Доставка воды - Prima-aqua'}
+    %title= content_for?(:title) ? yield(:title) : 'Доставка воды - Prima-aqua'
     %meta{ name: 'description', content: content_for?(:description) ? yield(:description) : 'Доставка воды - Prima-aqua. Санкт-Петербург и Ленинградская облать'}
     %meta{ name: 'keywords', content: content_for?(:keywords) ? yield(:keywords) : 'Доставка воды, Prima-aqua, заказать воду, купить, помпа, мешалка, стаканчик'}
     = stylesheet_link_tag    'application', media: 'all'

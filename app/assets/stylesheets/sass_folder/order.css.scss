@@ -2,6 +2,16 @@
   min-height: 285px;
   width: 620px;
   padding-bottom: 20px;
+  .error_field{
+    border: 1px solid #eb0028;
+  }
+  .order_error_messages{
+    margin-left: 30px;
+    color: #eb0028;
+    ol{
+      margin-left: 20px;
+    }
+  }
   .products{
     width: 500px;
     background-color: white;
@@ -206,6 +216,9 @@
       }
     }
   }
+  .modal__empty_bottles__deposit{
+    float: right;
+  }
 }
 .order_form{
   margin: 10px 40px 25px;
@@ -255,6 +268,20 @@
     &:hover{
       opacity: 1;
     }
+  }
+  .delivery_hint{
+    color: rgb(161, 161, 161);
+    font-size: 14px;
+    margin: 5px 0 12px 215px;
+  }
+  .order__signin_button{
+    float: right;
+  }
+  .order__customer_type_selector{
+    margin-bottom: 20px;
+  }
+  .blue_button{
+    min-width: inherit;
   }
 }
 .custome_selector{

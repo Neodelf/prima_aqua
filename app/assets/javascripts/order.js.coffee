@@ -71,42 +71,88 @@ class Order
     $(document).on 'change', '.js_order_register_flag', ->
       $('.js_order__register_form').toggleClass('hidden_block')
 
+    $(document).on 'change', '.js_empty_bottles', ->
+      $('.js_dep').toggleClass('hidden_block')
+
   # improve!!! make through class
   @saveHtml: ->
     #$storage("prima_state_card").set($('.prima_state_card').html())
 
+  validateForm: (info) =>
+    msg = []
+    $('.error_field').removeClass('error_field')
+    msg.push('Добавьте товары в заказ') unless Object.keys(info['items']).length > 0
+    customer_type = $('.js_customer_type_selector').data('val')
+    form = $(".js_#{customer_type}")
+
+    if form.find('#name').val().length < 2
+      msg.push('Заполните ваше имя')
+      form.find('#name').addClass('error_field')
+
+    if form.find('#phone').val().length < 2
+      msg.push('Заполните ваш телефон')
+      form.find('#phone').addClass('error_field')
+
+    if form.find('#address').val().length < 2
+      msg.push('Заполните ваш адрес')
+      form.find('#address').addClass('error_field')
+
+    if $('.datepicker').val().length < 2
+      msg.push('Выберите дату доставки')
+      form.find('.datepicker').addClass('error_field')
+
+    if $('.js_delivery_time_selector').data('val').length < 2
+      msg.push('Выберите время доставки')
+      form.find('.js_delivery_time_selector').addClass('error_field')
+
+    flag = msg.length < 1
+    { isValid: flag, errors: msg }
+
   createOrder: =>
     infoData = @getOrderInfo()
-    infoData['email'] = $('.datepicker').val()
-    infoData['password'] = $('.js_delivery_time_selector').data('val')
-    $.ajax
-      url: "/orders"
-      type: 'POST'
-      dataType: "json"
-      data: infoData
-      success: (data)=>
-        localStorage.removeItem('prima_aqua_card')
-        list = $('.js_bill')
-        html = ''
-        for item in data.items
-          html += "<div class='bill_product'>
-                    <span class='bill_product_name'>
-                      #{item.name}
-                    </span>
-                    <span class='bill_product_cost'>
-                      #{item.cost}
-                      <span class='rubles'>Р</span>
-                    </span>
-                    <span class='bill_product_amount'>
-                      #{item.amount}
-                    </span>
-                    <div class='clearfix'></div>
-                  </div>"
-        list.append(html)
-        $('.js_total_price').text(parseFloat(data.total).toFixed(2))
-        $('.order_step').addClass('hidden_block')
-        $('.thanks').removeClass('hidden_block')
+    res = @validateForm(infoData)
+    infoData['email'] = $('#email').val()
+    infoData['password'] = $('#password').data('val')
+    if res['isValid']
+      $.ajax
+        url: "/orders"
+        type: 'POST'
+        dataType: "json"
+        data: infoData
+        success: (data)=>
+          $('.order_error_messages').html('')
+          localStorage.removeItem('prima_aqua_card')
+          list = $('.js_bill')
+          html = ''
+          for item in data.items
+            html += "<div class='bill_product'>
+                      <span class='bill_product_name'>
+                        #{item.name}
+                      </span>
+                      <span class='bill_product_cost'>
+                        #{item.cost}
+                        <span class='rubles'>Р</span>
+                      </span>
+                      <span class='bill_product_amount'>
+                        #{item.amount}
+                      </span>
+                      <div class='clearfix'></div>
+                    </div>"
+          list.append(html)
+          if data.deposit
+            deposit = '+ ' + data.deposit + '<span class="rubles"> Р</span>'
+            $('.total_deposit').html(deposit)
+          $('.js_total_price').text(parseFloat(data.total).toFixed(2))
+          $('.order_step').addClass('hidden_block')
+          $('.thanks').removeClass('hidden_block')
+    else
+      @showErrors(res['errors'])
 
+  showErrors: (errors)=>
+    html = '<p>Пожалуйста, исправьте следующие пункты: </p> <ol>'
+    for msg in errors
+      html += '<li>'+msg+'</li>'
+    $('.order_error_messages').html(html + '</ol>')
 
   restoreCard: =>
     card = JSON.parse(localStorage.getItem('prima_aqua_card'))
@@ -120,10 +166,13 @@ class Order
     html = ''
     products = $('.products')
     products.html('')
+    dep = 0
     for aqua in aquas
       products.append($('.js_aqua_template').html())
       product = products.find('.water_template').last()
       product.find('.js_amount_input').val(aqua.amount)
+      product.find('.js_deposit').val(aqua.deposit)
+      dep += parseFloat(aqua.deposit)
       product.find('.js-aqua-select-tag').val(aqua.aqua)
       $.ajax
         url: "/aquas/#{aqua.aqua}/volumes"
@@ -134,6 +183,7 @@ class Order
           product.find('.js_price_value').text(aqua.price.toFixed(2))
           #product.find('.js-volume-select-tag').val(aqua.volume)
       #@actualizeWaterPrice(product, aqua.aqua, aqua.volume, aqua.amount)
+    $('.js_order_deposit').html(dep)
 
 
   restoreAccessories: (products)=>
@@ -153,6 +203,9 @@ class Order
     form.find('#address').val(info.address)
     $('#comment').val(info.comment)
     $('.datepicker').val(info.date)
+    if info.empty_bottles
+      $('.js_empty_bottles').prop('checked', true)
+      $('.js_dep').toggleClass('hidden_block')
     @checkAvailableTime()
 
   filterProducts: (type, e)->
@@ -211,6 +264,7 @@ class Order
 
   addPosition: (e)->
     $('.products').append($('.js_aqua_template').html())
+    @actualizeDeposit()
 
   removePosition: (e)->
     elem = $(e.currentTarget)
@@ -304,10 +358,19 @@ class Order
       success: (data)=>
         elem.find('.js_price_value').html(data.price.toFixed(2))
         elem.find('.js_price').show()
+        elem.find('.js_deposit').html(data.deposit)
         if parseFloat(data.price) > 1
           elem.find('.js_currency').show()
+          @actualizeDeposit()
         else
           elem.find('.js_currency').hide()
+
+  actualizeDeposit: ->
+    sum = 0.0
+    for dep in $('.products').find('.js_deposit')
+      sum += parseFloat($(dep).html())
+    sum
+    $('.js_order_deposit').html(sum)
 
   actualizeAccessoryPrice: (elem, isPositive)->
     priceBlock = elem.find('.js_price')
@@ -330,6 +393,7 @@ class Order
     info['date'] = $('.datepicker').val()
     info['time'] = $('.js_delivery_time_selector').data('val')
     info['comment'] = $('.js_comment').val()
+    info['deposit'] = parseFloat($('.js_order_deposit').html())
     info['empty_bottles'] = $('.js_empty_bottles').is(':checked')
     info['register_flag'] = $('.js_order_register_flag').is(':checked')
     info
@@ -353,6 +417,7 @@ class Order
       product['volume'] = line.find('.js-volume-select-tag').val()
       product['amount'] = line.find('.js_amount_input').val()
       product['price'] = parseFloat(line.find('.js_price_value').text())
+      product['deposit'] = parseFloat(line.find('.js_deposit').text())
       products.push(product)
     products
 
