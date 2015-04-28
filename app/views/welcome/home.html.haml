@@ -19,30 +19,33 @@
             Уже через несколько часов находящаяся в нем вода
             окажется в школьных столовых, медицинский палатах
             и в кулерах столичных офисов.
-          %a.main_page__button{ href: '/' }
+          %a.main_page__button{ href: '/aquas/1' }
             Чем же так хороша Прима Аква
     .little_images
       .water__block__arhyz_image.block_to_inline
-        =image_tag image_url('arhyz.jpg')
-        .little_images__text
-          .little_images__text__title
-            Архыз
-          .little_images__text__body
-            Добывается из горных ледников на высоте 1507 метров над уровнем моря
+        %a{ href: '/aquas/3' }
+          =image_tag image_url('arhyz.jpg')
+          .little_images__text
+            .little_images__text__title
+              Архыз
+            .little_images__text__body
+              Добывается из горных ледников на высоте 1507 метров над уровнем моря
       .water__block__legend_image.block_to_inline
-        =image_tag image_url('legend.jpg')
-        .little_images__text
-          .little_images__text__title
-            Легенда Гор
-          .little_images__text__body
-            Стимулирует природный механизм самовосстановления организма
+        %a{ href: '/aquas/2' }
+          =image_tag image_url('legend.jpg')
+          .little_images__text
+            .little_images__text__title
+              Легенда Гор
+            .little_images__text__body
+              Стимулирует природный механизм самовосстановления организма
       .water__block__yodis_image.block_to_inline
-        =image_tag image_url('yodis.jpg')
-        .little_images__text
-          .little_images__text__title
-            Йодис
-          .little_images__text__body
-            Укрепляя иммунитет и помогая энергично осваивать новые знания
+        %a{ href: '/aquas/4' }
+          =image_tag image_url('yodis.jpg')
+          .little_images__text
+            .little_images__text__title
+              Йодис
+            .little_images__text__body
+              Укрепляя иммунитет и помогая энергично осваивать новые знания
       %span.stretch
 
   .about_company__block
@@ -66,7 +69,7 @@
           производство по розливу воды, расположенное в
           удаленном от городской черты экологически чистом
           районе Карельского перешейка
-        %a.main_page__button{ href: '/' }
+        %a.main_page__button{ href: '/about' }
           Как мы работаем
 
   .equipment__block
@@ -85,8 +88,8 @@
           последовательно через систему фильтров, очищается от
           взвешенных частиц. Следующий этап очистки воды –
           обеззараживание.
-        %a.main_page__button{ href: '/' }
-          Котолог оборудования
+        %a.main_page__button{ href: '/coolers' }
+          Каталог оборудования
 
   .delivery__block
     .delivery__block_map
@@ -110,5 +113,5 @@
           Для удобства розлива воды из 19л, 8л, 6л бутылей
           мы предлагаем широкий выбор оборудования
           (см. кулеры и помпы).
-        %a.main_page__button{ href: '/' }
+        %a.main_page__button{ href: '/delivery' }
           Подробнее о доставке

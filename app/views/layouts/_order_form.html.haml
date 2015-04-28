@@ -2,7 +2,8 @@
   .order__customer
 
     .order__signin_button
-      %a.blue_button.js_order_signin Войти
+      - unless current_user
+        %a.blue_button.js_order_signin Войти
 
     .order__customer_type_selector
       .custome_selector.js_customer_type_selector{ data: { val: (current_user.try(:customer_type) || :individual) }}
@@ -47,7 +48,7 @@
     .order__register_form
       .order_input.register_flag
         = check_box_tag 'test', nil, false, class: 'js_order_register_flag'
-        %label Зарегистрироваться и больше никогда не вводить контакты
+        %label Зарегистрироваться и больше не вводить контакты
       .js_order__register_form.hidden_block
         .order_input.email.js_phone
           %label
