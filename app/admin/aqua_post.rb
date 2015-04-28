@@ -1,6 +1,6 @@
 ActiveAdmin.register AquaPost do
   permit_params :aqua_id, :body, :seo_title, :seo_description, :seo_keywords, :link_url,
-                :link_name, :hint, :button_name, :title, :text_color, :image
+                :link_name, :hint, :button_name, :title, :text_color, :image, :position
 
   form partial: 'admin/aqua_posts/form'
 
