@@ -4,7 +4,7 @@ class NoticeMailer < ActionMailer::Base
   def product(options)
     @product = options
     #emails = 'lvl0nax@gmail.com,kolibri@topaza-pella.ru,utkin_@hotmail.com'
-    emails = 'lvl0nax@gmail.com'
+    emails = 'lvl0nax@gmail.com, utkin_@hotmail.com'
     # emails = "9856544@gmail.com,akvapolus@restsguide.ru,lider-aqva@metropost.ru"
 
     @ar = []
@@ -38,7 +38,7 @@ class NoticeMailer < ActionMailer::Base
   def call(options)
     @call = options
     #emails = 'lvl0nax@gmail.com,kolibri@topaza-pella.ru,utkin_@hotmail.com'
-    emails = 'lvl0nax@gmail.com'
+    emails = 'lvl0nax@gmail.com, utkin_@hotmail.com'
     # emails = "9856544@gmail.com,akvapolus@restsguide.ru,lider-aqva@metropost.ru"
     mail to: emails, subject: 'Заказ звонка'
   end
@@ -46,7 +46,7 @@ class NoticeMailer < ActionMailer::Base
   def service(options)
     @service = options
     #emails = 'lvl0nax@gmail.com,kolibri@topaza-pella.ru,utkin_@hotmail.com'
-    emails = 'lvl0nax@gmail.com'
+    emails = 'lvl0nax@gmail.com, utkin_@hotmail.com'
     # emails = "9856544@gmail.com,akvapolus@restsguide.ru,lider-aqva@metropost.ru"
     mail to: emails, subject: 'Заказ обслуживания'
   end
