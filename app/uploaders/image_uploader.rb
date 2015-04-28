@@ -42,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium, :if => :is_promo? do
-    process resize_to_limit: [900, 900]
+    process resize_to_limit: [1000, 1000]
   end
 
   def extension_white_list
