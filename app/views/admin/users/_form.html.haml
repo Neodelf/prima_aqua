@@ -1,0 +1,9 @@
+= semantic_form_for [:admin, @user]  do |f|
+  = f.semantic_errors *f.object.errors.keys
+  = f.inputs 'ПОльзователь' do
+    = f.input :email
+    = f.input :name
+    = f.input :phone
+    = f.input :address
+    = f.input :customer_type, as: :select, collection: [[:individual, 0], [:company, 1]], include_blank: false
+  = f.actions

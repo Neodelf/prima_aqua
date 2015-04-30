@@ -27,7 +27,20 @@
         = link_to 'Скидки при заказе нескольких бутылок', prices_path
       .aqua_prices__delivery_link
         = link_to 'Условия доставки', delivery_path
-      %a.red_button.js_order_button{href: '#'} Заказ
+      %a.red_button.js_order_button{href: '#'} Заказать
+
+- if @aqua.docs.present?
+  %a{ name: 'certificates' }
+  .certificates
+    .certificates__content
+      .certificates__title
+        Сертификаты и документы
+      %br
+      .certificates__files
+        - @aqua.docs.each do |doc|
+          %br
+          = link_to "- #{doc.name.file.filename}", doc.name_url, target: '_blank'
+    .clearfix
 
 :javascript
   function setClassToPrices(){

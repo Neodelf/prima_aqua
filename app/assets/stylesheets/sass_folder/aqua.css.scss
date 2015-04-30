@@ -16,7 +16,7 @@
     .center_text_align.post_text{
       margin-left: 10%;
       margin-right: calc(10% + 280px);
-      width: calc(80% -280px) !important;
+      width: calc(80% - 280px) !important;
       left: 0 !important;
     }
     .post_text__header{
@@ -30,6 +30,11 @@
       font-size: 18px;
       line-height: 24px;
       text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .hint{
+      font-family: 'MuseoSansCyrl';
+      font-size: 15px;
+      line-height: 24px;
     }
     a.post_text__button{
       border-radius: 3px;
@@ -62,7 +67,6 @@
     }
   }
   .aqua_prices{
-    // height: calc(100% - 100px);
     width: 280px;
     background-color: #333;
     opacity: 0.8;
@@ -145,5 +149,29 @@
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+}
+
+.certificates{
+  margin: 50px auto;
+  text-align: center;
+  .certificates__content{
+    display: inline-block;
+  }
+  .certificates__title{
+    text-align: center;
+    display: inline-block;
+    font-family: 'MuseoSansCyrl-700';
+    font-size: 40px;
+    line-height: 44px;
+  }
+  .certificates__files{
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 10px;
+    a{
+      color: #0080bb;
+      text-decoration: none;
+    }
   }
 }
