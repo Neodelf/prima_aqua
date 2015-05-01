@@ -55,6 +55,7 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   config.assets.precompile += %w( ckeditor/* application.js)
   config.assets.precompile << /\.(?:svg|eot|woff|ttf|otf)\z/
 

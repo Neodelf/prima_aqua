@@ -153,11 +153,11 @@ $(document).on 'click', '.js_service_submit', ->
       $('.js_service_phone').closest(".input_set").addClass('modal_error')
 
 $ ->
-  $('.header__actions').slick({
+  $('.carousel').slick({
     infinite: true,
     speed: 300,
     slidesToShow: 1,
     adaptiveHeight: true
-    prevArrow: '<button type="button" class="slick-prev"><</button>'
-    nextArrow: '<button type="button" class="slick-next">></button>'
+    prevArrow: '<button type="button" class="slick-prev"><img alt="prev" src="/assets/left.png"></button>'
+    nextArrow: '<button type="button" class="slick-next"><img alt="prev" src="/assets/right.png"></button>'
   });

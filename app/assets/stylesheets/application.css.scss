@@ -152,22 +152,28 @@ a{cursor: pointer}
   top: 50px;
   right: 0;
 }
-.header__actions.slick-slider {
-  margin-bottom: 16px;
+.carousel{
+  width: 650px;
+  margin: 0 auto;
 }
 .header__actions{
   background-color:  #f1f1f1;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 40px;
-  .slick-slide{
-    margin-left: 40px;
-  }
   .action__line{
-    width: 100%;
-    max-width: 1300px;
     line-height: 40px;
     text-align: center;
+    .action_label{
+      display: inline-block;
+      color: white;
+      background-color: #0080bb;
+      border-radius: 3px;
+      font-size: 10px;
+      line-height: 15px;
+      padding: 0 4px;
+      margin-right: 5px;
+    }
     a{
       color: #0080bb;
       text-decoration: none;
@@ -176,15 +182,13 @@ a{cursor: pointer}
       }
     }
   }
-  .slick-prev{
-    left: 27px;
-    &:before {
-      color: #0080bb;
+  .slick-prev, .slick-next{
+    img{
+      height: 17px;
+      margin-top: 3px;
     }
-  }
-  .slick-next{
-    right: 27px;
-    &:before{
+    &:before {
+      display: none;
       color: #0080bb;
     }
   }
