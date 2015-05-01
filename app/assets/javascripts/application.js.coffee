@@ -153,7 +153,7 @@ $(document).on 'click', '.js_service_submit', ->
       $('.js_service_phone').closest(".input_set").addClass('modal_error')
 
 $ ->
-  $('.header__actions').slick({
+  $('.carousel').slick({
     infinite: true,
     speed: 300,
     slidesToShow: 1,

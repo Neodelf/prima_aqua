@@ -35,9 +35,10 @@
         %li
           %a.red_button.js_order_button{href: '#'} Заказать
 .header__actions
-  - @actions.each do |action|
-    .action__line
-      =link_to action.title, '/events?type=promotion'
+  .carousel
+    - @actions.each do |action|
+      .action__line
+        =link_to action.title, '/events?type=promotion'
 
 
 
