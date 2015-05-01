@@ -19,10 +19,11 @@
       .modal__button
         %a.blue_button.js_add_position Добавить позицию
 
-      .modal__empty_bottles{ title: 'Наши бутыли сделаны из поликорбоната. Он намного лучше и дороже обычного пластика, поэтому мы просим вас оставлять залог'}
+      .modal__empty_bottles
         %input.js_empty_bottles{ type: 'checkbox', checked: false }
         %label
           У меня достаточно пустых бутылей
+        = image_tag 'question.png'
         .modal__empty_bottles__deposit
           Залог:
           %span.js_dep.js_order_deposit
@@ -30,7 +31,8 @@
           %span.js_dep.js_null_order_deposit.hidden_block
             0
           %span.js_currency
-            Р.
+            Р
+      .modal__order_line
       .submit_modal__button
         %a.red_button.js_order_change_step Оформить заказ
 
@@ -85,3 +87,21 @@
         .finish_order_button
           %a.red_button.js_order_finish Отлично!
   .clearfix
+
+#dialog
+  .dialog-text-order
+    Наши бутыли сделаны из поликорбоната. Он намного лучше и дороже обычного пластика, поэтому мы просим вас оставлять залог
+  #tail1
+  #tail2
+
+:javascript
+  $('.modal__empty_bottles > img').hover(
+  function(e) {
+      e.preventDefault();
+      $('#dialog').show();
+      //console.log($(this).children('.popup').text());
+      $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
+      $('#dialog').css('top', $(this).position().top - 7);
+  }, function(e) {
+    $('#dialog').hide();
+  });
