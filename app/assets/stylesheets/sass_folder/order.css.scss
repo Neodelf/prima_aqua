@@ -13,13 +13,14 @@
     }
   }
   .products{
-    width: 500px;
+    //width: 500px;
     background-color: white;
     min-width: 500px;
   }
   .water_template{
     margin: 5px auto;
-    width: 455px;
+    //width: 455px;
+    margin-left: 40px !important;
   }
   .aqua_select{
     padding: 0 10px;
@@ -30,13 +31,21 @@
     float: left;
   }
   .amount{
-    margin-left: 220px;
+    //margin-left: 220px;
+    margin-left: 318px;
     padding: 0 10px;
-    width: 86px;
+    //width: 86px;
     input{
       text-align: center;
       width: 40px;
       float: left;
+      height: 31px;
+      border-style: solid;
+      border-width: 1px;
+      background-color: #FFF;
+      border-color: #D1D1D1;
+      border-left-width: 0;
+      border-right-width: 0;
     }
     button{
       width: 20px;
@@ -52,7 +61,7 @@
     float: right;
     color: red;
     cursor: pointer;
-    line-height: 15px;
+    line-height: 27px;
     font-size: 20px;
     font-family: monospace;
   }
@@ -65,15 +74,43 @@
     }
   }
   .modal__empty_bottles{
-    margin: -10px 50px 30px;
+    margin: -10px 50px 15px;
+    input[type=checkbox]{
+      height: 20px;
+      width: 16px;
+      margin-top: 2px;
+    }
+    label{
+      font-family: 'MuseoSansCyrl';
+      position: relative;
+      top: -5px;
+      font-size: 15px;
+    }
+    img{
+      position: relative;
+      top: -3px;
+      left: 9px;
+
+      &:hover {
+        #dialog {
+          display: block;
+        }
+      }
+    }
+
+
   }
   .card_additional{
-    margin: 10px 25px 30px;
+    padding: 10px 25px 30px;
+    background-color: #F5F5F5;
+    position: relative;
+    top: 20px;
     .additional__title{
       font-family: 'MuseoSansCyrl';
       font-weight: bold;
       font-size: 16px;
       float: left;
+      padding-left: 37px;
     }
     .additional__filters{
       float: right;
@@ -207,7 +244,9 @@
     }
   }
   .order__register_form{
-    margin: 50px 0;
+    margin: 25px 0;
+    padding: 25px 40px;
+    background-color: #F7F7F7;
     .register_flag{
       input{
         width: 20px;
@@ -218,10 +257,13 @@
   }
   .modal__empty_bottles__deposit{
     float: right;
+    position: relative;
+    top: -4px;
+    font-family: 'MuseoSansCyrl';
   }
 }
 .order_form{
-  margin: 10px 40px 25px;
+  margin: 10px 0px 25px;
   label{
     font-family: 'MuseoSansCyrl-300';
     font-size: 16px;
@@ -283,6 +325,9 @@
   .blue_button{
     min-width: inherit;
   }
+  .order__customer, .order__delivery_form, .order__buttons{
+    margin: 0 40px;
+  }
 }
 .custome_selector{
   border: 1px solid gray;
@@ -315,4 +360,90 @@
     cursor: default;
     color: #333;
   }
+}
+.select_aqua select {
+  border-radius: 5px;
+  height: 34px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  -webkit-appearance: none;
+  width: 208px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #D1D1D1;
+  color: #0080BB;
+  background: image-url("select_arrow.png") no-repeat 93%;
+}
+.select_volume select {
+  border-radius: 5px;
+  height: 34px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  -webkit-appearance: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #D1D1D1;
+  color: #0080BB;
+  width: 73px;
+  background: image-url("select_arrow.png") no-repeat 90%;
+}
+.button_minus{
+  background-color: #F7F7F7;
+  border-style: solid;
+  border-width: 1px;
+  height: 33px;
+  width: 33px !important;
+  border-radius: 5px 0px 0px 5px;
+}
+.button_plus{
+  background-color: #F7F7F7;
+  border-style: solid;
+  border-width: 1px;
+  height: 33px;
+  width: 33px !important;
+  border-radius: 0px 5px 5px 0px;
+}
+.js_currency{
+  font-family: 'MuseoSansCyrl';
+  color: #ACACAC;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: left;
+  display: inline-block;
+  border-bottom: 1px solid;
+  width: 8px;
+  height: 18px;
+  box-sizing: border-box;
+}
+.js_price_value{
+  font-family: 'MuseoSansCyrl-300';
+  font-size: 16px;
+  color: #333333;
+  line-height: 30px;
+}
+
+.js_empty_bottles{
+  height: 16px;
+  width: 16px;
+}
+.modal__order_line{
+  border-color: #DDD;
+  width: 522px;
+  height: 1px;
+  margin: 0 auto 50px;
+  background: #DDD;
+}
+.dialog-text-order{
+  padding: 15px 52px 19px 27px;
+  font-family: 'MuseoSansCyrl';
+  color:  #333333;
+  font-size: 13px;
+  line-height: 24px;
+  text-align: left;
+}
+.order-delivery{
+  font-family: 'MuseoSansCyrl';
+  color: #999999;
 }

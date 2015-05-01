@@ -314,7 +314,7 @@ class Order
               <div class='price js_price' data-price='#{price}'>
                 <span class='js_price_value'>#{cost.toFixed(2)}</span>
                 <span class='js_currency'>
-                  Р.
+                  Р
                 </span>
               </div>
               <div class='clearfix'></div>

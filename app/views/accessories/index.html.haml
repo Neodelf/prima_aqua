@@ -13,7 +13,8 @@
     //.accessories-filters-left-item{class: ('active' if link_active?('настольные'))}
     //  = link_to 'Настольные', accessories_path(type_construction: 'настольные')
     .accessories-filters-right
-      = link_to 'Сортировать по цене', accessories_path(order: 'price')
+      = order
+      = triangle
   .accessories-list
     - @accessories.each_with_index do |accessory, index|
       = render 'accessories/item', accessory: accessory, index: index

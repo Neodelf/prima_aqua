@@ -51,4 +51,19 @@ module ApplicationHelper
       content_for(:description) { strip_tags(content.truncate(150, separator: ' ').to_s) }
     end
   end
+
+  def order
+    direction = if params[:direction] == 'desc'
+                  'asc'
+                elsif params[:direction] == 'asc'
+                  ''
+                else
+                  'desc'
+                end
+    link_to 'Сортировать по цене', {direction: direction}
+  end
+
+  def triangle
+    (params[:direction] == 'desc' ? '&#9660;' : '&#9650;').html_safe if params[:direction].present?
+  end
 end
