@@ -158,6 +158,6 @@ $ ->
     speed: 300,
     slidesToShow: 1,
     adaptiveHeight: true
-    prevArrow: '<button type="button" class="slick-prev"><</button>'
-    nextArrow: '<button type="button" class="slick-next">></button>'
+    prevArrow: '<button type="button" class="slick-prev"><img alt="prev" src="/assets/left.png"></button>'
+    nextArrow: '<button type="button" class="slick-next"><img alt="prev" src="/assets/right.png"></button>'
   });

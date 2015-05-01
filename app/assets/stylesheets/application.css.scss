@@ -153,7 +153,7 @@ a{cursor: pointer}
   right: 0;
 }
 .carousel{
-  width: 700px;
+  width: 650px;
   margin: 0 auto;
 }
 .header__actions{
@@ -164,6 +164,16 @@ a{cursor: pointer}
   .action__line{
     line-height: 40px;
     text-align: center;
+    .action_label{
+      display: inline-block;
+      color: white;
+      background-color: #0080bb;
+      border-radius: 3px;
+      font-size: 10px;
+      line-height: 15px;
+      padding: 0 4px;
+      margin-right: 5px;
+    }
     a{
       color: #0080bb;
       text-decoration: none;
@@ -172,15 +182,13 @@ a{cursor: pointer}
       }
     }
   }
-  .slick-prev{
-    left: 27px;
-    &:before {
-      color: #0080bb;
+  .slick-prev, .slick-next{
+    img{
+      height: 17px;
+      margin-top: 3px;
     }
-  }
-  .slick-next{
-    right: 27px;
-    &:before{
+    &:before {
+      display: none;
       color: #0080bb;
     }
   }

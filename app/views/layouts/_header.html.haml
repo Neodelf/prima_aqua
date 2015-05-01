@@ -38,6 +38,8 @@
   .carousel
     - @actions.each do |action|
       .action__line
+        %span.action_label
+          АКЦИЯ
         =link_to action.title, '/events?type=promotion'
 
 
