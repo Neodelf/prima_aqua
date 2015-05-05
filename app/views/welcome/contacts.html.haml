@@ -31,9 +31,9 @@
         .contacts-body-blocks-item-body-text
           Тел.: (812) 587-24-11
           %br
-          195248, г. Приозерск,
+          Ленинградская область,
           %br
-          ул. Ленина, д.12
+          Поселок Стеклянный
 
 
 
@@ -41,7 +41,7 @@
   ymaps.ready(init);
   function init () {
     var myMap = new ymaps.Map('contacts-body-map', {
-      center: [60.630488, 30.02889],
+      center: [60.230488, 30.302889],
       zoom: 7.7
       }),
       office = new ymaps.Placemark([59.969037, 30.367005], {
@@ -58,7 +58,7 @@
         // её "ножки" (точки привязки).
         iconImageOffset: [-3, -42]
       }),
-      prod = new ymaps.Placemark([61.040122, 30.122703], {
+      prod = new ymaps.Placemark([60.3840644, 30.2405383], {
         hintContent: ""
       }, {
         // Опции.
