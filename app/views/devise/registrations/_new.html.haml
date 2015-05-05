@@ -5,7 +5,16 @@
   .modal__title
     Зарегистрироваться
   = form_for(:user, url: registration_path(:user)) do |f|
+
     .input_set
+      .custome_selector.js_reg_customer_type_selector{ data: { val: :individual }}
+        .variant.first_variant.active.js_customer_type{ data: { val: :individual } }
+          Я частное лицо
+        .variant.second_variant.js_customer_type{ data: { val: :company } }
+          Компания
+      .clearfix
+      .hidden_block
+        = f.text_field :customer_type, value: :individual
       %label.with_hint
         Как вас зовут
         %br

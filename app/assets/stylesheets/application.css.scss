@@ -465,6 +465,9 @@ a.with_blue_button{
   .modal__registration {
     width: 600px;
     min-height: 285px;
+    .custome_selector{
+      margin-bottom: 10px;
+    }
     form {
       padding-bottom: 10px;
     }
