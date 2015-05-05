@@ -133,6 +133,9 @@ $(document).on 'click', 'div.service-body_imgs-img > div > a', (e)->
   e.preventDefault()
   showServiceModal()
 
+$(document).on 'click', '.js_customer_type', (e)->
+  $('#user_customer_type').val($(e.currentTarget).data('val'))
+
 showServiceModal = ->
   $('.js_modal_back').show()
   $('.js_modal_service').show()
