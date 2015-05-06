@@ -149,20 +149,22 @@
         function () {
           $(this).children('img').css('right', px);
           $('.infogr').css('display', 'block');
-          $('.infogr_volume > div > span').html(elem.split('_')[1]);
-          if (elem.split('_')[1] == '1'){
-            $('.infogr_volume_count').html('<span>0,6</span> литра');
-          }
+          var volume = '';
           var price = ''
           if (elem.split('_')[1] == '19'){
             price = gon.price_19
+            volume = '<span>19</span> литров'
           } else if (elem.split('_')[1] == '8'){
             price = gon.price_8
+            volume = '<span>8</span> литров'
           } else if (elem.split('_')[1] == '6'){
             price = gon.price_6
+            volume = '<span>6</span> литров'
           } else if (elem.split('_')[1] == '1'){
             price = gon.price_1
+            volume = '<span>0,6</span> литра'
           }
+          $('.infogr_volume_count').html(volume);
           $('.infogr_price').html(price+'<span>Р</span>');
         },
         function () {
