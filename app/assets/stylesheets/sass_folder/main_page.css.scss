@@ -8,6 +8,65 @@
       img{
         width: 100%;
       }
+      .infogr{
+        position: absolute;
+        top: 394px;
+        right: 111px;
+        font-family: 'MuseoSansCyrl';
+        color: #ffffff;
+        font-size: 45px;
+        display: none;
+      }
+      .infogr_price{
+        span{
+          color: #FFF;
+          display: inline-block;
+          border-bottom: 4px solid;
+          line-height: 0;
+          width: 23px;
+          height: 11px;
+          font-size: 45px;
+          box-sizing: border-box;
+        }
+      }
+      .infogr_line{
+        border-color:  #dddddd;
+        width: 115px;
+        height: 1px;
+        margin: 0 auto 6px;
+        background: white;
+      }
+      .infogr_volume{}
+      .infogr_volume_count{
+        font-size: 17px;
+      }
+      .infogr_base{
+        position: absolute;
+        overflow: hidden;
+        display: block;
+        width: 37px;
+        img{
+          position: relative;
+          min-width: 80px;
+          min-height: 66px;
+        }
+      }
+      .infogr_19{
+        top: 505px;
+        right: 218px;
+      }
+      .infogr_8{
+        top: 505px;
+        right: 174px;
+      }
+      .infogr_6{
+        top: 507px;
+        right: 131px;
+      }
+      .infogr_1{
+        top: 506px;
+        right: 84px;
+      }
     }
     .little_images{
       text-align: justify;

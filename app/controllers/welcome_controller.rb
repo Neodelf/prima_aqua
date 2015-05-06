@@ -1,5 +1,11 @@
 class WelcomeController < ApplicationController
-  def home; end
+  def home
+    aqua = Aqua.first
+    gon.price_19 = aqua.prices.where(volume_id: aqua.volumes.where(value: 19).first).pluck(:value).min
+    gon.price_8 = aqua.prices.where(volume_id: aqua.volumes.where(value: 8).first).pluck(:value).min
+    gon.price_6 = aqua.prices.where(volume_id: aqua.volumes.where(value: 6).first).pluck(:value).min
+    gon.price_1 = aqua.prices.where(volume_id: aqua.volumes.where(value: 0.6).first).pluck(:value).min
+  end
 
   def contacts; end
 
