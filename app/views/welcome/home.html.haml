@@ -163,7 +163,7 @@
           } else if (elem.split('_')[1] == '1'){
             price = gon.price_1
           }
-          $('.infogr_price').text(price);
+          $('.infogr_price').html(price+'<span>Р</span>');
         },
         function () {
             $(this).children('img').css('right', '0');
