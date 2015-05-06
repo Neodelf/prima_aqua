@@ -231,16 +231,23 @@ class Order
       type: 'GET'
       dataType: "json"
       success: (msg)=>
-        disabled = $('.disabled')
+        parent = $('.delivery_time')
+        disabled = parent.find('.disabled')
         if msg.length > 0
           disabled.addClass('active').removeClass('disabled')
           for i in msg
             if i == 1
-              $('.js_morning').addClass('disabled').removeClass('active')
+              parent.find('.js_morning').addClass('disabled').removeClass('active')
+              parent.find('.js_delivery_time_selector').data('val', 'evening')
             else if i == 2
-              $('.js_evening').addClass('disabled').removeClass('active')
+              parent.find('.js_evening').addClass('disabled').removeClass('active')
+              parent.find('.js_delivery_time_selector').data('val', 'morning')
         else
           disabled.removeClass('disabled')
+          parent.find('.active').removeClass('active')
+          parent.find('.js_morning').addClass('active')
+          parent.find('.js_delivery_time_selector').data('val', 'morning')
+
 
   changeOrderStep: ->
     $('.order_step').toggleClass('hidden_block')
