@@ -152,20 +152,20 @@
           var volume = '';
           var price = ''
           if (elem.split('_')[1] == '19'){
-            price = gon.price_19
+            price = gon.price_19+'<span>Р</span>'
             volume = '<span>19</span> литров'
           } else if (elem.split('_')[1] == '8'){
-            price = gon.price_8
+            price = gon.price_8+'<span>Р</span>'
             volume = '<span>8</span> литров'
           } else if (elem.split('_')[1] == '6'){
-            price = gon.price_6
+            price = gon.price_6+'<span>Р</span>'
             volume = '<span>6</span> литров'
           } else if (elem.split('_')[1] == '1'){
-            price = gon.price_1
+            price = gon.price_1+'<span>Р</span>'
             volume = '<span>0,6</span> литра'
           }
           $('.infogr_volume_count').html(volume);
-          $('.infogr_price').html(price+'<span>Р</span>');
+          $('.infogr_price').html(price);
         },
         function () {
             $(this).children('img').css('right', '0');
