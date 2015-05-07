@@ -1,6 +1,7 @@
 .article
-  .article-image
-    = image_tag article.image_url(:medium)
+  - if article.image.present?
+    .article-image
+      = image_tag article.image_url(:medium)
   .article-body
     .article-body-title
       = article.title

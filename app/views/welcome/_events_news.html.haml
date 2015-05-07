@@ -3,8 +3,9 @@
     #{info}, #{Russian::strftime(news.created_at, '%e %B %Y')}
   .news-title
     = news.title
-  .news-image
-    = image_tag news.image.url
+  - if news.image.present?
+    .news-image
+      = image_tag news.image_url(:medium)
   .news-desc
     = news.grow_descript
   - if news.type == 'article'
