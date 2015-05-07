@@ -24,6 +24,8 @@
             Чем же так хороша Прима Аква
       .infogr
         .infogr_price
+          %spn
+            От
           225
           %span
             Р
@@ -147,18 +149,18 @@
           $(this).children('img').css('right', px);
           $('.infogr').css('display', 'block');
           var volume = '';
-          var price = ''
+          var price = '<span>От</span>'
           if (elem.split('_')[1] == '19'){
-            price = gon.price_19+'<span>Р</span>'
+            price += gon.price_19+'<span>Р</span>'
             volume = '<span>19</span> литров'
           } else if (elem.split('_')[1] == '8'){
-            price = gon.price_8+'<span>Р</span>'
+            price += gon.price_8+'<span>Р</span>'
             volume = '<span>8</span> литров'
           } else if (elem.split('_')[1] == '6'){
-            price = gon.price_6+'<span>Р</span>'
+            price += gon.price_6+'<span>Р</span>'
             volume = '<span>6</span> литров'
           } else if (elem.split('_')[1] == '1'){
-            price = gon.price_1+'<span>Р</span>'
+            price += gon.price_1+'<span>Р</span>'
             volume = '<span>0,6</span> литра'
           }
           $('.infogr_volume_count').html(volume);
@@ -175,3 +177,4 @@
     custom_hover('.infogr_6', '37px');
     custom_hover('.infogr_1', '35px');
   })
+
