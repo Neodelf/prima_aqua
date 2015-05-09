@@ -1,4 +1,4 @@
-- title 'Prima aqua - доставка воды Санкт-Петербург и Ленинградская область.'
+- title 'Вода питьевая бутилированная. Доставка воды на дом и в офис в Санкт-Петербурге и Ленинградской области'
 - meta_description 'Prima aqua - доставка воды Санкт-Петербург и Ленинградская область.'
 - meta_keywords 'доставка воды, заказ воды, стаканчики, мешалки, помпы, купить'
 = render 'layouts/fixed_header'
@@ -24,10 +24,10 @@
             Чем же так хороша Прима Аква
       .infogr
         .infogr_price
-          %spn
+          %span
             От
           225
-          %span
+          %span.rubles
             Р
         .infogr_line
         .infogr_volume
@@ -150,16 +150,16 @@
           var volume = '';
           var price = '<span>От</span>'
           if (elem.split('_')[1] == '19'){
-            price += gon.price_19+'<span>Р</span>'
+            price += gon.price_19+'<span class="rubles">Р</span>'
             volume = '<span>19</span> литров'
           } else if (elem.split('_')[1] == '8'){
-            price += gon.price_8+'<span>Р</span>'
+            price += gon.price_8+'<span class="rubles">Р</span>'
             volume = '<span>8</span> литров'
           } else if (elem.split('_')[1] == '6'){
-            price += gon.price_6+'<span>Р</span>'
+            price += gon.price_6+'<span class="rubles">Р</span>'
             volume = '<span>6</span> литров'
           } else if (elem.split('_')[1] == '1'){
-            price += gon.price_1+'<span>Р</span>'
+            price += gon.price_1+'<span class="rubles">Р</span>'
             volume = '<span>0,6</span> литра'
           }
           $('.infogr_volume_count').html(volume);
