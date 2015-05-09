@@ -3,9 +3,9 @@
     = image_tag post.image_url(:background)
     .post_text.js_to_hint{style: "color:#{post.text_color}", class: text_align_for_post(post)}
       .post_text__header
-        = post.title
+        = post.title.html_safe
       .post_text__body
-        = post.body
+        = post.body.html_safe
       - if post.hint.present? && post.button_name.present?
         %a.post_text__button.js_to_show_hint
           = post.button_name
