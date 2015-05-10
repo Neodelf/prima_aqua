@@ -16,8 +16,12 @@
         color: #ffffff;
         font-size: 45px;
         display: none;
+        text-align: center;
       }
       .infogr_price{
+        span{
+          margin: 0 5px;
+        }
         .rubles{
           color: #FFF;
           display: inline-block;
