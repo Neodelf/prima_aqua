@@ -39,61 +39,29 @@ Rails.application.routes.draw do
   get 'events/show/:id' => 'welcome#events_show', as: 'events/show'
   get 'service' => 'welcome#service'
 
+  # 301 redirects
+  get '/country',              to: redirect('/delivery_pages/4-Доставка%20питьевой%20воды%20в%20Ленобласти', status: 301)
+  get '/cat/coolers',          to: redirect('/coolers', status: 301)
+  get '/cat/accessories',      to: redirect('/accessories', status: 301)
+  get '/Peterburg',            to: redirect('/delivery_pages/5-Доставка%20воды%20в%20Санкт-Петербурге', status: 301)
+  get '/voda-v-ofis',          to: redirect('/delivery_pages/2-Доставка%20воды%20в%20офис', status: 301)
+  get '/schedule',             to: redirect('/delivery', status: 301)
+  get '/skidki',               to: redirect('/events', status: 301)
+  get '/dostavka',             to: redirect('/', status: 301)
+  get '/cat/related_items',    to: redirect('/products/cups', status: 301)
+  get '/voda-na-dom',          to: redirect('/delivery_pages/1-Доставка%20воды%20на%20дом', status: 301)
+  get '/price',                to: redirect('/prices', status: 301)
+  get '/usloviya-dostavki',    to: redirect('/delivery', status: 301)
+  get '/production',           to: redirect('/', status: 301)
+  get '/schools',              to: redirect('/delivery_pages/3-Доставка%20воды%20в%20школы%20и%20детские%20сады', status: 301)
+  get '/o-vode/prima-aqua',    to: redirect('/aquas/1', status: 301)
+  get '/o-vode/jodis',         to: redirect('/aquas/4', status: 301)
+  get '/primaaqua',            to: redirect('/aquas/1', status: 301)
+  get '/zakaz-dostavka-vody',  to: redirect('/', status: 301)
+  get '/o-vode/legenda-gor',   to: redirect('/aquas/2', status: 301)
+
   root 'welcome#home'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get '*path' => redirect('/')  unless Rails.env.development?
 end
