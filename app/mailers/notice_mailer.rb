@@ -1,12 +1,10 @@
 class NoticeMailer < ActionMailer::Base
   default from: 'noreply@prima-aqua.ru'
 
+  EMAILS = 'info@prima-aqua.ru, akvapolus@restsguide.ru, lvl0nax@gmail.com'
+
   def product(options)
     @product = options
-    #emails = 'lvl0nax@gmail.com,kolibri@topaza-pella.ru,utkin_@hotmail.com'
-    emails = 'lvl0nax@gmail.com, utkin_@hotmail.com'
-    # emails = "9856544@gmail.com,akvapolus@restsguide.ru,lider-aqva@metropost.ru"
-
     @ar = []
     cost = 0.0
     prefix = ''
@@ -32,22 +30,16 @@ class NoticeMailer < ActionMailer::Base
       end
     end
 
-    mail to: emails, subject: 'Заказ товара'
+    mail to: EMAILS, subject: 'Заказ товара'
   end
 
   def call(options)
     @call = options
-    #emails = 'lvl0nax@gmail.com,kolibri@topaza-pella.ru,utkin_@hotmail.com'
-    emails = 'lvl0nax@gmail.com, utkin_@hotmail.com'
-    # emails = "9856544@gmail.com,akvapolus@restsguide.ru,lider-aqva@metropost.ru"
-    mail to: emails, subject: 'Заказ звонка'
+    mail to: EMAILS, subject: 'Заказ звонка'
   end
 
   def service(options)
     @service = options
-    #emails = 'lvl0nax@gmail.com,kolibri@topaza-pella.ru,utkin_@hotmail.com'
-    emails = 'lvl0nax@gmail.com, utkin_@hotmail.com'
-    # emails = "9856544@gmail.com,akvapolus@restsguide.ru,lider-aqva@metropost.ru"
-    mail to: emails, subject: 'Заказ обслуживания'
+    mail to: EMAILS, subject: 'Заказ обслуживания'
   end
 end
