@@ -34,7 +34,7 @@ class WelcomeController < ApplicationController
   end
 
   def events
-    @articles = Article.all
+    @articles = Article.order(id: :desc)
     @articles = @articles.where(type: params[:type]) if params[:type].present?
   end
 
