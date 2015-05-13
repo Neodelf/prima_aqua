@@ -142,9 +142,19 @@
 
 :javascript
   $(document).ready(function(){
+    $('.infogr_19').children('img').css('right', '37px');
+    $('.infogr').css('display', 'block');
+    var volume = '';
+    var price = '<span>От</span>'
+    price += gon.price_19+'<span class="rubles">Р</span>'
+    volume = '<span>19</span> литров'
+    $('.infogr_volume_count').html(volume);
+    $('.infogr_price').html(price);
+
     function custom_hover(elem, px){
       $(elem).hover(
         function () {
+          $('.infogr_19').children('img').css('right', '0');
           $(this).children('img').css('right', px);
           $('.infogr').css('display', 'block');
           var volume = '';

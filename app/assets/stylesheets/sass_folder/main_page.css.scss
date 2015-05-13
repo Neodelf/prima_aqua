@@ -21,15 +21,16 @@
       .infogr_price{
         span{
           margin: 0 8px;
+          font-size: 30px;
         }
         .rubles{
           color: #FFF;
           display: inline-block;
-          border-bottom: 4px solid;
+          border-bottom: 2px solid;
           line-height: 0;
-          width: 23px;
-          height: 11px;
-          font-size: 45px;
+          width: 18px;
+          height: 7px;
+          font-size: 30px;
           box-sizing: border-box;
         }
       }
