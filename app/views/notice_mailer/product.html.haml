@@ -18,8 +18,11 @@
       %br/
       Комментарий: #{@product.customer_comment}
       %br/
-      Депозит: #{@product.customer_deposit}
+      Пустые бутыли: #{@product.customer_deposit ? 'хватает' : 'не хватает'}
       %br/
+      - unless @product.customer_deposit
+        Депозит: #{@product.deposit}
+        %br/
 
       %table
         %tr
