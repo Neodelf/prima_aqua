@@ -10,7 +10,7 @@
         %a.post_text__button.js_to_show_hint
           = post.button_name
         .hint.js_hint.hidden_block
-          = post.hint
+          = post.hint.html_safe
       - if post.link_url.present? && post.link_name.present?
         %br
         %a.post_text__link{ href: post.link_url }
