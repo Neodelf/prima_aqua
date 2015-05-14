@@ -8,6 +8,70 @@
       img{
         width: 100%;
       }
+      .infogr{
+        position: absolute;
+        top: 44%;
+        right: 5%;
+        font-family: 'MuseoSansCyrl';
+        color: #ffffff;
+        font-size: 45px;
+        display: none;
+        text-align: center;
+      }
+      .infogr_price{
+        span{
+          margin: 0 8px;
+          font-size: 30px;
+        }
+        .rubles{
+          color: #FFF;
+          display: inline-block;
+          border-bottom: 2px solid;
+          line-height: 0;
+          width: 15px;
+          height: 7px;
+          font-size: 30px;
+          box-sizing: border-box;
+        }
+      }
+      .infogr_line{
+        border-color:  #dddddd;
+        width: 115px;
+        height: 1px;
+        margin: 0 auto 6px;
+        background: white;
+      }
+      .infogr_volume{}
+      .infogr_volume_count{
+        font-size: 17px;
+      }
+      .infogr_base{
+        position: absolute;
+        overflow: hidden;
+        display: block;
+        width: 37px;
+        img{
+          position: relative;
+          min-width: 80px;
+          min-height: 66px;
+        }
+      }
+      .infogr_19{
+        top: 61%;
+        right: 14%;
+      }
+      .infogr_8{
+        top: 61%;
+        right: 11%;
+      }
+      .infogr_6{
+        top: 61%;
+        right: 8%;
+      }
+      .infogr_1{
+        top: 61%;
+        right: 5%;
+      }
     }
     .little_images{
       text-align: justify;
@@ -111,14 +175,14 @@
   .about_company__block{
     position: relative;
     max-width: 1600px;
-    margin: -15px auto 0;
+    margin: -21px auto 0;
     img{
       width: 100%;
     }
     .about_company__text{
-      width: 456px;
+      width: 685px;
       position: absolute;
-      top: 15%;
+      top: 6%;
       left: 3%;
       color:  #ffffff;
       .about_company__text__header{
@@ -152,7 +216,7 @@
   .equipment__block{
     position: relative;
     max-width: 1600px;
-    margin: 1px auto 0;
+    margin: -3px auto 0;
     img{
       width: 100%;
     }
@@ -180,7 +244,7 @@
   .delivery__block{
     position: relative;
     max-width: 1600px;
-    margin: 1px auto 0;
+    margin: -3px auto -6px;
     color:  #383838;
     img{
       width: 100%;

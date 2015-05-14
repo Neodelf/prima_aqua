@@ -30,7 +30,8 @@ class OrdersController < ApplicationController
     @order.log = params.except(%w(action controller)).to_s
     json = OrderService.get_order_json(params['items'])
     if @order.save
-      render json: json.merge(deposit: params['info']['deposit']), status: :ok
+      json.merge!(deposit: params['info']['deposit']) if @order.customer_deposit
+      render json: json, status: :ok
     else
       render json: json, status: 500
     end

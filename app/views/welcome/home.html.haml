@@ -1,12 +1,13 @@
-- title 'Prima aqua - доставка воды Санкт-Петербург и Ленинградская область.'
+- title 'Вода питьевая бутилированная. Доставка воды на дом и в офис в Санкт-Петербурге и Ленинградской области'
 - meta_description 'Prima aqua - доставка воды Санкт-Петербург и Ленинградская область.'
 - meta_keywords 'доставка воды, заказ воды, стаканчики, мешалки, помпы, купить'
 = render 'layouts/fixed_header'
+= include_gon
 
 .main_page
   .water__block
     .water__block__main_image
-      =image_tag image_url('back_prima-aqua.jpg')
+      =image_tag image_url('back_with_bottle.jpg')
       .water__block__main_image__text
         .main_image__text
           .main_image__text__header
@@ -21,6 +22,26 @@
             привезут в школы, дома и в офисы Северной столицы.
           %a.main_page__button{ href: '/aquas/1' }
             Чем же так хороша Прима Аква
+      .infogr
+        .infogr_price
+          %span
+            От
+          225
+          %span.rubles
+            Р
+        .infogr_line
+        .infogr_volume
+          .infogr_volume_count
+            %span 19
+            литров
+      .infogr_base.infogr_19
+        = image_tag image_url('19.png')
+      .infogr_base.infogr_8
+        = image_tag image_url('8.png')
+      .infogr_base.infogr_6
+        = image_tag image_url('6.png')
+      .infogr_base.infogr_1
+        = image_tag image_url('1.png')
     .little_images
       .water__block__arhyz_image.block_to_inline
         %a{ href: '/aquas/3' }
@@ -55,21 +76,24 @@
         .about_company__text__header
           О компании
         .about_company__text__quote
-          В общем, это как с благородным вином — чем тоньше напиток, тем сложнее его сделать
+          Группа компаний "Мир Воды" с 2002 года занимается
+          обеспечением населения Санкт-Петербурга чистой
+          питьевой водой, доставляя в офисы и квартиры бутилированную воду
         .about_company__text__quote_author
-          Василий Жуков, главный технолог
         .about_company__text__text
-          Группа компаний "Мир Воды" с 2002 года занимается обеспечением 
-          населения Санкт-Петербурга чистой питьевой водой, доставляя в 
-          офисы и квартиры бутилированную воду
-          %br
-          %br
           На сегодня мы имеем современное производство по розливу воды, 
           расположенное в удаленном от городской черты экологически чистом 
           районе Карельского перешейка. Размещение производства 
           непосредственно у скважины соответствует международным 
           требованиям Всемирной Организации Здравоохранения, 
           запрещающим транспортировку воды к месту бутилирования.
+          %br
+          %br
+          В нашем ассортименте есть вода собственного производства - питьевая
+          артезианская вода «Прима Аква» объемом 19л, 8л, 6л, 0.6 л, а также
+          кондиционированная вода «Йодис» в 19л. бутылях. По мимо воды
+          собственного производства, мы представляем известные по всей России
+          бренды минеральной воды: Легенда гор и Архыз.
         %a.main_page__button{ href: '/about' }
           Как мы работаем
 
@@ -80,15 +104,14 @@
         .equipment__block__text__header
           Оборудование
         .equipment__block__text__text
-          Процесс розлива воды организован таким образом, что до
-          потребителя доходит вода, изначальный природный состав
-          которой полностью сохранен.
+          Процесс розлива организован таким образом, что до потребителя
+          доходит вода, изначальный природный состав которой полностью сохранен.
           %br
           %br
-          Добываемая из артезианской скважины вода, проходя
-          последовательно через систему фильтров, очищается от
-          взвешенных частиц. Следующий этап очистки воды –
-          обеззараживание.
+          Предоставляемое нашей фирмой оборудование производится лучшими
+          отечественными и зарубежными компаниями и позволяет насладиться
+          вкусом и пользой настоящей природной воды. Вы можете подобрать
+          лучшее оборудование, соответствующее Вашим вкусам и пожеланиям.
         %a.main_page__button{ href: '/coolers' }
           Каталог оборудования
 
@@ -116,3 +139,55 @@
           (см. кулеры и помпы).
         %a.main_page__button{ href: '/delivery' }
           Подробнее о доставке
+
+:javascript
+  $(document).ready(function(){
+    default_hover();  
+    function default_hover(){
+      $('.infogr_19').children('img').css('right', '37px');
+      $('.infogr').css('display', 'block');
+      var volume = '';
+      var price = '<span>От</span>'
+      price += gon.price_19+'<span class="rubles">Р</span>'
+      volume = '<span>19</span> литров'
+      $('.infogr_volume_count').html(volume);
+      $('.infogr_price').html(price);
+    }
+
+    function custom_hover(elem, px){
+      $(elem).hover(
+        function () {
+          $('.infogr_19').children('img').css('right', '0');
+          $(this).children('img').css('right', px);
+          $('.infogr').css('display', 'block');
+          var volume = '';
+          var price = '<span>От</span>'
+          if (elem.split('_')[1] == '19'){
+            price += gon.price_19+'<span class="rubles">Р</span>'
+            volume = '<span>19</span> литров'
+          } else if (elem.split('_')[1] == '8'){
+            price += gon.price_8+'<span class="rubles">Р</span>'
+            volume = '<span>8</span> литров'
+          } else if (elem.split('_')[1] == '6'){
+            price += gon.price_6+'<span class="rubles">Р</span>'
+            volume = '<span>6</span> литров'
+          } else if (elem.split('_')[1] == '1'){
+            price += gon.price_1+'<span class="rubles">Р</span>'
+            volume = '<span>0,6</span> литра'
+          }
+          $('.infogr_volume_count').html(volume);
+          $('.infogr_price').html(price);
+        },
+        function () {
+            $(this).children('img').css('right', '0');
+            $('.infogr').css('display', 'none');
+            default_hover();
+        }
+      )
+    }
+    custom_hover('.infogr_19', '37px');
+    custom_hover('.infogr_8', '37px');
+    custom_hover('.infogr_6', '37px');
+    custom_hover('.infogr_1', '35px');
+  })
+

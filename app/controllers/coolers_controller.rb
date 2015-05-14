@@ -13,8 +13,8 @@ class CoolersController < ApplicationController
                else
                  Cooler.all
                end
-    @coolers = if params[:order] == 'price'
-                 @coolers.order(:price)
+    @coolers = if params[:direction].present?
+                 @coolers.order(price: params[:direction].to_sym)
                else
                  @coolers.to_a.sort_by { |cooler| cooler.has_tag?('Выгодно') ? 0 : 1}
                end

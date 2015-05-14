@@ -47,7 +47,7 @@
 :javascript
   $(function() {
     $(window).on('scroll', function() {
-      if ($('body').scrollTop() > 100){
+      if ($(document).scrollTop() > 100){
         $('.fixed_header').fadeIn();
       }
       else{

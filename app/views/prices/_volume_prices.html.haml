@@ -18,7 +18,7 @@
           Количество
         %th
           Цена
-      - volume.prices.each do |price|
+      - volume.prices.order(:start_count).each do |price|
         %tr
           %td
             = price_amount(price)

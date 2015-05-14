@@ -45,17 +45,17 @@
 :javascript
   function setClassToPrices(){
     var aqua_prices = $('.aqua_prices');
-    if ($('body').scrollTop() > 100){
+    if ($(document).scrollTop() > 100){
       aqua_prices.addClass('middle');
       aqua_prices.removeClass('start');
       aqua_prices.removeClass('end');
     };
-    if ($('body').scrollTop() < 100){
+    if ($(document).scrollTop() < 100){
       aqua_prices.addClass('start');
       aqua_prices.removeClass('middle');
       aqua_prices.removeClass('end');
     };
-    if (($('body').scrollTop() + $(window).height()) > ($(document).height() - $('.footer').height() - 10)){
+    if (($(document).scrollTop() + $(window).height()) > ($(document).height() - $('.footer').height() - 10)){
       aqua_prices.addClass('end');
       aqua_prices.removeClass('start');
       aqua_prices.removeClass('middle');
