@@ -18,6 +18,7 @@
 #= require jquery-ui/datepicker
 
 showPhoneModal = ->
+  window.hideSpinner()
   $('.js_modal_back').show()
   $('.js_modal_phone').show()
 
@@ -63,19 +64,22 @@ $(document).on 'click', '.js_modal', (e)->
   e.stopPropagation()
 
 $(document).on 'click', '.js_modal_back', ->
-  if $('.js_modal_order').is(':visible')
-    $(document).trigger('closingOrder')
-  closeModals()
+  unless $('.spinner-block').is(':visible')
+    if $('.js_modal_order').is(':visible')
+      $(document).trigger('closingOrder')
+    closeModals()
 
 $(document).on 'click', '.modal__view', ->
-  if $('.js_modal_order').is(':visible')
-    $(document).trigger('closingOrder')
-  closeModals()
+  unless $('.spinner-block').is(':visible')
+    if $('.js_modal_order').is(':visible')
+      $(document).trigger('closingOrder')
+    closeModals()
 
 $(document).on 'click', '.js_close_button', ->
-  if $('.js_modal_order').is(':visible')
-    $(document).trigger('closingOrder')
-  closeModals()
+  unless $('.spinner-block').is(':visible')
+    if $('.js_modal_order').is(':visible')
+      $(document).trigger('closingOrder')
+    closeModals()
 
 $(document).on 'click', '.js_order_finish', ->
   if $('.js_modal_order').is(':visible')
@@ -136,9 +140,16 @@ $(document).on 'click', 'div.service-body_imgs-img > div > a', (e)->
 $(document).on 'click', '.js_customer_type', (e)->
   $('#user_customer_type').val($(e.currentTarget).data('val'))
 
-showServiceModal = ->
+showServiceModal = =>
+  window.hideSpinner()
   $('.js_modal_back').show()
   $('.js_modal_service').show()
+
+window.showSpinner = ->
+  $('.spinner-block').removeClass('hidden_block')
+
+window.hideSpinner = ->
+  $('.spinner-block').addClass('hidden_block')
 
 $(document).on 'click', '.js_service_submit', ->
   phone = $('.js_service_phone').val()

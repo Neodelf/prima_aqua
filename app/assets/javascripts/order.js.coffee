@@ -114,12 +114,14 @@ class Order
     infoData['email'] = $('#email').val()
     infoData['password'] = $('#password').data('val')
     if res['isValid']
+      window.showSpinner()
       $.ajax
         url: "/orders"
         type: 'POST'
         dataType: "json"
         data: infoData
         success: (data)=>
+          window.hideSpinner()
           $('.order_error_messages').html('')
           localStorage.removeItem('prima_aqua_card')
           list = $('.js_bill')
@@ -473,6 +475,7 @@ $ ->
       order.checkAvailableTime()
   )
   $(document).on 'click', '.js_order_button', ->
+    window.hideSpinner()
     order.showModal()
 
   $(document).on 'closingOrder', ->
