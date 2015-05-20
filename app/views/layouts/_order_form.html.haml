@@ -15,7 +15,7 @@
     .order__customer_form.js_individual{ class: ('hidden_block' if current_user.try(:company?)) }
       .order_input.name.js_name
         %label
-          Как вас зовут
+          ФИО
           %br
           %span.hint или № договора
         = text_field_tag :name, (current_user.try(:name) if current_user.try(:individual?))

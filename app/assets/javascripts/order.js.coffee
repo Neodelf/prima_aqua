@@ -114,12 +114,14 @@ class Order
     infoData['email'] = $('#email').val()
     infoData['password'] = $('#password').data('val')
     if res['isValid']
+      window.showSpinner()
       $.ajax
         url: "/orders"
         type: 'POST'
         dataType: "json"
         data: infoData
         success: (data)=>
+          window.hideSpinner()
           $('.order_error_messages').html('')
           localStorage.removeItem('prima_aqua_card')
           list = $('.js_bill')
@@ -363,6 +365,7 @@ class Order
         amount: amount || parseInt(elem.find('.js_amount_input').val())
       dataType: "json"
       success: (data)=>
+        $('.order_error_messages').html('')
         elem.find('.js_price_value').html(data.price.toFixed(2))
         elem.find('.js_price').show()
         elem.find('.js_deposit').html(data.deposit)
@@ -371,6 +374,10 @@ class Order
           @actualizeDeposit()
         else
           elem.find('.js_currency').hide()
+      error: =>
+        elem.find('.js_price_value').html('---')
+        elem.find('.js_price').show()
+        $('.order_error_messages').html('Некорректные параметры заказа, возможно,<br>необходимо увеличить количество товара')
 
   actualizeDeposit: ->
     sum = 0.0
@@ -473,6 +480,7 @@ $ ->
       order.checkAvailableTime()
   )
   $(document).on 'click', '.js_order_button', ->
+    window.hideSpinner()
     order.showModal()
 
   $(document).on 'closingOrder', ->

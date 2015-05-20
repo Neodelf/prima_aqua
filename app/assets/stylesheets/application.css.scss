@@ -446,6 +446,22 @@ a.with_blue_button{
     display: none;
     margin: 0 auto;
     background-color: white;
+    position: relative;
+    .spinner-block{
+      position: absolute;
+      width: 100%;
+      height: calc(52% + 80px);
+      text-align: center;
+      padding-top: calc(50% - 80px);
+      background-color: white;
+      opacity: 0.5;
+      z-index: 30;
+      span{
+        font-size: 35px;
+        color: black;
+        font-family: 'MuseoSansCyrl-700';
+      }
+    }
   }
   .modal__notice{
     width: 560px;

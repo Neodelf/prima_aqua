@@ -12,7 +12,7 @@
       .links_column
         = link_to 'Кулеры и помпы', coolers_path
         = link_to 'Сопутствующие товары', products_path(type: 'cup')
-        -#= link_to 'Обслуживание', service_path
+        = link_to 'Обслуживание', service_path
         -#= link_to 'Вопросы и ответы', '#'
       .links_column
         -@all_delivery_pages.each do |page|
@@ -29,18 +29,20 @@
           %span.bold_footer_info
             Доставка воды:
           %span
-            Сегодня с 17 до 22
+            Пн, Ср, Чт с 08 до 17 и с 18 до 22
           %span
-            Завтра с 9 до 17 или с 17 до 22
+            Вт, Пт, Сб с 08 до 17
       .info_column
         = image_tag image_url('phone.jpg')
         .info_column__content
           %span.bold_footer_info
             Заказы принимаются:
           %span
-            С понедельника по субботу
+            С понедельника по пятницу
           %span
-            с 8 до 22 часов
+            с 8 до 20 часов
+          %span
+            В субботу с 8 до 15:00
       .info_column__right
         .contacts
           = link_to '#' do
