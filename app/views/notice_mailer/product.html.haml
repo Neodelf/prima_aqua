@@ -24,7 +24,7 @@
         Депозит: #{@product.deposit}
         %br/
 
-      %table{ style: 'text-align: center;' }
+      %table
         %tr
           %th
             Название
@@ -34,6 +34,9 @@
             Цена
         - @ar.each do |item|
           %tr
-            %td=item[:name]
-            %td=item[:amount]
-            %td=item[:cost]
+            %td{ style: 'text-align: center;' }
+              =item[:name]
+            %td{ style: 'text-align: center;' }
+              =item[:amount]
+            %td{ style: 'text-align: center;' }
+              =item[:cost]
