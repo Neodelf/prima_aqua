@@ -21,13 +21,7 @@ Rails.application.routes.draw do
   resources :phone_calls, only: :create
   resources :services, only: :create
   resources :orders, only: :create
-  resources :products do
-    collection do
-      get 'cups'
-      get 'plates'
-      get 'mixers'
-    end
-  end
+  resources :products, only: :index
   get 'profile' => 'welcome#profile'
   get 'profile/orders' => 'welcome#orders'
   get 'contacts' => 'welcome#contacts'

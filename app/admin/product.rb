@@ -10,9 +10,9 @@ ActiveAdmin.register Product do
       row :image do
         image_tag(product.image.url(:small))
       end
-      row :kind
+      row :category
     end
     active_admin_comments
   end
-  permit_params :title, :image, :price, :seo_title, :seo_description, :seo_keywords, :kind
+  permit_params :title, :image, :price, :seo_title, :seo_description, :seo_keywords, :category_id
 end
