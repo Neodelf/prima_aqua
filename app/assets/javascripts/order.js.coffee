@@ -365,6 +365,7 @@ class Order
         amount: amount || parseInt(elem.find('.js_amount_input').val())
       dataType: "json"
       success: (data)=>
+        $('.order_error_messages').html('')
         elem.find('.js_price_value').html(data.price.toFixed(2))
         elem.find('.js_price').show()
         elem.find('.js_deposit').html(data.deposit)
@@ -373,6 +374,10 @@ class Order
           @actualizeDeposit()
         else
           elem.find('.js_currency').hide()
+      error: =>
+        elem.find('.js_price_value').html('---')
+        elem.find('.js_price').show()
+        $('.order_error_messages').html('Некорректные параметры заказа, возможно,<br>необходимо увеличить количество товара')
 
   actualizeDeposit: ->
     sum = 0.0
