@@ -8,8 +8,8 @@
     = f.file_field :image, label: false
     %br
     = render 'partials/image', item: @product
-  = f.inputs 'Kind' do
-    = f.input :kind, label: false, as: :select, collection: [['Стаканчик', 'cup'], ['Тарелка', 'plate'], ['Мешалка', 'mixer']]
+  = f.inputs 'Category' do
+    = f.input :category_id, label: false, as: :select, collection: Category.all.map{|a| ["#{a.name}", a.id]}
   = f.inputs 'SEO' do
     = f.input :seo_title, label: 'SEO Title'
     = f.input :seo_description, label: 'SEO Description'

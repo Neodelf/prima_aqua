@@ -3,21 +3,12 @@
 - meta_keywords 'кулеры для воды, купить кулер, заказать кулер'
 .products
   .products-links
-    .products-links-item{class: ('active' if active_products?('cups'))}
-      = link_to 'Стаканчики', cups_products_path
-    .products-links-item{class: ('active' if active_products?('plates'))}
-      = link_to 'Тарелки', plates_products_path
-    .products-links-item{class: ('active' if active_products?('mixers'))}
-      = link_to 'Мешалки', mixers_products_path
+    - @categories.each do |category|
+      .products-links-item{class: ('active' if active_products?(category.slug))}
+        = link_to category.name, products_path(type: category.slug)
   .products-line
   .products-filters
     .products-filters-left
-    //.products-filters-left-item{class: ('active' if link_active?)}
-    //  = link_to 'Все', products_path
-    //.products-filters-left-item{class: ('active' if link_active?('напольные'))}
-    //  = link_to 'Напольные', products_path(type_construction: 'напольные')
-    //.products-filters-left-item{class: ('active' if link_active?('настольные'))}
-    //  = link_to 'Настольные', products_path(type_construction: 'настольные')
     .products-filters-right
       Сортировать по цене
   .products-list

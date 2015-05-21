@@ -1,8 +1,8 @@
 .products-links{
   margin: 0px auto 15px;
-  width: 510px;
   overflow: hidden;
   padding-top: 54px;
+  text-align: center;
 }
 .products-links-item{
   font-family: 'MuseoSansCyrl';
@@ -12,7 +12,7 @@
   text-align: left;
   margin-right: 29px;
   margin-left: 29px;
-  float: left;
+  display: inline;
   a{
     text-decoration: none;
   }

@@ -1,14 +1,8 @@
 class ProductsController < ApplicationController
-  def cups
-    @products = Product.cups
-    render 'products/index'
-    end
-  def plates
-    @products = Product.plates
-    render 'products/index'
-    end
-  def mixers
-    @products = Product.mixers
+  def index
+    type = params[:type] || 'cup'
+    @products = Category.find_by_slug(type).products
+    @categories = Category.all
     render 'products/index'
   end
 end

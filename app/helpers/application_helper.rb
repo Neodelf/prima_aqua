@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def active_products?(current)
-    current == params[:action]
+    current == params[:type]
   end
   def products_list(order)
     json = JSON.parse(order.order_info.gsub('=>', ':'))
