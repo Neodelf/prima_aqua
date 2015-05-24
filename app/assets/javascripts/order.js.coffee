@@ -309,11 +309,11 @@ class Order
                 #{name}
               </div>
               <div class='amount js_amount'>
-                <button class='js_increment' data-product='accessory' data-step=#{step1}>
+                <button class='js_increment button_minus' data-product='accessory' data-step=#{step1}>
                   -
                 </button>
                 <input value='#{amount}' disabled='disabled' class='js_accessory_amount'/>
-                <button class='js_increment' data-product='accessory' data-step='#{step}'>
+                <button class='js_increment button_plus' data-product='accessory' data-step='#{step}'>
                   +
                 </button>
               </div>
