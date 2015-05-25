@@ -309,11 +309,11 @@ class Order
                 #{name}
               </div>
               <div class='amount js_amount'>
-                <button class='js_increment' data-product='accessory' data-step=#{step1}>
+                <button class='js_increment button_minus' data-product='accessory' data-step=#{step1}>
                   -
                 </button>
                 <input value='#{amount}' disabled='disabled' class='js_accessory_amount'/>
-                <button class='js_increment' data-product='accessory' data-step='#{step}'>
+                <button class='js_increment button_plus' data-product='accessory' data-step='#{step}'>
                   +
                 </button>
               </div>
@@ -369,6 +369,8 @@ class Order
         elem.find('.js_price_value').html(data.price.toFixed(2))
         elem.find('.js_price').show()
         elem.find('.js_deposit').html(data.deposit)
+        if data.amount
+          elem.find('.js_amount_input').val(data.amount)
         if parseFloat(data.price) > 1
           elem.find('.js_currency').show()
           @actualizeDeposit()

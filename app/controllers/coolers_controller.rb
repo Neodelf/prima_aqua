@@ -18,7 +18,7 @@ class CoolersController < ApplicationController
                else
                  @coolers.to_a.sort_by { |cooler| cooler.has_tag?('Выгодно') ? 0 : 1}
                end
-    @tags = Tag.where(main: true).includes(:coolers)
+    @tags = Tag.includes(:coolers).where(main: true).limit(4)
   end
 
   def show

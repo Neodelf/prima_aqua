@@ -19,8 +19,8 @@
   }
   .water_template{
     margin: 5px auto;
-    //width: 455px;
-    margin-left: 40px !important;
+    padding-left: 20px;
+    padding-right: 15px;
   }
   .aqua_select{
     padding: 0 10px;
@@ -166,7 +166,8 @@
   }
   .accessory_template{
     margin: 5px auto;
-    width: 455px;
+    padding-left: 20px;
+    padding-right: 15px;
   }
   .accessory_type{
     padding: 0 10px;
@@ -177,10 +178,12 @@
     }
   }
   .accessory_name{
-    padding: 0 10px;
+    line-height: 30px;
+    padding: 0 10px 0 20px;
     width: 210px;
     float: left;
     display: inline-block;
+    font-family: 'MuseoSansCyrl';
     input{
       width: 80px;
     }

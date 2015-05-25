@@ -4,7 +4,7 @@ class OrderService
                   where('start_count <= :count', count: amount).
                   order(:start_count).
                   last
-    show_price(price.value, amount)
+    show_price(price.value, amount) if price
   end
   def self.show_price(price, amount)
     price.to_i < 1 ? 'Договорная' : (price.to_f * amount.to_f)
