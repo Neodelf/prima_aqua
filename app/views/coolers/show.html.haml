@@ -22,7 +22,8 @@
           = link_to 'Купить', '#', class: 'cooler-right-button'
       .coolers-right-options
         .coolers-right-options-tag
-          = @cooler.tags.first.name
+          - if @cooler.tags.any?   
+            = @cooler.tags.first.name
         .coolers-right-options-item
           = @cooler.type_cooling
       .coolers-right-desc
